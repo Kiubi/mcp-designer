@@ -1,0 +1,2409 @@
+[
+    {
+        "name": "commandes\/panier",
+        "label": "Panier",
+        "category": "Commandes",
+        "description": "Affiche un r\u00e9sum\u00e9 du panier d'achat.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Panier\" du service \"E-commerce\".**\n",
+        "basePath": "widgets\/commandes\/panier\/index.html",
+        "templates": [
+            "widgets\/commandes\/panier\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "type_prix": "\"HT\" ou \"TTC\"",
+                    "nb_produits": "Nombre de produits dans la commande (somme des quantit\u00e9s)",
+                    "pluriel_produits": "Affiche \"s\" ou \"\" suivant que le nombre de produit est sup\u00e9rieur \u00e0 1",
+                    "total": "Total TTC ou HT selon la configuration du catalogue",
+                    "total_valeur": "Total TTC ou HT selon la configuration du catalogue au format JS-friendly",
+                    "total_TTC": "Total TTC de la commande",
+                    "total_TTC_valeur": "Total TTC de la commande, sans formatage",
+                    "total_HT": "Total HT de la commande",
+                    "total_HT_valeur": "Total HT de la commande, sans formatage",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "identifie": {
+                        "description": "Ne s'affiche que quand l'internaute s'est identifi\u00e9",
+                        "tags": {
+                            "client_id": "Identifiant du client",
+                            "nom": "Nom du client",
+                            "prenom": "Pr\u00e9nom du client",
+                            "genre": "Genre du client \"H\" ou \"F\"",
+                            "email": "Email du client",
+                            "avatar": "Avatar du membre en 120x120 pixels",
+                            "avatar_miniature": "Avatar du membre en 40x40 pixels",
+                            "gravatar": "Gravatar du membre en 120x120 pixels",
+                            "gravatar_miniature": "Gravatar du membre en 40x40 pixels"
+                        },
+                        "children": []
+                    },
+                    "nonidentifie": {
+                        "description": "Affich\u00e9 quand l'internaute n'est pas identifi\u00e9",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/panier_detail",
+        "label": "D\u00e9tail du panier",
+        "category": "Commandes",
+        "description": "Affiche le d\u00e9tail du panier d'achat.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Panier\" du service \"E-commerce\".**",
+        "basePath": "widgets\/commandes\/panier_detail\/index.html",
+        "templates": [
+            "widgets\/commandes\/panier_detail\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "lien_continuer": "Affiche un lien vers la derni\u00e8re page ou le dernier produit consult\u00e9.",
+                    "type_prix": "\"HT\" ou \"TTC\"",
+                    "nb_produits": "Nombre de produits dans la commande (somme des quantit\u00e9s)",
+                    "pluriel_produits": "Affiche \"s\" ou \"\" suivant que le nombre de produit est sup\u00e9rieur \u00e0 1",
+                    "min_commande": "Affiche le montant de commande minimal format\u00e9 avec la devise du site\n",
+                    "min_commande_valeur": "Affiche la valeur num\u00e9rique brute du montant de commande minimal",
+                    "total_articles_valeur": "Total des prix, sans formatage, des articles HT ou TTC en fonction de la configuration du catalogue",
+                    "total_articles_HT_valeur": "Total HT des prix des articles (hors frais de port, sans formatage)",
+                    "total_articles_TTC_valeur": "Total TTC des prix des articles (hors frais de port, sans formatage)",
+                    "total_HT_valeur": "Total HT de la commande, sans formatage",
+                    "total_TTC_valeur": "Total TTC de la commande, sans formatage",
+                    "frais_port_valeur": "Montant des frais de port, sans formatage",
+                    "total_TVA_valeur": "Total TVA de la commande, sans formatage",
+                    "total_eco_taxe_valeur": "Total de l'ecotaxe de la commande, sans formatage",
+                    "total_articles": "Total des prix des articles HT ou TTC en fonction de la configuration du catalogue",
+                    "total_articles_HT": "Total HT des prix des articles (hors frais de port)",
+                    "total_articles_TTC": "Total TTC des prix des articles (hors frais de port)",
+                    "total_HT": "Total HT de la commande",
+                    "total_TTC": "Total TTC de la commande",
+                    "frais_port": "Montant des frais de port",
+                    "zone_livraison": "Zone de livraison",
+                    "total_TVA": "Total TVA de la commande",
+                    "total_eco_taxe": "Total de l'eco-participation de la commande",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "bon": "Toujours vide"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "produits": {
+                        "description": "Bloc affich\u00e9 si le panier contient au moins 1 produit",
+                        "tags": [],
+                        "children": {
+                            "produit": {
+                                "description": "Bloc affich\u00e9 pour chaque produit du panier",
+                                "tags": {
+                                    "lien_produit": "Lien vers la fiche produit",
+                                    "intitule_produit": "Intitul\u00e9 du produit.",
+                                    "accroche": "Accroche du produit. Affiche le chap\u00f4 du produit ou son contenu si son chap\u00f4 est vide.",
+                                    "reference": "r\u00e9f\u00e9rence de la variante",
+                                    "ref": " identifiant interne au panier qui permet d'identifier un produit. Utilis\u00e9 pour ajouter \/ supprmier des produits au panier",
+                                    "intitule_variante": "Intitul\u00e9 de la variante.",
+                                    "lien_supprimer": "Lien pour supprimer le produit du panier",
+                                    "prix_unitaire": "Prix unitaire du produit",
+                                    "qt": "Quantit\u00e9 du produit dans le panier",
+                                    "prix_total": "Prix total des produits de la r\u00e9f\u00e9rence",
+                                    "eco_taxe": "Montant de l'\u00e9co-participation.",
+                                    "prix_unitaire_valeur": "Prix unitaire du produit, sans formatage",
+                                    "eco_taxe_valeur": "Montant de l'\u00e9co-participation, sans formatage",
+                                    "prix_total_valeur": "Prix total des produits de la r\u00e9f\u00e9rence, sans formatage",
+                                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                },
+                                "children": {
+                                    "illustration": {
+                                        "description": "Bloc affich\u00e9 si le produit a une illustration.",
+                                        "tags": {
+                                            "illustration": "Identifiant unique de l'illustration de la r\u00e9f\u00e9rence. L'url est \u00e0 construire de la fa\u00e7on suivante : \/media\/{illustration}",
+                                            "url_illustration": "Url compl\u00e8te de l'illustration principale",
+                                            "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                            "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                            "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                            "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                            "ext_illustration": "Extension de fichier de l'illustration principale du produit"
+                                        },
+                                        "children": []
+                                    },
+                                    "noillustration": {
+                                        "description": "Bloc affich\u00e9 si le produit n'a pas d'illustration.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "reference": {
+                                        "description": "Bloc affich\u00e9 si le produit a une r\u00e9f\u00e9rence.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "accroche": {
+                                        "description": "Bloc affich\u00e9 si le produit a une accroche.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "erreur_qt": {
+                                        "description": "Bloc affich\u00e9 en cas d'erreur sur la quantit\u00e9 de produit disponible, c'est \u00e0 dire si l'internaute a essay\u00e9 de mettre dans son panier une quantit\u00e9 de produit sup\u00e9rieur au stock disponible.",
+                                        "tags": {
+                                            "max": "Affiche le stock disponible."
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "erreur_bon": {
+                                "description": "Bloc affich\u00e9 en cas d'erreur sur le bon de r\u00e9duction.",
+                                "tags": {
+                                    "erreur": "Message d'erreur sur le bon de r\u00e9duction."
+                                },
+                                "children": []
+                            },
+                            "livrable": {
+                                "description": "Bloc affich\u00e9 si la commande est livrable par un des transporteurs du site.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "nonlivrable": {
+                                "description": "Bloc affich\u00e9 si la commande n'est livrable par aucun transporteur (pays non d\u00e9servi, poids trop important...)",
+                                "tags": [],
+                                "children": []
+                            },
+                            "eco_taxe": {
+                                "description": "Bloc affich\u00e9 si l'\u00e9co taxe est sup\u00e9rieure \u00e0 0",
+                                "tags": [],
+                                "children": []
+                            },
+                            "option": {
+                                "description": "Bloc affich\u00e9 si le panier contient au moins une option \u00e0 la commande",
+                                "tags": {
+                                    "intitule_option": "Libell\u00e9 de l'option \u00e0 la commande",
+                                    "qt": "Quantit\u00e9 de l'option \u00e0 la commande",
+                                    "prix_unitaire": "Prix unitaire de l'option \u00e0 la commande",
+                                    "prix_total": "Prix total de l'option \u00e0 la commande",
+                                    "prix_unitaire_valeur": "Prix unitaire de l'option, sans formatage",
+                                    "prix_total_valeur": "Prix total de l'option, sans formatage",
+                                    "type_option": "Type de l'option \"simple\", \"textarea\" ou \"select\"",
+                                    "lien_supprimer": "Lien pour supprimer le l'option du panier"
+                                },
+                                "children": {
+                                    "offerte": {
+                                        "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "payante": {
+                                        "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "simple": {
+                                        "description": "Bloc affich\u00e9 si l'option \u00e0 la commande est de type simple",
+                                        "tags": [],
+                                        "children": {
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "textarea": {
+                                        "description": "Bloc affich\u00e9 si l'option \u00e0 la commande est de type textarea",
+                                        "tags": {
+                                            "valeur_option": "Valeur de l'option saisi par le visiteur"
+                                        },
+                                        "children": {
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "select": {
+                                        "description": "Bloc affich\u00e9 si l'option \u00e0 la commande est de type liste d\u00e9roulante",
+                                        "tags": {
+                                            "valeur_option": "Valeur de l'option saisi par le visiteur"
+                                        },
+                                        "children": {
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "options_disponibles": {
+                                "description": "Bloc affich\u00e9 si au moins une option \u00e0 la commande est disponible",
+                                "tags": [],
+                                "children": {
+                                    "option": {
+                                        "description": "Bloc affich\u00e9 pour chaque option \u00e0 la commande",
+                                        "tags": {
+                                            "type_option": "Type de l'option \"simple\", \"textarea\" ou \"select\"",
+                                            "ref_option": "Identifiant interne de l'option \u00e0 la commande",
+                                            "intitule_option": "Libell\u00e9 de l'option \u00e0 la commande",
+                                            "description_option": "Description de l'option \u00e0 la commande",
+                                            "valeur_option": "Valeur de l'option saisi par le visiteur",
+                                            "prix_option": "Prix de l'option HT ou TTC en fonction de la configuration du catalogue",
+                                            "prix_option_HT": "Prix de l'option HT",
+                                            "prix_option_TTC": "Prix de l'option TTC",
+                                            "prix_option_valeur": "Prix de l'option HT ou TTC en fonction de la configuration du catalogue, sans formatage",
+                                            "prix_option_HT_valeur": "Prix de l'option HT, sans formatage",
+                                            "prix_option_TTC_valeur": "Prix de l'option TTC, sans formatage"
+                                        },
+                                        "children": {
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "simple": {
+                                                "description": "Bloc affich\u00e9 si l'option est de type simple",
+                                                "tags": [],
+                                                "children": {
+                                                    "offerte": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    },
+                                                    "payante": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    }
+                                                }
+                                            },
+                                            "textarea": {
+                                                "description": "Bloc affich\u00e9 si l'option est de type zone de texte",
+                                                "tags": [],
+                                                "children": {
+                                                    "offerte": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    },
+                                                    "payante": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    }
+                                                }
+                                            },
+                                            "select": {
+                                                "description": "Bloc affich\u00e9 si l'option est de type liste d\u00e9roulante",
+                                                "tags": [],
+                                                "children": {
+                                                    "choix": {
+                                                        "description": "Affiche un choix possible de l'option",
+                                                        "tags": {
+                                                            "valeur": "Valeur du choix",
+                                                            "selected": "Indique si le choix est s\u00e9lectionn\u00e9. Renvoit selected=\"selected\""
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    "offerte": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    },
+                                                    "payante": {
+                                                        "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                        "tags": [],
+                                                        "children": []
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "bon": {
+                                "description": "Bloc affich\u00e9 uniquement pour les bons de type remise fixe ou frais de port fixes",
+                                "tags": {
+                                    "intitule_produit": "Inititul\u00e9 du bon de r\u00e9duction de type remise fixe ou frais de port fixes",
+                                    "prix_total_valeur": "Montant total de la remise accord\u00e9e (montant n\u00e9gatif, sans formatage)",
+                                    "prix_total": "Montant total de la remise accord\u00e9e (montant n\u00e9gatif)",
+                                    "qt": "Quantit\u00e9 (toujours 1)",
+                                    "prix_unitaire_valeur": "Montant total de la remise accord\u00e9e (montant n\u00e9gatif, sans formatage)",
+                                    "prix_unitaire": "Montant total de la remise accord\u00e9e (montant n\u00e9gatif)",
+                                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                    "lien_supprimer": "Lien pour supprimer la remise",
+                                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                },
+                                "children": {
+                                    "noillustration": {
+                                        "description": "Bloc pars\u00e9 syst\u00e9matiquement si le panier poss\u00e8de un bon de type remise fixe ou frais de port fixes",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "remise": {
+                                "description": "Bloc affich\u00e9 uniquement pour les remises en pourcentage et de frais de port",
+                                "tags": {
+                                    "intitule_remise": "Intitul\u00e9 de la remise",
+                                    "lien_supprimer": "Lien pour supprimer la remise"
+                                },
+                                "children": []
+                            },
+                            "date_livraison": {
+                                "description": "Le bloc s'affiche si le transporteur exige une date de livraison",
+                                "tags": {
+                                    "date_livraison": "Affiche la date actuellement choisie au format dd\/mm\/YY"
+                                },
+                                "children": {
+                                    "heure_livraison": {
+                                        "description": "Le bloc s'affiche si le transporteur exige une heure de livraison",
+                                        "tags": {
+                                            "heure_livraison": "Affiche l'heure de livraison"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "commande_HT": {
+                                "description": "Bloc affich\u00e9 pour les catalogues en prix HT.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "noproduits": {
+                        "description": "Bloc affich\u00e9 en l'absence de produits dans le panier.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison",
+        "category": "Commandes",
+        "description": "Ce widget permet \u00e0 l'internaute de choisir ses adresses de livraisons et de facturations ainsi que le transporteur assign\u00e9 \u00e0 la livraison de la commande.\n\nLa totalit\u00e9 des informations des deux adresses, sauf la \u00ab Soci\u00e9t\u00e9 \u00bb, sont obligatoires et ne peuvent pas \u00eatre modifi\u00e9es.\n\nCe widget utilise deux autres templates :\n\n- transporteur.html : correspond au choix du transporteur\n- socolissimo.html : correspond \u00e0 l'int\u00e9gration de la solution SoColissimo\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Livraison\" du service \"E-commerce\".**\n\n",
+        "basePath": "widgets\/commandes\/livraison\/index.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "civilite_M_f": "Renvoi 1 pour la civilit\u00e9 \"Monsieur\" de l'adresse de facturation. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "civlite_Mme_f": "Renvoi 1 pour la civilit\u00e9 \"Madame\" de l'adresse de facturation. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "civilite_Mlle_f": "Renvoi 1 pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de facturation. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "checked_M_f": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Monsieur\" de l'adresse de facturation. Pr\u00e9f\u00e9rer l'utilisation de {civilite_M_f|mapValue|checked}",
+                    "checked_Mme_f": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Madame\" de l'adresse de facturation.. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mme_f|mapValue|checked}",
+                    "checked_Mlle_f": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de facturation.. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mlle_f|mapValue|checked}",
+                    "selected_M_f": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Monsieur\" de l'adresse de facturation.. Pr\u00e9f\u00e9rer l'utilisation de {civilite_M_f|mapValue|selected}",
+                    "selected_Mme_f": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Madame\" de l'adresse de facturation.. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mme_f|mapValue|selected}",
+                    "selected_Mlle_f": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de facturation. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mlle_f|mapValue|selected}",
+                    "nom_f": "Nom de l'adresse de facturation",
+                    "prenom_f": "Pr\u00e9nom de l'adresse de facturation",
+                    "societe_f": "Soci\u00e9t\u00e9 de l'adresse de facturation",
+                    "adresse_f": "Adresse de facturation",
+                    "cp_f": "Code postal de l'adresse de facturation",
+                    "ville_f": "Ville de l'adresse de facturation",
+                    "tel_f": "T\u00e9l\u00e9phone de l'adresse de facturation",
+                    "civilite_M_l": "Renvoi 1 pour la civilit\u00e9 \"Monsieur\" de l'adresse de livraison. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "civlite_Mme_l": "Renvoi 1 pour la civilit\u00e9 \"Madame\" de l'adresse de livraison. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "civilite_Mlle_l": "Renvoi 1 pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de livraison. Renvoi 0 dans le cas contraire. \u00c0 utiliser avec le filtre mapValue.",
+                    "checked_M_l": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Monsieur\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_M_l|mapValue|checked}",
+                    "checked_Mme_l": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Madame\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mme_l|mapValue|checked}",
+                    "checked_Mlle_l": "Renvoi checked=\"checked\" pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mlle_l|mapValue|checked}",
+                    "selected_M_l": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Monsieur\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_M_l|mapValue|selected}",
+                    "selected_Mme_l": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Madame\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mme_l|mapValue|selected}",
+                    "selected_Mlle_l": "Renvoi selected=\"selected\" pour la civilit\u00e9 \"Mademoiselle\" de l'adresse de livraison. Pr\u00e9f\u00e9rer l'utilisation de {civilite_Mlle_l|mapValue|selected}",
+                    "nom_l": "Nom de l'adresse de livraison",
+                    "prenom_l": "Pr\u00e9nom de l'adresse de livraison",
+                    "societe_l": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                    "adresse_l": "Adresse de livraison",
+                    "cp_l": "Code postal de l'adresse de livraison",
+                    "ville_l": "Ville de l'adresse de livraison",
+                    "tel_l": "T\u00e9l\u00e9phone de l'adresse de livraison",
+                    "checked_livraison_diff1": " Affiche checked=\"checked\" si pour l'adresse de livraison est diff\u00e9rente de l'adresse de facturation. Pr\u00e9f\u00e9rer l'utilisation de {cache_livraison|mapValue||checked}",
+                    "checked_livraison_diff0": "Affiche checked=\"checked\" si pour l'adresse de livraison est identique de l'adresse de facturation. Pr\u00e9f\u00e9rer l'utilisation de {cache_livraison|mapValue|checked}",
+                    "cache_livraison": "Affiche 1 si l'adresse de livraison est identique \u00e0 l'adresse de facturation",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "xtra_*": "Balise permettant d'afficher une valeur POST, un champ suppl\u00e9mentaire de membre ou un champ suppl\u00e9mentaire de commande"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "consentement": {
+                        "description": "Ce bloc s'affiche si le recueilement du consentement est activ\u00e9.",
+                        "tags": {
+                            "check_consentement": "Renvoi checked=\"checked\" pour accepter le recueil des donn\u00e9es."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs sur les adresses de livraison ou de facturation.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur"
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "erreur_livraison": {
+                        "description": "Bloc affich\u00e9 en cas d'incompatibilit\u00e9 entre le transporteur et l'adresse de livraison.",
+                        "tags": {
+                            "erreur": "Affiche le message d'erreur d\u00e9taill\u00e9."
+                        },
+                        "children": []
+                    },
+                    "pays_facturation": {
+                        "description": "Bloc affich\u00e9 pour chaque pays.",
+                        "tags": {
+                            "label": "nom du pays",
+                            "value": "identifiant du pays",
+                            "selected": "Affiche selected=\"selected\" pour le pays choisit"
+                        },
+                        "children": {
+                            "groupe": {
+                                "description": "Bloc affich\u00e9 pour charque groupe de pays.",
+                                "tags": {
+                                    "label": "Nom du groupe de pays"
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "pays_livraison": {
+                        "description": "Bloc affich\u00e9 pour chaque pays.",
+                        "tags": {
+                            "label": "nom du pays",
+                            "value": "identifiant du pays",
+                            "selected": "Affiche selected=\"selected\" pour le pays choisit"
+                        },
+                        "children": {
+                            "groupe": {
+                                "description": "Bloc affich\u00e9 pour charque groupe de pays.",
+                                "tags": {
+                                    "label": "Nom du groupe de pays"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison : Choix du transporteur",
+        "category": "Commandes",
+        "description": "Correspond au choix du transporteur pour la livraison de la commande.",
+        "basePath": "widgets\/commandes\/livraison\/transporteurs.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/transporteurs.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur",
+                                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "livraison": {
+                        "description": "Bloc affich\u00e9 pour chaque mode de livraison",
+                        "tags": [],
+                        "children": {
+                            "transporteur": {
+                                "description": "Bloc affich\u00e9 pour chaque mode de livraison par transporteur",
+                                "tags": {
+                                    "transporteur_id": "Identifiant du transporteur",
+                                    "intitule_transporteur": "Intitul\u00e9 du transporteur",
+                                    "fraisport_HT": "Frais de port HT",
+                                    "fraisport_TTC": "Frais de port TTC",
+                                    "fraisport": "Frais de port HT ou TTC en fonction de la configuration du catalogue",
+                                    "fraisport_HT_valeur": "Frais de port HT (sans formattage ni devise)",
+                                    "fraisport_TTC_valeur": "Frais de port TTC (sans formattage ni devise)",
+                                    "fraisport_valeur": "Frais de port HT ou TTC en fonction de la configuration du catalogue  (sans formattage ni devise)",
+                                    "selected": "Renvoi checked=\"checked\" pour le transporteur selectionn\u00e9."
+                                },
+                                "children": {
+                                    "description": {
+                                        "description": "Bloc affich\u00e9 si la description du transporteur est renseign\u00e9e.",
+                                        "tags": {
+                                            "desc_transporteur": "Description du transporteur"
+                                        },
+                                        "children": []
+                                    },
+                                    "delai_livraison": {
+                                        "description": "Bloc affich\u00e9 si le d\u00e9lai de livraison du transporteur est renseign\u00e9.",
+                                        "tags": {
+                                            "delai_livraison": "D\u00e9lai de livraison"
+                                        },
+                                        "children": []
+                                    },
+                                    "date_livraison": {
+                                        "description": "Le bloc s'affiche si la gestion de la date de retrait est activ\u00e9e",
+                                        "tags": {
+                                            "date_livraison": "Affiche la date actuellement choisie au format dd\/mm\/YY"
+                                        },
+                                        "children": {
+                                            "heure_livraison": {
+                                                "description": "Le bloc s'affiche si la gestion de l'heure de retrait est activ\u00e9e",
+                                                "tags": {
+                                                    "heure_livraison": "Affiche l'heure de livraison choisie"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "retrait_magasin": {
+                                "description": "Bloc affich\u00e9 pour chaque mode de livraison en retrait magasin.",
+                                "tags": {
+                                    "transporteur_id": "Identifiant du transporteur",
+                                    "intitule_transporteur": "Intitul\u00e9 du transporteur",
+                                    "fraisport_HT": "Frais de port HT",
+                                    "fraisport_TTC": "Frais de port TTC",
+                                    "fraisport": "Frais de port HT ou TTC en fonction de la configuration du catalogue",
+                                    "fraisport_HT_valeur": "Frais de port HT (sans formattage ni devise)",
+                                    "fraisport_TTC_valeur": "Frais de port TTC (sans formattage ni devise)",
+                                    "fraisport_valeur": "Frais de port HT ou TTC en fonction de la configuration du catalogue  (sans formattage ni devise)",
+                                    "selected": "Renvoi selected=\"selected\" pour le transporteur selectionn\u00e9.",
+                                    "societe": "Raison sociale de l'adresse du retrait en magasin",
+                                    "adresse": "Adresse du retrait en magasin",
+                                    "cp": "Code postal du retrait en magasin",
+                                    "ville": "Ville du retrait en magasin",
+                                    "pays": "Pays du retrait en magasin"
+                                },
+                                "children": {
+                                    "description": {
+                                        "description": "",
+                                        "tags": {
+                                            "desc_transporteur": "Description du transporteur"
+                                        },
+                                        "children": []
+                                    },
+                                    "date_livraison": {
+                                        "description": "Le bloc s'affiche si la gestion de la date de retrait est activ\u00e9e",
+                                        "tags": {
+                                            "date_livraison": "Affiche la date actuellement choisie au format dd\/mm\/YY"
+                                        },
+                                        "children": {
+                                            "heure_livraison": {
+                                                "description": "Le bloc s'affiche si la gestion de l'heure de retrait est activ\u00e9e",
+                                                "tags": {
+                                                    "heure_livraison": "Affiche l'heure de livraison choisie"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "transporteurs_tranchespoids": {
+                        "description": "Bloc affich\u00e9 pour le transporteur par tranches de poids",
+                        "tags": [],
+                        "children": {
+                            "transporteur": {
+                                "description": "Bloc affich\u00e9 pour chaque mode de livraison par transporteur par tranches de poids.",
+                                "tags": [],
+                                "children": {
+                                    "delai_livraison": {
+                                        "description": "Bloc affich\u00e9 si le d\u00e9lai de livraison du transporteur est renseign\u00e9.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "description": {
+                                        "description": "Bloc affich\u00e9 si la description du transporteur est renseign\u00e9e.",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "transporteur_magasin": {
+                        "description": "Bloc affich\u00e9 pour le retrait en magasin.",
+                        "tags": [],
+                        "children": {
+                            "description": {
+                                "description": "Bloc affich\u00e9 si la description du retrait en magasin est renseign\u00e9e.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison : Portail SoColissimo",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 l'int\u00e9gration de la solution SoColissimo.",
+        "basePath": "widgets\/commandes\/livraison\/socolissimo.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/socolissimo.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": [],
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur",
+                                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "formulaire": {
+                        "description": "Bloc affich\u00e9 si le service SoColissimo est disponible et que l'internaute acc\u00e8de au site avec un appareil non mobile.",
+                        "tags": {
+                            "formulaire": "Affiche le formualire d'acc\u00e8s vers le service SoColissimo.",
+                            "formulaire_action": "Affiche l'url d'acc\u00e8s au service SoColissimo."
+                        },
+                        "children": []
+                    },
+                    "formulaire_mobile": {
+                        "description": "Bloc affich\u00e9 si le service SoColissimo est disponible et que l'internaute acc\u00e8de au site avec un appareil mobile.",
+                        "tags": {
+                            "formulaire": "Affiche le formualire d'acc\u00e8s vers le service SoColissimo Mobile.",
+                            "formulaire_action": "Affiche l'url d'acc\u00e8s au service SoColissimo Mobile."
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison : Colissimo Points relais",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 l'int\u00e9gration de la solution Colissimo Points relais.",
+        "basePath": "widgets\/commandes\/livraison\/colissimo_pickup.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/colissimo_pickup.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur",
+                                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "formulaire": {
+                        "description": "Bloc affich\u00e9 si le service Colissimo est disponible et que l'internaute acc\u00e8de au site avec un appareil non mobile.",
+                        "tags": {
+                            "iframe": "Adresse de l'iframe pour l'int\u00e9gration g\u00e9n\u00e9rique de la recherche de points relais",
+                            "gmaps_key": "Affiche la cl\u00e9 API GoogleMaps",
+                            "transporteur_id": "Identifiant du transporteur Colissimo Points relais",
+                            "adresse": "Affiche l'adresse de livraison courante",
+                            "ville": "Affiche la ville de livraison courante",
+                            "cp": "Affiche le code postal de livraison courant",
+                            "pays_id": "Affiche l'identifiant du pays de livraison courant"
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison : DPD Relais Pickup",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 l'int\u00e9gration de la solution DPD Relais Pickup.",
+        "basePath": "widgets\/commandes\/livraison\/dpd.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/dpd.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur",
+                                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "formulaire": {
+                        "description": "Bloc affich\u00e9 si le service DPD est disponible et que l'internaute acc\u00e8de au site avec un appareil non mobile.",
+                        "tags": {
+                            "iframe": "Adresse de l'iframe pour l'int\u00e9gration g\u00e9n\u00e9rique de la recherche de points relais",
+                            "gmaps_key": "Affiche la cl\u00e9 API GoogleMaps",
+                            "transporteur_id": "Identifiant du transporteur DPD Relais Pickup",
+                            "adresse": "Affiche l'adresse de livraison courante",
+                            "ville": "Affiche la ville de livraison courante",
+                            "cp": "Affiche le code postal de livraison courant"
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/livraison",
+        "label": "Livraison : Mondial Relay",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 l'int\u00e9gration de la solution Mondial Relay.",
+        "basePath": "widgets\/commandes\/livraison\/mondialrelay.html",
+        "templates": [
+            "widgets\/commandes\/livraison\/mondialrelay.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Bloc affich\u00e9 en cas d'erreurs.",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Bloc affich\u00e9 pour chaque erreur.",
+                                "tags": {
+                                    "erreur": "Affiche un message d'errreur",
+                                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "formulaire": {
+                        "description": "Bloc affich\u00e9 si le service Mondial Relay est disponible et que l'internaute acc\u00e8de au site avec un appareil non mobile.",
+                        "tags": {
+                            "iframe": "Adresse de l'iframe pour l'int\u00e9gration g\u00e9n\u00e9rique de la recherche de points relais",
+                            "gmaps_key": "Affiche la cl\u00e9 API GoogleMaps",
+                            "transporteur_id": "Identifiant du transporteur Mondial Relay",
+                            "ville": "Affiche la ville de livraison courante",
+                            "cp": "Affiche le code postal de livraison courant",
+                            "pays_id": "Identifiant de pays de livraison courant"
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement",
+        "category": "Commandes",
+        "description": "Ce widget permet \u00e0 l'internaute de finaliser sa commande. \n\nL'internaute pourra ainsi :\n\n- Consulter un r\u00e9capitulatif de sa commande.\n- Choisir son mode de paiement.\n\nUne fois le mode de paiement choisi, l'internaute acc\u00e9dera \u00e0 des informations sp\u00e9cifiques au mode de paiement choisi.\n\nLes informations sp\u00e9cifiques aux modes de paiement se configurent dans la rubrique \u00ab Mon site \/ Commandes \/ Modes de paiement \u00bb.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Mode paiement\" du service \"E-commerce\".**\n\nCe widget est compos\u00e9 de 8 fichiers :\n\n- index.html : correspond \u00e0 la page de r\u00e9capitulation de la commande.\n- cheque.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement par ch\u00e8que.\n- paybox.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement par carte bleue via PayBox.\n- paypal.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement via PayPal.\n- virement.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement par virement bancaire.\n- atos.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement via Atos SIPS.\n- cm_cic.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement via CM\/CIC.\n- systempay.html : correspond \u00e0 la page sp\u00e9cifique au mode de paiement via SystemPay.",
+        "basePath": "widgets\/commandes\/paiement\/index.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "type_prix": "\"HT\" ou \"TTC\"",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "choix": {
+                        "description": "Le contenu du bloc s'affiche avant d'avoir valid\u00e9 le mode de paiement.",
+                        "tags": {
+                            "civilite_f": "Civilit\u00e9 de l'adresse de facturation. Affiche M, Mme ou Mlle. ",
+                            "nom_f": "Nom de l'adresse de facturation",
+                            "prenom_f": "Pr\u00e9nom de l'adresse de facturation",
+                            "societe_f": "Soci\u00e9t\u00e9 de l'adresse de facturation",
+                            "adresse_f": "Adresse de facturation",
+                            "cp_f": "Code postal de l'adresse de facturation",
+                            "ville_f": "Ville de l'adresse de facturation",
+                            "tel_f": "T\u00e9l\u00e9phone de l'adresse de facturation",
+                            "pays_f": "Pays de l'adresse de facturation",
+                            "civilite_l": "Civilit\u00e9 de l'adresse de livraison. Affiche M, Mme ou Mlle. ",
+                            "nom_l": "Nom de l'adresse de livraison",
+                            "prenom_l": "Pr\u00e9nom de l'adresse de livraison",
+                            "societe_l": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                            "adresse_l": "Adresse de livraison",
+                            "cp_l": "Code postal de l'adresse de livraison",
+                            "ville_l": "Ville de l'adresse de livraison",
+                            "tel_l": "T\u00e9l\u00e9phone de l'adresse de livraison",
+                            "pays_l": "Pays de l'adresse de livraison",
+                            "nb_produits": "Nombre de produits dans la commande (somme des quantit\u00e9s)",
+                            "pluriel_produits": "Affiche \"s\" ou \"\" suivant que le nombre de produit est sup\u00e9rieur \u00e0 1",
+                            "total_articles_valeur": "Total des prix des articles HT ou TTC en fonction de la configuration du catalogue",
+                            "total_articles_HT_valeur": "Total HT des prix des articles (hors frais de port)",
+                            "total_articles_TTC_valeur": "Total TTC des prix des articles (hors frais de port)",
+                            "total_HT_valeur": "Total HT de la commande",
+                            "total_TTC_valeur": "Total TTC de la commande",
+                            "frais_port_valeur": "Montant des frais de ports",
+                            "total_articles": "Total des prix des articles HT ou TTC en fonction de la configuration du catalogue",
+                            "total_articles_HT": "Total HT des prix des articles (hors frais de port)",
+                            "total_articles_TTC": "Total TTC des prix des articles (hors frais de port)",
+                            "total_HT": "Total HT de la commande",
+                            "total_TTC": "Total TTC de la commande",
+                            "frais_port": "Montant des frais de ports",
+                            "zone_livraison": "Zone de livraison.",
+                            "total_TVA_valeur": "Total TVA de la commande",
+                            "total_TVA": "Total TVA de la commande",
+                            "intitule_transporteur": "Initul\u00e9 du mode de livraison selectionn\u00e9"
+                        },
+                        "children": {
+                            "erreurs": {
+                                "description": "Bloc affich\u00e9 en cas d'erreur \u00e0 l'enregistrement de la commande",
+                                "tags": [],
+                                "children": {
+                                    "erreur": {
+                                        "description": "Bloc affich\u00e9 pour chaque erreur",
+                                        "tags": {
+                                            "erreur": "Affiche un message d'errreur"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "alerte_montant": {
+                                "description": "Le bloc s'affiche si le montant total actuel de la commande est insuffisant",
+                                "tags": {
+                                    "min_commande": "Affiche le montant de commande minimal format\u00e9 avec la devise du site\n",
+                                    "min_commande_valeur": "Affiche la valeur num\u00e9rique brute du montant de commande minimal"
+                                },
+                                "children": []
+                            },
+                            "transporteur_tranchespoids": {
+                                "description": "Ce bloc s'affiche uniquement si l'acheteur a selectionn\u00e9 un mode de livraison de type \"tranches de poids\"",
+                                "tags": [],
+                                "children": {
+                                    "description": {
+                                        "description": "Ce bloc s'affiche si le mode de livraison selectionn\u00e9 contient une description",
+                                        "tags": {
+                                            "desc_transporteur": "Description du mode de livraison de type \"tranches de poids\" selectionn\u00e9"
+                                        },
+                                        "children": []
+                                    },
+                                    "delai_livraison": {
+                                        "description": "Ce bloc s'affiche si le mode de livraison selectionn\u00e9 rensigne un delai livraison",
+                                        "tags": {
+                                            "delai_livraison": "Delai de livraison du mode de livraison de type \"tranches de poids\" selectionn\u00e9"
+                                        },
+                                        "children": []
+                                    },
+                                    "societe_l": {
+                                        "description": "Ce bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de livraison",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "date_livraison": {
+                                        "description": "Le bloc s'affiche si le transporteur exige une date de livraison",
+                                        "tags": {
+                                            "date_livraison": "Affiche la date actuellement choisie au format dd\/mm\/YY"
+                                        },
+                                        "children": {
+                                            "heure_livraison": {
+                                                "description": "Le bloc s'affiche si la gestion de l'heure de retrait est activ\u00e9e",
+                                                "tags": {
+                                                    "heure_livraison": "Affiche l'heure de livraison choisie"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "transporteur_magasin": {
+                                "description": "Ce bloc s'affiche uniquement si l'acheteur a selectionn\u00e9 le mode de livraison \"Retrait en magasin\"",
+                                "tags": {
+                                    "civilite": "Civilit\u00e9 de l'adresse de livraison. Affiche M, Mme ou Mlle. ",
+                                    "nom": "Nom de l'adresse de livraison",
+                                    "prenom": "Pr\u00e9nom de l'adresse de livraison",
+                                    "societe": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                                    "adresse": "Adresse de livraison",
+                                    "cp": "Code postal de l'adresse de livraison",
+                                    "ville": "Ville de l'adresse de livraison",
+                                    "pays": "Pays de l'adresse de livraison"
+                                },
+                                "children": {
+                                    "description": {
+                                        "description": "Ce bloc s'affiche si le mode de livraison selectionn\u00e9 contient une description",
+                                        "tags": {
+                                            "desc_transporteur": "Description du mode de livraison \"Retrait en magasin\""
+                                        },
+                                        "children": []
+                                    },
+                                    "date_livraison": {
+                                        "description": "Le bloc s'affiche si le transporteur exige une date de livraison",
+                                        "tags": {
+                                            "date_livraison": "Affiche la date actuellement choisie au format dd\/mm\/YY"
+                                        },
+                                        "children": {
+                                            "heure_livraison": {
+                                                "description": "Le bloc s'affiche si la gestion de l'heure de retrait est activ\u00e9e",
+                                                "tags": {
+                                                    "heure_livraison": "Affiche l'heure de livraison choisie"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "transporteur_socolissimo": {
+                                "description": "Ce bloc s'affiche uniquement si l'acheteur a selectionn\u00e9 le mode de livraison \"So Colissimo\"",
+                                "tags": {
+                                    "intitule_mode": "Affiche le mode de livraison choisi : Mon domicile, Mon rendez-vous, Mon bureau de poste, Mon commer\u00e7ant, Mon Cityssimo",
+                                    "code_mode": "Affiche le code correspondant au mode de livraison choisi : DOM, DOS, RDV, BPR, A2P, MRL, CIT, ACP, CDI"
+                                },
+                                "children": {
+                                    "description": {
+                                        "description": "Ce bloc s'affiche si le mode de livraison selectionn\u00e9 contient une description",
+                                        "tags": {
+                                            "desc_transporteur": "Description du mode de livraison so colissimo rensign\u00e9e dans le back-office"
+                                        },
+                                        "children": []
+                                    },
+                                    "delai_livraison": {
+                                        "description": "Ce bloc s'affiche si le mode de livraison selectionn\u00e9 rensigne un delai livraison",
+                                        "tags": {
+                                            "delai_livraison": "Delai de livraison du mode de livraison de type \"tranches de poids\" selectionn\u00e9"
+                                        },
+                                        "children": []
+                                    },
+                                    "domicile": {
+                                        "description": "Ce bloc s'affiche si l'acheteur choisi l'un des modes suivants : DOM, DOS, RDV",
+                                        "tags": [],
+                                        "children": {
+                                            "societe_l": {
+                                                "description": "Ce bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de livraison",
+                                                "tags": {
+                                                    "societe": "Soci\u00e9t\u00e9 de l'adresse de livraison"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "hors_domicile": {
+                                        "description": "Ce bloc s'affiche si l'acheteur choisi l'un des modes suivants : BPR, A2P, MRL, CIT, ACP, CDI",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "societe_f": {
+                                "description": "Le contenu du bloc s'affiche s'il y a une soci\u00e9t\u00e9 d\u00e9finir dans l'adresse de facturation.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "societe_l": {
+                                "description": "Le contenu du bloc s'affiche s'il y a une soci\u00e9t\u00e9 d\u00e9finir dans l'adresse de livraison.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "produit": {
+                                "description": "Le contenu du bloc s'affiche pour chaque produit de la commande.",
+                                "tags": {
+                                    "lien_produit": "Lien vers le d\u00e9tail du produit. ",
+                                    "intitule_produit": "Intitul\u00e9 du produit.",
+                                    "reference": "r\u00e9f\u00e9rence de la variante",
+                                    "ref": " Identifiant interne au panier qui permet d'identifier un produit. Utilis\u00e9 pour ajouter \/ supprimer des produits au panier",
+                                    "prix_unitaire": "Prix unitaire du produit ",
+                                    "prix_unitaire_valeur": "Idem prix_unitaire sans formatage",
+                                    "qt": "Quantit\u00e9 de produit command\u00e9. ",
+                                    "prix_total": "Prix total d'un m\u00eame produit achet\u00e9 (prix unitaire multipli\u00e9 par la quantit\u00e9). ",
+                                    "prix_total_valeur": "Idem prix_total sans formatage",
+                                    "intitule_variante": "Intitul\u00e9 de la variante.",
+                                    "eco_taxe": "Montant de l'\u00e9co-participation.",
+                                    "eco_taxe_valeur": "Idem eco_taxe sans formatage",
+                                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                },
+                                "children": {
+                                    "illustration": {
+                                        "description": "Le contenu du bloc s'affiche si le produit a une illustration.",
+                                        "tags": {
+                                            "illustration": "Num\u00e9ro de fichier de l'illustration principale",
+                                            "url_illustration": "Url compl\u00e8te de l'illustration principale",
+                                            "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                            "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                            "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                            "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                            "ext_illustration": "Extension de fichier de l'illustration principale du produit"
+                                        },
+                                        "children": []
+                                    },
+                                    "noillustration": {
+                                        "description": "Le contenu du bloc s'affiche si le produit n'a pas d'illustration.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "reference": {
+                                        "description": "Le contenu du bloc s'affiche si le produit a une r\u00e9f\u00e9rence.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "eco_taxe": {
+                                        "description": "Le contenu du bloc s'affiche si une variante \u00e0 une \u00e9co-participation de d\u00e9finie.",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "option": {
+                                "description": "Bloc affich\u00e9 pour chaque option prise \u00e0 la commande",
+                                "tags": {
+                                    "intitule_option": "Libell\u00e9 de l'option \u00e0 la commande",
+                                    "type_option": "Type de l'option, \"simple\", \"textarea\" ou \"select\"",
+                                    "valeur_option": "Valeur saisi par l'utilisateur pour les options de type zone de texte ou liste d\u00e9roulante",
+                                    "prix_unitaire": "Prix unitaire de l'option",
+                                    "prix_unitaire_valeur": "Prix unitaire de l'option sans formatage",
+                                    "qt": "Quantit\u00e9 de l'option command\u00e9. ",
+                                    "prix_total": "Prix total de l'option",
+                                    "prix_total_valeur": "Prix total de l'option sans formatage"
+                                },
+                                "children": {
+                                    "offerte": {
+                                        "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "payante": {
+                                        "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "simple": {
+                                        "description": "Bloc affich\u00e9 si l'option est de type simple",
+                                        "tags": [],
+                                        "children": {
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "textarea": {
+                                        "description": "Bloc affich\u00e9 si l'option est de type zone de texte",
+                                        "tags": [],
+                                        "children": {
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "select": {
+                                        "description": "Bloc affich\u00e9 si l'option est de type liste d\u00e9roulante",
+                                        "tags": [],
+                                        "children": {
+                                            "offerte": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "payante": {
+                                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "bon": {
+                                "description": "Le contenu du bloc s'affiche si un bon est utilis\u00e9.",
+                                "tags": {
+                                    "lien_produit": "Retourne une chaine vide",
+                                    "intitule_produit": "Intitul\u00e9 du bon.",
+                                    "reference": "R\u00e9f\u00e9rence du bon",
+                                    "ref": "Identifiant interne au panier qui permet d'identifier un produit. Utilis\u00e9 pour ajouter \/ supprimer des produits au panier",
+                                    "prix_unitaire": "Prix unitaire du produit",
+                                    "prix_unitaire_valeur": "Prix unitaire du produit sans le devise",
+                                    "qt": "Quantit\u00e9 du produit dans le panier",
+                                    "prix_total": "Prix total des produits de la r\u00e9f\u00e9rence",
+                                    "prix_total_valeur": "Prix total des produits de la r\u00e9f\u00e9rence",
+                                    "intitule_variante": "Toujours vide",
+                                    "eco_taxe": "Montant de l'\u00e9co-participation.",
+                                    "eco_taxe_valeur": "Montant de l'\u00e9co-participation.",
+                                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                },
+                                "children": {
+                                    "reference": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "illustration": {
+                                        "description": "",
+                                        "tags": {
+                                            "illustration": ""
+                                        },
+                                        "children": []
+                                    },
+                                    "noillustration": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "eco_taxe": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "commande_HT": {
+                                "description": "Le contenu du bloc s'affiche si les prix du catalogue sont configur\u00e9s pour \u00eatre affich\u00e9s en HT.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "remise": {
+                                "description": "Le contenu du bloc s'affiche si un bon de r\u00e9duction valide en % est utilis\u00e9.",
+                                "tags": {
+                                    "intitule_remise": "Intitul\u00e9 de la remise"
+                                },
+                                "children": []
+                            },
+                            "eco_taxe": {
+                                "description": "Le contenu du bloc s'affiche si le montant de l'\u00e9co-participation est sup\u00e9rieure \u00e0 z\u00e9ro",
+                                "tags": {
+                                    "total_eco_taxe": "Montant de l'\u00e9co-participation.",
+                                    "total_eco_taxe_valeur": "Montant de l'\u00e9co-participation sans la devise."
+                                },
+                                "children": []
+                            },
+                            "fidelite": {
+                                "description": "Le contenu du bloc est affich\u00e9 si la commande permet au client de gagner des points de fid\u00e9lit\u00e9",
+                                "tags": {
+                                    "gain_fidelite": "Affiche le gain de points de fid\u00e9lit\u00e9 de la commande",
+                                    "solde_fidelite": "Affiche le solde de points de fid\u00e9lit\u00e9 en comptant le gain de la commande"
+                                },
+                                "children": []
+                            },
+                            "paiements": {
+                                "description": "Le contenu du bloc s'affiche si au moins un mode de paiement est activ\u00e9.",
+                                "tags": [],
+                                "children": {
+                                    "paiement": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque mode de paiement activ\u00e9.",
+                                        "tags": {
+                                            "mode_id": "Identifiant du mode de paiement. Affiche 1 pour le paiement par ch\u00e8que, 2 pour le paiement par virement, 3 pour le paiement via PayPal et 4 pour le paiement via PayBox. ",
+                                            "mode_code": "Code du mode de paiement. Affiche \"cheque\" pour le paiement par ch\u00e8que, \"virement\" pour le paiement par virement, \"paypal\" pour le paiement via PayPal, \"atos\" pour le paiement par Atos SIPS, \"cm_cic\" pour le Cr\u00e9dit Mutuel, \"systempay\" pour SystemPay et \"paybox\" pour le paiement via PayBox.",
+                                            "intitule_mode": "Intitul\u00e9 du mode de paiement. ",
+                                            "checked": " Affiche checked=\"checked\" si pour le paiement par d\u00e9faut"
+                                        },
+                                        "children": []
+                                    },
+                                    "gratuit": {
+                                        "description": "Le bloc s'affiche si le montant total de la commande est \u00e0 z\u00e9ro ET que le montant minimal de commande autorise les commandes \u00e0 z\u00e9ro.",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "nopaiement": {
+                                "description": "Le contenu du bloc s'affiche si aucun mode de paiement n'est activ\u00e9.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "xtra_*": {
+                                "description": "Ce bloc s'affiche pour chaque champ suppl\u00e9mentaire de commande qui a \u00e9t\u00e9 renseign\u00e9",
+                                "tags": {
+                                    "xtra_*": ""
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "paiement": {
+                        "description": "Ce bloc s'affiche apr\u00e8s avoir valid\u00e9 un mode de paiement en ligne",
+                        "tags": {
+                            "reference": "Num\u00e9ro de la commande",
+                            "total_TTC": "Montant total TTC de la commande",
+                            "total_HT": "Montant total HT de la commande",
+                            "total_TVA": "Montant total TVA de la commande",
+                            "num_client": "Num\u00e9ro de client",
+                            "client_id": "Client id",
+                            "frais_port": "Montant TTC des frais de port",
+                            "ville_f": "Ville de facturation",
+                            "pays_f": "Pays de facturation",
+                            "ville_l": "Ville de livraison",
+                            "pays_l": "Pays de livraison",
+                            "paiement": "inclusion du template sp\u00e9cifique au mode de paiement"
+                        },
+                        "children": {
+                            "produit": {
+                                "description": "Le contenu du bloc s'affiche pour chaque produit de la commande.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 du produit.",
+                                    "intitule_variante": "Intitul\u00e9 de la variante du produit.",
+                                    "reference": "R\u00e9ference du produit.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            },
+                            "option": {
+                                "description": "Le contenu du bloc s'affiche pour chaque option de la commande.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 de l'option.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            },
+                            "bon": {
+                                "description": "Le contenu du bloc s'affiche si un bon de remise fixe ou de frais de port est utilis\u00e9.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 du bon.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Ch\u00e8que",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par ch\u00e8que.\n",
+        "basePath": "widgets\/commandes\/paiement\/cheque.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/cheque.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "lien_commande": "URL vers la commande au format PDF.",
+                    "reference": "Num\u00e9ro de la commande",
+                    "ordre": "Ordre auquel le ch\u00e8que doit \u00eatre fait.",
+                    "lien_terminer": "Valeur de l'attribut action du formulaire.",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Paybox",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par Paybox.\n",
+        "basePath": "widgets\/commandes\/paiement\/paybox.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/paybox.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Payline",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par Payline.\n",
+        "basePath": "widgets\/commandes\/paiement\/payline.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/payline.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "formulaire": {
+                        "description": "Le contenu du bloc s'affiche si le moyen de paiement est disponible",
+                        "tags": {
+                            "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`"
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Le bloc s'affiche en cas d'erreur avec le mode de paiement",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Le bloc s'affiche pour chaque erreur",
+                                "tags": {
+                                    "erreur": "Affiche l'erreur"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Paypal",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par Paypal.\n",
+        "basePath": "widgets\/commandes\/paiement\/paypal.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/paypal.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Payplug",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par Payplug.\n",
+        "basePath": "widgets\/commandes\/paiement\/payplug.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/payplug.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "formulaire": {
+                        "description": "Le contenu du bloc s'affiche si le moyen de paiement est disponible",
+                        "tags": {
+                            "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`"
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Le bloc s'affiche en cas d'erreur avec le mode de paiement",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Le bloc s'affiche pour chaque erreur",
+                                "tags": {
+                                    "erreur": "Affiche l'erreur"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Virement",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par virement bancaire.\n",
+        "basePath": "widgets\/commandes\/paiement\/virement.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/virement.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "IBAN": "Affiche la valeur du champ IBAN telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "BIC": "Affiche la valeur du champ BIC telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "rib_banque": "Affiche la valeur du champ banque telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "rib_guichet": "Affiche la valeur du champ guichet telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "rib_compte": "Affiche la valeur du champ compte telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "rib_cle": "Affiche la valeur du champ cle telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "domicile": "Affiche la valeur du champ domicile telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "intitule_long": "Affiche la valeur du champ intitule telle qu'elle est configur\u00e9e dans le mode de paiement",
+                    "message": "Affiche la valeur du champ message telle qu'elle est configur\u00e9e dans le mode de paiement.",
+                    "reference": "Num\u00e9ro de la commande",
+                    "lien_terminer": "Valeur de l'attribut action du formulaire.",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : ATOS",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par ATOS.\n",
+        "basePath": "widgets\/commandes\/paiement\/atos.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/atos.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : CM-CIC",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par CM-CIC\n",
+        "basePath": "widgets\/commandes\/paiement\/cm_cic.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/cm_cic.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "banque": "Code de la banque configur\u00e9e dans la console d'administration (\u00ab cm \u00bb pour Cr\u00e9dit Mutuel, \u00ab cic \u00bb pour le groupe CIC ou \u00ab obc \u00bb pour OBC).",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : SystemPay",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par SystemPay\n",
+        "basePath": "widgets\/commandes\/paiement\/systempay.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/systempay.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "commandes\/paiement",
+        "label": "Paiement : Stripe",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la page sp\u00e9cifique au mode de paiement par SystemPay\n",
+        "basePath": "widgets\/commandes\/paiement\/stripe.html",
+        "templates": [
+            "widgets\/commandes\/paiement\/stripe.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`",
+                    "reference": "Num\u00e9ro de la commande",
+                    "total_HT": "Montant total HT de la commande",
+                    "total_TTC": "Montant total TTC de la commande",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "formulaire": {
+                        "description": "Le contenu du bloc s'affiche si le moyen de paiement est disponible",
+                        "tags": {
+                            "formulaire": "Formulaire HTML permettant l'appel au systeme de paiement. Le formulaire ne contient pas le bouton de soumission `<input type=\"submit\" \/>` ni la fermeture de balise `<\/form>`"
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Le bloc s'affiche en cas d'erreur avec le mode de paiement",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Le bloc s'affiche pour chaque erreur",
+                                "tags": {
+                                    "erreur": "Affiche l'erreur"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/validation",
+        "label": "Validation",
+        "category": "Commandes",
+        "description": "Ce widget permet \u00e0 l'internaute d'avoir confirmation de l'enregistrement et de la validation du paiement (dans le cas d'un paiement en ligne) de sa commande. \nUn email de confirmation lui sera de plus envoy\u00e9, \u00e0 lui et au commer\u00e7ant. D'autres emails pourront lui \u00eatre envoy\u00e9s \u00e0 chaque changement d'\u00e9tat de sa commande pendant le processus de traitement de sa commande.\n\nLes diff\u00e9rents messages de confirmation se configurent par mode de paiement dans la rubrique \u00ab Mon site \/ Commandes \/ Modes de paiement \u00bb.\n\nLes diff\u00e9rents messages des emails de confirmation se configurent dans la rubrique \u00ab Mon site \/ Commandes \/ Emails de confirmation \u00bb.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Validation\" du service \"E-commerce\".** \n\nContrairement aux autres widgets, la Validation est compos\u00e9 de 3 fichiers :\n\n- index.html : correspond \u00e0 la page de validation de la commande.\n- mail.html : correspond \u00e0 l'email de confirmation de commande envoy\u00e9.\n- mail_etat.html : correspond aux emails de changement d'\u00e9tat envoy\u00e9s.\n- commande.html : correspond au bon de commande",
+        "basePath": "widgets\/commandes\/validation\/index.html",
+        "templates": [
+            "widgets\/commandes\/validation\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "message": "Affiche la valeur du champ message telle qu'elle est configur\u00e9e dans le mode de paiement. Ce message peut contenir les balises suivantes :\n\n| Balise | Description |\n| --------- | ---------------- |\n| `{commande_id}` | Identifiant num\u00e9rique unique de la commande  |\n| `{reference}`   | R\u00e9f\u00e9rence de la commande                     |\n| `{num_client}`  | Num\u00e9ro de client                             |\n| `{client_id}`   | Identifiant num\u00e9rique unique du client       |\n| `{total_TTC}`   | Montant total TTC de la commande             |\n| `{total_HT}`    | Montant total HT de la commande              |\n| `{total_TVA}`   | Montant total de la TVA de la commande       |\n| `{frais_port}`  | Montant TTC des frais de port                |\n| `{ville_f}`     | Ville de l'adresse de facturation            |\n| `{pays_f}`      | Pays de l'adresse de facturation             |\n| `{code_pays_f}` | Code du pays de l'adresse de facturation     |\n| `{ville_l}`     | Ville de l'adresse de livraison              |\n| `{pays_l}`      | Pays de l'adresse de livraison               |\n| `{code_pays_l}` | Code du pays de l'adresse de livraison       |",
+                    "lien_retour": "Lien de retour",
+                    "reference": "R\u00e9f\u00e9rence de la commande",
+                    "num_client": "Num\u00e9ro de client ",
+                    "client_id": "Identifiant num\u00e9rique unique du client ",
+                    "total_TTC": "Total TTC de la commande",
+                    "total_HT": "Total HT de la commande",
+                    "total_TVA": "Total TVA de la commande",
+                    "frais_port": "Montant des frais de ports",
+                    "ville_f": "Ville de l'adresse de facturation",
+                    "pays_f": "Pays de l'adresse de facturation",
+                    "code_pays_f": "Code iso du pays de l'adresse de facturation",
+                    "ville_l": "Ville de l'adresse de livraison",
+                    "pays_l": "Pays de l'adresse de livraison",
+                    "code_pays_l": "Code iso du pays de l'adresse de livraison",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "tracking": {
+                        "description": "Le contenu du bloc s'affiche uniquement pour traquer les commandes \u00e0 traiter.",
+                        "tags": [],
+                        "children": {
+                            "produit": {
+                                "description": "Le contenu du bloc s'affiche pour chaque produit de la commande.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 du produit.",
+                                    "intitule_variante": "Intitul\u00e9 de la variante du produit.",
+                                    "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du produit.",
+                                    "reference": "R\u00e9ference du produit.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            },
+                            "option": {
+                                "description": "Le contenu du bloc s'affiche pour chaque option de la commande.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 de l'option.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            },
+                            "bon": {
+                                "description": "Le contenu du bloc s'affiche si un bon de remise fixe ou de frais de port est utilis\u00e9.",
+                                "tags": {
+                                    "intitule_produit": "Intitul\u00e9 du bon.",
+                                    "prix_unitaire_HT": "Prix unitaire HT du produit sans formatage",
+                                    "prix_unitaire_TTC": "Prix unitaire TTC du produit sans formatage",
+                                    "qt": "Quantit\u00e9"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/validation",
+        "label": "Validation : E-mail de confirmation",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 l'email de confirmation de commande envoy\u00e9.",
+        "basePath": "widgets\/commandes\/validation\/mail.html",
+        "templates": [
+            "widgets\/commandes\/validation\/mail.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "type_prix": "\"HT\" ou \"TTC\"",
+                    "reference": "",
+                    "client_id": "",
+                    "cache_client_email": "",
+                    "cache_client_num": "",
+                    "IP": "",
+                    "reverse_host": "",
+                    "traitable": "",
+                    "bon_reduction": "",
+                    "cache_code_reduction": "",
+                    "cache_type_remise": "",
+                    "cache_remise": "",
+                    "base_prix": "TTC ou HT",
+                    "devise": "devise au format XXX",
+                    "exoneration_taxe": "",
+                    "livr_diff": "",
+                    "cache_pays_l_code2": "",
+                    "detail_taxes": "",
+                    "fp": "",
+                    "fp_destination": "",
+                    "fp_HT": "",
+                    "fp_TTC": "",
+                    "fp_taux": "",
+                    "fp_cache_id": "",
+                    "fp_cache_intitule": "",
+                    "fp_cache_poids": "",
+                    "suivi_colis": "Adresse de suivi du colis",
+                    "mode_paiement": "Intitul\u00e9 du mode de paiement",
+                    "paye": "",
+                    "manuel": "",
+                    "date_paiement": "",
+                    "date_paiement_f": "",
+                    "date_paiement_fs": "",
+                    "date_paiement_timestamp": "",
+                    "user_paiement": "user back ayant valid\u00e9 le paiement",
+                    "etat_id": "",
+                    "date_crea": "",
+                    "date_crea_f": "",
+                    "date_crea_fs": "",
+                    "date_crea_timestamp": "",
+                    "date_modif": "",
+                    "date_modif_f": "",
+                    "date_modif_fs": "",
+                    "date_modif_timestamp": "",
+                    "nom_client": "",
+                    "prenom_client": "",
+                    "email_client": "Email du client",
+                    "reference_commande": "R\u00e9f\u00e9rence de la commande",
+                    "nb_produits": "Nombre de produits dans la commande (somme des quantit\u00e9s)",
+                    "pluriel_produits": "Affiche \"s\" ou \"\" suivant que le nombre de produit est sup\u00e9rieur \u00e0 1",
+                    "lien_commande": "Lien vers le d\u00e9tail de la commande",
+                    "message": "message de confirmation de commande (cf configuration des email de validation)",
+                    "num_jour_commande": "Affiche le num\u00e9ro du jour de la date de commande (01 - 31).",
+                    "jour_semaine_commande": "Affiche le jour de la semaine de la date de commande (lundi - dimanche).",
+                    "num_mois_commande": "Affiche le num\u00e9ro du mois de la date de commande (01 - 12).",
+                    "mois_commande": "Affiche le mois de la date de commande (janvier - d\u00e9cembre).",
+                    "mois_abrev_commande": "Affiche le mois de la date de commande abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                    "annee_commande": "Affiche l'ann\u00e9e de la date de commande (2010).",
+                    "minute_commande": "Affiche les minutes de la date de commande (00-59).",
+                    "heure_commande": "Affiche l'heure de la date de commande (00-23).",
+                    "seconde_commande": "Affiche les secondes de la date de commande (00-59).",
+                    "timestamp_commande": "Affiche le timestamp de la date de commande.",
+                    "civilite_f": "Civilit\u00e9 de l'adresse de facturation",
+                    "nom_f": "Nom de l'adresse de facturation",
+                    "prenom_f": "Pr\u00e9nom de l'adresse de facturation",
+                    "email_f": "Email du client",
+                    "societe_f": "Soci\u00e9t\u00e9 de l'adresse de facturation",
+                    "adresse_f": "Adresse de facturation",
+                    "cp_f": "Code postal de l'adresse de facturation",
+                    "ville_f": "Ville de l'adresse de facturation",
+                    "tel_f": "T\u00e9l\u00e9phone de l'adresse de facturation",
+                    "pays_f": "Pays de l'adresse de facturation",
+                    "civilite_l": "Civilit\u00e9 de l'adresse de livraison",
+                    "nom_l": "Nom de l'adresse de livraison",
+                    "prenom_l": "Pr\u00e9nom de l'adresse de livraison",
+                    "societe_l": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                    "adresse_l": "Adresse de livraison",
+                    "cp_l": "Code postal de l'adresse de livraison",
+                    "ville_l": "Ville de l'adresse de livraison",
+                    "tel_l": "T\u00e9l\u00e9phone de l'adresse de livraison",
+                    "pays_l": "Pays de l'adresse de livraison",
+                    "total_articles": "Total des prix des articles HT ou TTC en fonction de la configuration du catalogue",
+                    "total_articles_HT": "Total HT des prix des articles (hors frais de port)",
+                    "total_articles_TTC": "Total TTC des prix des articles (hors frais de port)",
+                    "total_articles_valeur": "Total des prix sans formatage des articles HT ou TTC en fonction de la configuration du catalogue",
+                    "total_articles_HT_valeur": "Total HT des prix des articles (hors frais de port, sans formatage)",
+                    "total_articles_TTC_valeur": "Total TTC des prix des articles (hors frais de port, sans formatage)",
+                    "frais_port": "Montant des frais de port",
+                    "zone_livraison": "Zone de livraison",
+                    "total_HT": "Total HT de la commande",
+                    "total_TTC": "Total TTC de la commande",
+                    "total_TVA": "Total TVA de la commande",
+                    "total_eco_taxe": "Montant total de l'\u00e9co-pariticipation",
+                    "frais_port_valeur": "Montant des frais de port sans formatage",
+                    "total_HT_valeur": "Total HT de la commande sans formatage",
+                    "total_TTC_valeur": "Total TTC de la commande sans formatage",
+                    "total_TVA_valeur": "Total TVA de la commande sans formatage",
+                    "total_eco_taxe_valeur": "Montant total de l'\u00e9co-pariticipation sans formatage"
+                },
+                "children": {
+                    "message": {
+                        "description": "Le contenu du bloc s'affiche si un message de confirmation de commande est renseign\u00e9 en back-office",
+                        "tags": [],
+                        "children": []
+                    },
+                    "societe_f": {
+                        "description": "Le contenu du bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de facturation",
+                        "tags": [],
+                        "children": []
+                    },
+                    "societe_l": {
+                        "description": "Le contenu du bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de livraison",
+                        "tags": [],
+                        "children": []
+                    },
+                    "transporteur": {
+                        "description": "Le contenu du bloc est affich\u00e9 en cas de livraison par transporteur (ce qui n'est pas le cas pour une commande ne contenant que des produits virtuels par exemple).",
+                        "tags": {
+                            "transporteur": "Affiche le nom du transporteur"
+                        },
+                        "children": []
+                    },
+                    "produit": {
+                        "description": "Le contenu du bloc s'affiche pour chaque produit de la commande.",
+                        "tags": {
+                            "intitule_produit": "Intitul\u00e9 du produit.",
+                            "reference": "R\u00e9ference du produit.",
+                            "prix_unitaire": "Prix unitaire du produit ",
+                            "prix_unitaire_valeur": "Prix unitaire du produit sans formatage",
+                            "remise": "Montant de la remise accord\u00e9e",
+                            "remise_valeur": "Montant de la remise accord\u00e9e sans formatage",
+                            "qt": "Quantit\u00e9 de produit command\u00e9. ",
+                            "prix_total": "Prix total d'un m\u00eame produit achet\u00e9 (prix unitaire multipli\u00e9 par la quantit\u00e9). ",
+                            "prix_total_valeur": "Prix total d'un m\u00eame produit achet\u00e9 sans formatage. ",
+                            "intitule_variante": "Intitul\u00e9 de la variante",
+                            "eco_taxe": "Montant de l'\u00e9co-participation",
+                            "eco_taxe_valeur": "Montant de l'\u00e9co-participation sans formatage"
+                        },
+                        "children": {
+                            "reference": {
+                                "description": "Le contenu du bloc s'affiche si le produit a une r\u00e9f\u00e9rence.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "eco_taxe": {
+                                "description": "Le contenu du bloc s'affiche si le produit est soumis \u00e0 une \u00e9co-participation",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "commande_HT": {
+                        "description": "Le contenu du bloc s'affiche si la commande ne contient pas de TVA",
+                        "tags": [],
+                        "children": []
+                    },
+                    "eco_taxe": {
+                        "description": "Le contenu du bloc s'affiche si la commande est soumise \u00e0 une \u00e9co-participation",
+                        "tags": [],
+                        "children": []
+                    },
+                    "option": {
+                        "description": "Bloc affich\u00e9 pour chaque option \u00e0 la commande",
+                        "tags": {
+                            "intitule_option": "Libell\u00e9 de l'option \u00e0 la commande",
+                            "valeur_option": "Valeur saisi par l'utilisateur pour les options de type zone de texte ou liste d\u00e9roulante",
+                            "prix_unitaire": "Prix unitaire de l'option",
+                            "prix_unitaire_valeur": "Prix unitaire de l'option sans formatage",
+                            "qt": "Quantit\u00e9 de l'option command\u00e9. ",
+                            "prix_total": "Prix total de l'option",
+                            "prix_total_valeur": "Prix total de l'option sans formatage"
+                        },
+                        "children": {
+                            "offerte": {
+                                "description": "Bloc affich\u00e9 si l'option a un prix = 0",
+                                "tags": [],
+                                "children": []
+                            },
+                            "payante": {
+                                "description": "Bloc affich\u00e9 si l'option a un prix > 0",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "bon": {
+                        "description": "Bloc pars\u00e9 pour les bon de type remise en euro ou fdp",
+                        "tags": {
+                            "intitule_produit": "Description de la remise sous la forme \"Remise de xx \u20ac (bon de r\u00e9duction : XXX)\"",
+                            "reference": "toujours vide",
+                            "prix_unitaire": "Montant de la remise",
+                            "prix_unitaire_valeur": "Montant de la remise sans formatage",
+                            "qt": "Vaut toujours 1",
+                            "prix_total": "Montant de la remise",
+                            "prix_total_valeur": "Montant de la remise sans formatage",
+                            "intitule_variante": "toujours vide",
+                            "eco_taxe": "Vaut toujours 0",
+                            "eco_taxe_valeur": ""
+                        },
+                        "children": {
+                            "reference": {
+                                "description": "jamais pars\u00e9",
+                                "tags": [],
+                                "children": []
+                            },
+                            "ecotaxe": {
+                                "description": "jamais pars\u00e9",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "produitstelecha": {
+                        "description": "Le contenu du bloc s'affiche lorsque la commande contient au moins un produit t\u00e9l\u00e9chargeable",
+                        "tags": [],
+                        "children": {
+                            "produit": {
+                                "description": "Le contenu du bloc s'affiche pour chaque produits t\u00e9l\u00e9chargeables de la commande.",
+                                "tags": {
+                                    "lien_produit": "Lien de t\u00e9l\u00e9achargement du produit",
+                                    "intitule_produit": "Intitul\u00e9 du produit.",
+                                    "reference": "R\u00e9ference du produit.",
+                                    "prix_unitaire": "Prix unitaire du produit ",
+                                    "prix_unitaire_valeur": "Prix unitaire du produit sans formatage",
+                                    "remise": "Montant de la remise accord\u00e9e",
+                                    "remise_valeur": "Montant de la remise accord\u00e9e sans formatage",
+                                    "qt": "Quantit\u00e9 de produit command\u00e9. ",
+                                    "prix_total": "Prix total d'un m\u00eame produit achet\u00e9 (prix unitaire multipli\u00e9 par la quantit\u00e9). ",
+                                    "prix_total_valeur": "Prix total d'un m\u00eame produit achet\u00e9 sans formatage. ",
+                                    "intitule_variante": "Intitul\u00e9 de la variante",
+                                    "eco_taxe": "Montant de l'\u00e9co-participation",
+                                    "eco_taxe_valeur": "Montant de l'\u00e9co-participation sans formatage"
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "remise": {
+                        "description": "Ce bloc est affich\u00e9 si la commande b\u00e9n\u00e9ficie d'une remise de type frais de port fixe ou pourcentage",
+                        "tags": {
+                            "intitule_remise": "Intitul\u00e9 de la remise"
+                        },
+                        "children": []
+                    },
+                    "fidelite": {
+                        "description": "Le contenu du bloc est affich\u00e9 si la commande permet au client de gagner des points de fid\u00e9lit\u00e9",
+                        "tags": {
+                            "gain_fidelite": "Affiche le gain de points de fid\u00e9lit\u00e9 de la commande",
+                            "solde_fidelite": "Affiche le solde de points de fid\u00e9lit\u00e9 en comptant le gain de la commande"
+                        },
+                        "children": []
+                    },
+                    "xtra_*": {
+                        "description": "Ce bloc s'affiche pour chaque champ suppl\u00e9mentaire de commande qui a \u00e9t\u00e9 renseign\u00e9",
+                        "tags": {
+                            "xtra_*": ""
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/validation",
+        "label": "Validation : Bon de commande",
+        "category": "Commandes",
+        "description": "Correspond \u00e0 la version HTML du bon de commande.\nPour activer le bon de commande HTML, il suffit de place le fichier du template dans le th\u00e8me graphique. Si le fichier n'est pas pr\u00e9sent dans le th\u00e8me graphique, c'est la version PDF g\u00e9n\u00e9r\u00e9e automatiquement par la plateforme qui est utilis\u00e9e.",
+        "basePath": "widgets\/commandes\/validation\/commande.html",
+        "templates": [
+            "widgets\/commandes\/validation\/commande.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "reference": "R\u00e9f\u00e9rence de la commande",
+                    "info_legales": "Informations l\u00e9gales de la soci\u00e9t\u00e9, compos\u00e9 du nom, de l'adresse postale, de l'email, du capital, de la forme juridique, du RCS, de l'APE, du num\u00e9ro de TVA",
+                    "site_web": "Nom de domaine principale du site",
+                    "num_client": "Num\u00e9ro du client",
+                    "email_client": "Email du client",
+                    "site_nom": "Nom du site",
+                    "devise_code": "",
+                    "date_crea": "",
+                    "code_reduction": "",
+                    "type_remise": "",
+                    "remise": "",
+                    "base_prix": "TTC ou HT",
+                    "devise": "Symbole mon\u00e9taire de la devise",
+                    "fp_HT": "",
+                    "fp_TTC": "",
+                    "fp_taux": "",
+                    "mode_paiement": "Intitul\u00e9 du mode de paiement",
+                    "paye": "Affiche \"1\" si la commande est pay\u00e9e, \"0\" dans le cas contraire",
+                    "num_jour_commande": "Affiche le num\u00e9ro du jour de la date de commande (01 - 31).",
+                    "jour_semaine_commande": "Affiche le jour de la semaine de la date de commande (lundi - dimanche).",
+                    "num_mois_commande": "Affiche le num\u00e9ro du mois de la date de commande (01 - 12).",
+                    "mois_commande": "Affiche le mois de la date de commande (janvier - d\u00e9cembre).",
+                    "mois_abrev_commande": "Affiche le mois de la date de commande abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                    "annee_commande": "Affiche l'ann\u00e9e de la date de commande (2010).",
+                    "minute_commande": "Affiche les minutes de la date de commande (00-59).",
+                    "heure_commande": "Affiche l'heure de la date de commande (00-23).",
+                    "seconde_commande": "Affiche les secondes de la date de commande (00-59).",
+                    "timestamp_commande": "Affiche le timestamp de la date de commande.",
+                    "civilite_f": "Civilit\u00e9 de l'adresse de facturation",
+                    "nom_f": "Nom de l'adresse de facturation",
+                    "prenom_f": "Pr\u00e9nom de l'adresse de facturation",
+                    "email_f": "Email du client",
+                    "societe_f": "Soci\u00e9t\u00e9 de l'adresse de facturation",
+                    "adresse_f": "Adresse de facturation",
+                    "cp_f": "Code postal de l'adresse de facturation",
+                    "ville_f": "Ville de l'adresse de facturation",
+                    "tel_f": "T\u00e9l\u00e9phone de l'adresse de facturation",
+                    "pays_f": "Pays de l'adresse de facturation",
+                    "civilite_l": "Civilit\u00e9 de l'adresse de livraison",
+                    "nom_l": "Nom de l'adresse de livraison",
+                    "prenom_l": "Pr\u00e9nom de l'adresse de livraison",
+                    "societe_l": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                    "adresse_l": "Adresse de livraison",
+                    "cp_l": "Code postal de l'adresse de livraison",
+                    "ville_l": "Ville de l'adresse de livraison",
+                    "tel_l": "T\u00e9l\u00e9phone de l'adresse de livraison",
+                    "pays_l": "Pays de l'adresse de livraison",
+                    "sous_total": "Total des prix des articles HT ou TTC en fonction de la configuration du catalogue",
+                    "frais_port": "Montant des frais de port HT ou TTC en fonction de la configuration du catalogue",
+                    "total_TTC": "Total TTC de la commande",
+                    "total_TVA": "Total TVA de la commande"
+                },
+                "children": {
+                    "logo_site": {
+                        "description": "Ce bloc est affich\u00e9 si le logo du site est configur\u00e9",
+                        "tags": {
+                            "logo_site": "Affiche l'identifiant du fichier de la m\u00e9diath\u00e8que correspondant au logo"
+                        },
+                        "children": []
+                    },
+                    "societe_f": {
+                        "description": "Le contenu du bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de facturation",
+                        "tags": [],
+                        "children": []
+                    },
+                    "societe_l": {
+                        "description": "Le contenu du bloc s'affiche si une soci\u00e9t\u00e9 est renseign\u00e9e dans l'adresse de livraison",
+                        "tags": [],
+                        "children": []
+                    },
+                    "retrait": {
+                        "description": "Ce bloc est affich\u00e9 si la commande est \u00e0 retirer en magasin",
+                        "tags": [],
+                        "children": {
+                            "societe_l": {
+                                "description": "Ce bloc est affich\u00e9 si la commande est \u00e0 retirer en magasin et qu'un nom de soci\u00e9t\u00e9 est renseign\u00e9",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "livraison": {
+                        "description": "Ce bloc est affich\u00e9 si la commande est livr\u00e9e",
+                        "tags": [],
+                        "children": {
+                            "societe_l": {
+                                "description": "Ce bloc est affich\u00e9 si la commande est livr\u00e9e et qu'un nom de soci\u00e9t\u00e9 est renseign\u00e9",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "transporteur": {
+                        "description": "Ce bloc est affich\u00e9 si la commande est li\u00e9e \u00e0 un transporteur (toujours le cas sauf pour les commandes de produits t\u00e9l\u00e9chargeables)",
+                        "tags": {
+                            "transporteur": "Initul\u00e9 du mode de transport",
+                            "transporteur_type": "",
+                            "date_livraison": ""
+                        },
+                        "children": []
+                    },
+                    "ligne": {
+                        "description": "Le contenu du bloc s'affiche pour chaque ligne de la commande.",
+                        "tags": {
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "intitule": "Intitul\u00e9 de la ligne  (produit, option, bon de r\u00e9duction, ...)",
+                            "pu": "Prix unitaire",
+                            "qt": "Quantiti\u00e9",
+                            "montant": "Prix total (prix unitaire multipli\u00e9 par la quantit\u00e9)"
+                        },
+                        "children": []
+                    },
+                    "commande_HT": {
+                        "description": "Le contenu du bloc s'affiche si le catalogue est configiur\u00e9 en HT",
+                        "tags": [],
+                        "children": {
+                            "eco_taxe": {
+                                "description": "Le contenu du bloc s'affiche si la commande est soumise \u00e0 une \u00e9co-participation",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "commande_TTC": {
+                        "description": "Le contenu du bloc s'affiche si le catalogue est configiur\u00e9 en TTC",
+                        "tags": [],
+                        "children": {
+                            "eco_taxe": {
+                                "description": "Le contenu du bloc s'affiche si la commande est soumise \u00e0 une \u00e9co-participation",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "eco_taxe": {
+                        "description": "Le contenu du bloc s'affiche si la commande est soumise \u00e0 une \u00e9co-participation",
+                        "tags": {
+                            "total_eco_taxe": "Montant total de l'\u00e9co-pariticipation"
+                        },
+                        "children": []
+                    },
+                    "fidelite": {
+                        "description": "Le contenu du bloc est affich\u00e9 si la commande permet au client de gagner des points de fid\u00e9lit\u00e9",
+                        "tags": {
+                            "gain_fidelite": "Affiche le gain de points de fid\u00e9lit\u00e9 de la commande"
+                        },
+                        "children": []
+                    },
+                    "taux": {
+                        "description": "Ce bloc est affich\u00e9 pour chaque taux de tva appliqu\u00e9 \u00e0 la commande",
+                        "tags": {
+                            "taux": "Affiche le taux de tva",
+                            "base": "Affiche la base HT utilis\u00e9 pour calculer la TVA",
+                            "montant": "Affiche la montant de la TVA pour ce taux"
+                        },
+                        "children": []
+                    },
+                    "exoneration": {
+                        "description": "Ce bloc est affich\u00e9 dans le cas o\u00f9 la commande est exon\u00e9r\u00e9e de TVA",
+                        "tags": {
+                            "taux": "Affiche le taux de tva (ici z\u00e9ro)",
+                            "base": "Affiche la base HT utilis\u00e9 pour calculer la TVA",
+                            "montant": "Affiche la montant de la TVA pour ce taux (ici z\u00e9ro)"
+                        },
+                        "children": []
+                    },
+                    "mention": {
+                        "description": "Ce bloc est affich\u00e9 s'il y a une mention l\u00e9gale concerant la TVA",
+                        "tags": {
+                            "mention": "Mentien l\u00e9gale concernant la TVA"
+                        },
+                        "children": []
+                    },
+                    "xtra_*": {
+                        "description": "Ce bloc s'affiche pour chaque champ suppl\u00e9mentaire de commande qui a \u00e9t\u00e9 renseign\u00e9",
+                        "tags": {
+                            "xtra_*": ""
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "commandes\/validation",
+        "label": "Validation : E-mail de changement d'\u00e9tat",
+        "category": "Commandes",
+        "description": "Correspond aux emails de changement d'\u00e9tat envoy\u00e9s.",
+        "basePath": "widgets\/commandes\/validation\/mail_etat.html",
+        "templates": [
+            "widgets\/commandes\/validation\/mail_etat.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "reference_commande": "Num\u00e9ro de r\u00e9f\u00e9rence de la commande",
+                    "etat": "Affiche le message correspondant \u00e0 l'\u00e9tat de la commande, tel qu'il est configur\u00e9 dans le back-office. Ces messages peuvent contenir les balises suivantes :\n\n| Balise | Description |\n| --------- | ---------------- |\n| `{reference_commande}` | R\u00e9f\u00e9rence de la commande  |",
+                    "lien_commande": "Lien vers le d\u00e9tail de la commande",
+                    "num_jour_commande": "Affiche le num\u00e9ro du jour de la date de commande (01 - 31).",
+                    "jour_semaine_commande": "Affiche le jour de la semaine de la date de commande (lundi - dimanche).",
+                    "num_mois_commande": "Affiche le num\u00e9ro du mois de la date de commande (01 - 12).",
+                    "mois_commande": "Affiche le mois de la date de commande (janvier - d\u00e9cembre).",
+                    "mois_abrev_commande": "Affiche le mois de la date de commande abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                    "annee_commande": "Affiche l'ann\u00e9e de la date de commande (2010).",
+                    "minute_commande": "Affiche les minutes de la date de commande (00-59).",
+                    "heure_commande": "Affiche l'heure de la date de commande (00-23).",
+                    "seconde_commande": "Affiche les secondes de la date de commande (00-59).",
+                    "timestamp_commande": "Affiche le timestamp de la date de commande.",
+                    "civilite_f": "Civilit\u00e9 de l'adresse de facturation",
+                    "nom_f": "Nom de l'adresse de facturation",
+                    "prenom_f": "Pr\u00e9nom de l'adresse de facturation",
+                    "societe_f": "Soci\u00e9t\u00e9 de l'adresse de facturation",
+                    "adresse_f": "Adresse de facturation",
+                    "cp_f": "Code postal de l'adresse de facturation",
+                    "ville_f": "Ville de l'adresse de facturation",
+                    "tel_f": "T\u00e9l\u00e9phone de l'adresse de facturation",
+                    "pays_f": "Pays de l'adresse de facturation",
+                    "civilite_l": "Civilit\u00e9 de l'adresse de livraison",
+                    "nom_l": "Nom de l'adresse de livraison",
+                    "prenom_l": "Pr\u00e9nom de l'adresse de livraison",
+                    "societe_l": "Soci\u00e9t\u00e9 de l'adresse de livraison",
+                    "adresse_l": "Adresse de livraison",
+                    "cp_l": "Code postal de l'adresse de livraison",
+                    "ville_l": "Ville de l'adresse de livraison",
+                    "tel_l": "T\u00e9l\u00e9phone de l'adresse de livraison",
+                    "pays_l": "Pays de l'adresse de livraison",
+                    "client_id": "",
+                    "nom_client": "",
+                    "prenom_client": "",
+                    "email_client": "",
+                    "commande_id": "",
+                    "reference": "",
+                    "cache_client_email": "",
+                    "cache_client_num": "",
+                    "IP": "",
+                    "reverse_host": "",
+                    "traitable": "",
+                    "bon_reduction": "",
+                    "cache_code_reduction": "",
+                    "cache_type_remise": "",
+                    "cache_remise": "",
+                    "base_prix": "",
+                    "total_TTC": "Total TTC de la commande",
+                    "total_HT": "Total HT de la commande",
+                    "total_HT_valeur": "Total HT de la commande sans formatage",
+                    "total_TTC_valeur": "Total TTC de la commande sans formatage",
+                    "devise": "Code de la devise de la commande ",
+                    "exoneration_taxe": "",
+                    "livr_diff": "",
+                    "detail_taxes": "",
+                    "fp": "",
+                    "fp_destination": "",
+                    "fp_HT": "",
+                    "fp_TTC": "",
+                    "fp_taux": "",
+                    "fp_cache_id": "",
+                    "fp_cache_intitule": "",
+                    "fp_cache_poids": "",
+                    "mode_paiement": "",
+                    "paye": "",
+                    "manuel": "",
+                    "date_paiement": "",
+                    "user_paiement": "",
+                    "etat_id": "",
+                    "date_crea": "",
+                    "date_modif": ""
+                },
+                "children": {
+                    "suivi_colis": {
+                        "description": "Ce bloc est affich\u00e9 si une adresse de suivi est disponible pour cette commande",
+                        "tags": {
+                            "suivi_colis": "URL de suivi de commande",
+                            "commande_id": "Identifiant de la commande",
+                            "reference": "R\u00e9f\u00e9rence de la commande",
+                            "num_client": "Num\u00e9ro du client",
+                            "client_id": "Identifiant num\u00e9rique du client",
+                            "total_TTC": "Total TTC de la commande",
+                            "total_HT": "Total HT de la commande",
+                            "total_TVA": "Total TVA de la commande",
+                            "frais_port": "Montant des frais de port",
+                            "ville_f": "Ville de l'adresse de facturation",
+                            "pays_f": "Pays de l'adresse de facturation",
+                            "ville_l": "Ville de l'adresse de livraison",
+                            "pays_l": "Pays de l'adresse de livraison"
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    }
+]

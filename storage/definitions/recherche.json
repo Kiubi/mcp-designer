@@ -1,0 +1,804 @@
+[
+    {
+        "name": "recherche\/simple",
+        "label": "Recherche Simple",
+        "category": "Recherche",
+        "description": "Affiche la liste des r\u00e9sultats du moteur de recherche (et non le moteur de recherche qui est g\u00e9n\u00e9ralement int\u00e9gr\u00e9 \u00e0 un template principal). \nLe widget repose sur un fichier g\u00e9n\u00e9ral qui est compl\u00e9t\u00e9 par un fichier sp\u00e9cifique par service. On pr\u00e9sentera ainsi \u00e0 l'aide de mod\u00e8le graphiques diff\u00e9rents les r\u00e9sultats d'une recherche dans les services \"Site Web\", \"Blog\" et \"Catalogue\".\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Recherche\" de n'importe quel service.**\n\nContrairement aux autres widgets, la Recherche simple est compos\u00e9e de 4 fichiers :\n\n- index.html : correspond aux \u00e9l\u00e9ments communs du moteur de recherche.\n- cms.html : correspond aux r\u00e9sultats d'une recherche sur le Site web.\n- blog.html : correspond aux r\u00e9sultats d'une recherche sur le Blog.\n- catalogue.html : correspond aux r\u00e9sultats d'une recherche sur le Catalogue. Ce fichier inclut un moteur de recherche avanc\u00e9 pour le catalogue.",
+        "basePath": "widgets\/recherche\/simple\/index.html",
+        "templates": [
+            "widgets\/recherche\/simple\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "resultats": "Affiche les r\u00e9sultats de la recherche dans le service concern\u00e9.",
+                    "recherche": "Expression recherch\u00e9e.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "lien_tri": "Cf valeur de la balise dans le template d\u00e9di\u00e9 ci dessous",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des accroches",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "nav1": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nav2": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "recherche\/simple",
+        "label": "Recherche Simple : Site web",
+        "category": "Recherche",
+        "description": "Ce template correspond aux r\u00e9sultats d'une recherche sur le Site web.\n\nLe formulaire de recherche supporte les param\u00e8tres suivants : \n\n- `r` : termes de la recherche compar\u00e9s aux contenus des champs titre, sous titre, texte 1 \u00e0 texte 15 des billets des pages du cms\n- `fields` : restreint la port\u00e9 du param\u00e8tre `r` \u00e0 une liste de champs\n- `titre` : terme de recherche additionnel  pour le titre des billets\n- `sstitre` : terme de recherche additionnel pour le sous titre des billets\n- `texte1` \u00e0 `texte15` : termes de recherches additionnels pour chacun des champs textes des billets\n\nPar exemple la recherche bas\u00e9e sur les param\u00e8tres `r=test&fields=titre,texte2,texte5&texte6=truc&texte10=chose` affichera les billets dont : \n\n- les champs titre, sous titre, texte5 ou texte 10 contiennent la cha\u00eene \"test\"\n- ET le champ texte 6 contient le texte \"truc\"\n- ET le champ texte 10 contient le texte \"chose\"",
+        "basePath": "widgets\/recherche\/simple\/cms.html",
+        "templates": [
+            "widgets\/recherche\/simple\/cms.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "nb_resultats": "Affiche le nombre de r\u00e9sultats trouv\u00e9s",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "recherche": "Expression recherch\u00e9e.",
+                    "lien_tri": "URL permettant de classer les r\u00e9sultats selon un crit\u00e8re pass\u00e9 en param\u00e8tre. `{lien_tri}=d` pour trier par Date,  `{lien_tri}=p` pour trier par Page",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des accroches",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "resultat": {
+                        "description": "Le contenu du bloc s'affiche pour chaque r\u00e9sultat.",
+                        "tags": {
+                            "auteur": "Nom de l'auteur du billet.",
+                            "auteur_modif": "",
+                            "accueil": "Affiche 1 si la page libre du billet est la page d'accueil, sinon affiche 0.",
+                            "billet_id": "",
+                            "pagelibre_id": "",
+                            "type_billet": "Type du billet. Affiche le nom du r\u00e9pertoire du billet dans l'espace FTP.",
+                            "titre": "Titre du billet.",
+                            "sstitre": "Sous-titre du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "groupe_billet": "Groupe du billet.",
+                            "tri": "",
+                            "page_id": "",
+                            "intitule_page": "Intitul\u00e9 de la page libre du billet.",
+                            "lg": "",
+                            "nom_optim": "Nom optimis\u00e9 de la page libre du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition de la page libre.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5.",
+                            "lien": "URL vers la page libre du billet.",
+                            "titre_billet": "Affiche le titre du billet ou le sous-titre si le titre est vide.",
+                            "resume": "Version coup\u00e9e du champ texte1 ou texte2 si le texte1 est vide. La longueur est configurable dans le widget.",
+                            "resume_texte1": "Version coup\u00e9e du champ texte1. La longueur est configurable dans le widget.",
+                            "resume_texte2": "Version coup\u00e9e du champ texte2. La longueur est configurable dans le widget."
+                        },
+                        "children": {
+                            "titre_billet": {
+                                "description": "Le contenu du bloc ne s'affiche que si le titre ou le sous-tutre du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "resume": {
+                                "description": "Le contenu du bloc ne s'affiche que si le resume_texte1 ou resume_texte2 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "resume_texte1": {
+                                "description": "Le contenu du bloc ne s'affiche que si le resume_texte1 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "resume_texte2": {
+                                "description": "Le contenu du bloc ne s'affiche que si le resume_texte2 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "titre": {
+                                "description": "Le contenu du bloc ne s'affiche que si le titre du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "sstitre": {
+                                "description": "Le contenu du bloc ne s'affiche que si le sous-titre du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "noresultat": {
+                        "description": "Le bloc s'affiche si aucun r\u00e9sultat n'est trouv\u00e9",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "recherche\/simple",
+        "label": "Recherche Simple : Blog",
+        "category": "Recherche",
+        "description": "Ce template correspond aux r\u00e9sultats d'une recherche sur le Blog.\n\nLe formulaire de recherche supporte les param\u00e8tres suivants : \n\n- `r` : termes de la recherche compar\u00e9s aux contenus des champs titre, chap\u00f4, texte des billets du blog\n- `fields` : restreint la port\u00e9 du param\u00e8tre `r` \u00e0 une liste de champs\n- `titre` : terme de recherche additionnel  pour le titre des billets\n- `chapo` : terme de recherche additionnel pour le chap\u00f4 des billets\n- `texte` : terme de recherche additionnel pour le textes des billets\n\nPar exemple la recherche bas\u00e9e sur les param\u00e8tres `r=test&fields=titre,texte&titre=truc` affichera les billets dont : \n\n- les champs titre ou texte contiennent la cha\u00eene \"test\"\n- ET le champ titre contient le texte \"truc\"",
+        "basePath": "widgets\/recherche\/simple\/blog.html",
+        "templates": [
+            "widgets\/recherche\/simple\/blog.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "nb_resultats": "Affiche le nombre de r\u00e9sultats trouv\u00e9s",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "recherche": "Expression recherch\u00e9e.",
+                    "lien_tri": "URL permettant de classer les r\u00e9sultats selon un crit\u00e8re pass\u00e9 en param\u00e8tre. \n\n- `{lien_tri}=d` pour trier par Date,\n- `{lien_tri}=t` pour trier par Titre,\n- `{lien_tri}=c` pour trier par Cat\u00e9gorie, \n- `{lien_tri}=a` pour trier par Auteur",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des accroches",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "resultat": {
+                        "description": "Le contenu du bloc s'affiche pour chaque r\u00e9sultat.",
+                        "tags": {
+                            "billet_id": "Id du billet.",
+                            "titre": "Titre du billet",
+                            "en_avant": "Affiche 1 si le billet est \u00e9pingl\u00e9, sinon affiche 0.",
+                            "chapo": "Chap\u00f4 du billet",
+                            "contenu": "Contenu du billet",
+                            "accroche": "Accroche du billet. Affiche le chap\u00f4 du billet ou son contenu si son chap\u00f4 est vide.",
+                            "type_billet": "Type du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "categorie_id": "Identifiant unique de la cat\u00e9gorie du billet.",
+                            "commentaires_ouverts": "Affiche 1 quand les commentaires du billet sont ouverts, sinon 0.",
+                            "nom_optim": "Nom optimis\u00e9 du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition du billet.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet.",
+                            "nb_commentaires": "Nombre de commentaires",
+                            "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est dans la page d'\u00e9dition d'une cat\u00e9gorie du Blog dans le champ \"Nom de \nla page\"",
+                            "date_crea": "",
+                            "date_modif": "",
+                            "nom_modif": "",
+                            "lien_billet": "URL vers le billet",
+                            "lienperma_billet": "URL compl\u00e8te (avec le nom de domaine) vers le billet",
+                            "lien_categorie": "URL vers la cat\u00e9gorie du billet",
+                            "auteur": "Auteur du billet",
+                            "pluriel_commentaire": "Affiche \"s\" si le billet contient plus d'un commentaire",
+                            "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                            "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                            "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                            "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                            "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                            "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                            "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                            "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                            "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": {
+                            "accroche": {
+                                "description": "Le contenu du bloc s'affiche si l'accroche du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "contenu": {
+                                "description": "Le contenu du bloc s'affiche si le contenu du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "chapo": {
+                                "description": "Le contenu du bloc s'affiche si le chap\u00f4 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_avant": {
+                                "description": "Le contenu du bloc s'affiche si le billet est \u00e9pingl\u00e9.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "illustration": {
+                                "description": "Le contenu du bloc s'affiche si le billet a une illustration",
+                                "tags": {
+                                    "url_illustration": "Url compl\u00e8te de l'illustration principale du billet",
+                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                    "ext_illustration": "Extension de fichier de l'illustration principale du billet"
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "noresultat": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun r\u00e9sultat.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "recherche\/simple",
+        "label": "Recherche Simple : Catalogue",
+        "category": "Recherche",
+        "description": "Ce template correspond aux r\u00e9sultats d'une recherche sur le Catalogue.\n\nLe formulaire de recherche supporte les param\u00e8tres suivants : \n\n- `c` : identifiant d'une cat\u00e9gorie\n- `pmin` : prix minimum\n- `pmax` : prix maximum\n- `md` : mois de d\u00e9but de date de disponibilit\u00e9 des produits\n- `ma` : mois de fin de date de disponibilit\u00e9 des produits\n- `rtags` : liste de tags s\u00e9par\u00e9s par des virgules\n- `r` : termes de la recherche compar\u00e9s aux contenus des champs intitul\u00e9, chap\u00f4, description, marque, texte 1 \u00e0 texte 15 des produits du catalogue\n- `fields` : restreint la port\u00e9 du param\u00e8tre `r` \u00e0 une liste de champs\n- `intitule_produit` : terme de recherche additionnel  pour l'intitul\u00e9 des produits\n- `desc_produit` : terme de recherche additionnel pour la description des produits\n- `chapo_produit` : terme de recherche additionnel pour le chap\u00f4 des produits\n- `intitule_marque` : terme de recherche additionnel pour l'intitul\u00e9 de la marque des produits\n- `texte1` \u00e0 `texte15` : termes de recherches additionnels pour chacun des champs textes des produits\n- `types` : restreint la recherche aux produits de ces types uniquement\n\nPar exemple la recherche bas\u00e9e sur les param\u00e8tres `r=test&fields=intitule_produit,intitule_marque,texte5&pmin=12.5&texte6=truc&rtags=truc&types=type1,type2` affichera les produits dont : \n\n- les intitul\u00e9, marque, ou texte 5 contiennent la cha\u00eene \"test\"\n- ET au moins une variante \u00e0 un prix d'au moins 12,50 \u20ac\n- ET le champ texte 6 contient le texte \"truc\"\n- ET poss\u00e8de un tag contenant \"truc\"\n- ET de type \"type1\" ou \"type2\"",
+        "basePath": "widgets\/recherche\/simple\/catalogue.html",
+        "templates": [
+            "widgets\/recherche\/simple\/catalogue.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "nb_resultats": "Affiche le nombre de r\u00e9sultats trouv\u00e9s",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "lien_tri": "URL permettant de classer les r\u00e9sultats diff\u00e9remment. Par exemple, le code `{lien_tri}=alphaDESC` retournera l'URL de tri par ordre alphab\u00e9tique invers\u00e9 des produits.\n\nFonction de tri et param\u00e8tres associables \u00e0 la balise `{lien_tri}` : \n\n - Par ordre alphab\u00e9tique : `alpha`\n - Par ordre alphab\u00e9tique inverse : `alphaDESC`\n - Par prix : `prix`\n - Par prix d\u00e9croissant : `prixDESC`\n - Par date de disponibilit\u00e9 : `date`\n - Par date de disponibilit\u00e9 d\u00e9croissante : `dateDESC`\n - Par note moyenne : `note`\n - Par note moyenne d\u00e9croissante : `noteDESC`\n - Classement al\u00e9atoire : `rand`\n\nIl est \u00e0 noter que les produits vedettes affich\u00e9s le seront toujours en premier, tout en respectant entre eux le param\u00e8tre de tri choisi.",
+                    "type_prix": "\"HT\" ou \"TTC\"",
+                    "pmin": "crit\u00e8re de recherche, prix minimal",
+                    "pmax": "crit\u00e8re de recherche, prix maximal",
+                    "rtags": "crit\u00e8re de recherche, tags",
+                    "rtexte": "crit\u00e8re de recherche, texte",
+                    "recherche": "r\u00e9capitulatif de la recherche (texte + tags)",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des accroches",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "resultat": {
+                        "description": "",
+                        "tags": {
+                            "num_jour_disponibilite": "Affiche le num\u00e9ro du jour de la date de disponibilit\u00e9 (01 - 31).",
+                            "jour_semaine_disponibilite": "Affiche le jour de la semaine de la date de disponibilit\u00e9 (lundi - dimanche).",
+                            "num_mois_disponibilite": "Affiche le num\u00e9ro du mois de la date de disponibilit\u00e9 (01 - 12).",
+                            "mois_disponibilite": "Affiche le mois de la date de disponibilit\u00e9 (janvier - d\u00e9cembre).",
+                            "mois_abrev_disponibilite": "Affiche le mois de la date de disponibilit\u00e9 abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_disponibilite": "Affiche l'ann\u00e9e de la date de disponibilit\u00e9 (2010).",
+                            "minute_disponibilite": "Affiche les minutes de la date de disponibilit\u00e9 (00-59).",
+                            "heure_disponibilite": "Affiche l'heure de la date de disponibilit\u00e9 (00-23).",
+                            "seconde_disponibilite": "Affiche les secondes de la date de disponibilit\u00e9 (00-59).",
+                            "timestamp_disponibilite": "Affiche le timestamp de la date de disponibilit\u00e9.",
+                            "produit_id": "Id du produit.",
+                            "type_produit": "Type du produit c'est \u00e0 dire le nom du r\u00e9pertoire du produit dans l'espace FTP.",
+                            "en_avant": "Affiche 1 si le produit est un produit vedette, sinon affiche 0.",
+                            "nb_vus": "",
+                            "date_crea": "",
+                            "date_modif": "",
+                            "nb_commentaires": "Nombre de commentaires.",
+                            "note_moyenne": "Note moyenne ; 0 \u00e0 10.",
+                            "note_moyenne_5": "Note moyenne ; 0 \u00e0 5.",
+                            "intitule_produit": "Intitul\u00e9 du produit.",
+                            "nom_optim": "Nom optimis\u00e9 du produit",
+                            "categorie_id": "Id de la cat\u00e9gorie en cours du produit.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie en cours du produit.",
+                            "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie en cours du produit.",
+                            "lien_produit": "Lien vers la page de d\u00e9tail du produit.",
+                            "lien_categorie": "Lien vers la cat\u00e9gorie en cours du produit.",
+                            "accroche": "Accroche du produit. Affiche le chap\u00f4 du produit ou son contenu si son chap\u00f4 est vide.",
+                            "chapo": "Chap\u00f4 du produit.",
+                            "description": "Description du produit.",
+                            "tags": "Affiche la liste des tags du produit. Le lien renvoi vers le moteur de recherche restreint au tag cliqu\u00e9.",
+                            "prix_min": "Affiche le prix minimum toutes variantes confondues.",
+                            "prix_max": "Affiche le prix maximum toutes variantes confondues.",
+                            "prix_barre": "Affiche le prix normal si toutes les variantes ont un prix promo renseign\u00e9 identique, sinon n'affiche rien.",
+                            "prix": "Comportement standard du prix.\n\n- Si une variante \u00e0 un prix : affiche le prix \n- Si une variante \u00e0 un prix promo : affiche le prix promo \n- Si plusieurs variantes ont un prix identique : affiche le prix \n- Si plusieurs variantes ont un prix promo identique : affiche le prix promo\n- Si plusieurs variantes ont un prix (promo) diff\u00e9rent : affiche \u00ab prix minium (promo comprise) - prix maximum (promo comprise) \u00bb",
+                            "prix_HT_min": "Affiche le prix minimum (promo comprise) HT toutes variantes confondues.",
+                            "prix_TTC_min": "Affiche le prix minimum (promo comprise) TTC toutes variantes confondues.",
+                            "prix_HT_max": "Affiche le prix maximum (promo comprise) HT toutes variantes confondues.",
+                            "prix_TTC_max": "Affiche le prix maximum (promo comprise) TTC toutes variantes confondues.",
+                            "prix_min_valeur": "Affiche le prix minimum toutes variantes confondues.",
+                            "prix_max_valeur": "Affiche le prix maximum toutes variantes confondues.",
+                            "prix_barre_valeur": "Affiche le prix normal si toutes les variantes ont un prix promo renseign\u00e9 identique, sinon n'affiche rien.",
+                            "prix_HT_min_valeur": "Affiche le prix minimum (promo comprise) HT toutes variantes confondues.",
+                            "prix_TTC_min_valeur": "Affiche le prix minimum (promo comprise) TTC toutes variantes confondues.",
+                            "prix_HT_max_valeur": "Affiche le prix maximum (promo comprise) HT toutes variantes confondues.",
+                            "prix_TTC_max_valeur": "Affiche le prix maximum (promo comprise) TTC toutes variantes confondues.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5.",
+                            "marque": "Affiche la marque du produit"
+                        },
+                        "children": {
+                            "illustrations": {
+                                "description": "Le contenu du bloc s'affiche si le produit a au moins une illustration",
+                                "tags": {
+                                    "illustration": "Num\u00e9ro de fichier dans la m\u00e9diath\u00e8que de l'illustration principale du produit.",
+                                    "url_illustration": "Url compl\u00e8te de l'illustration principale",
+                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                    "ext_illustration": "Extension de fichier de l'illustration principale du produit"
+                                },
+                                "children": []
+                            },
+                            "noillustrations": {
+                                "description": "Le contenu du bloc s'affiche si le produit n'a pas d'illustration.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_avant": {
+                                "description": "Le contenu du bloc s'affiche si le produit est un produit vedette.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "accroche": {
+                                "description": "Le contenu du bloc s'affiche si l'accroche du produit a une valeur.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "chapo": {
+                                "description": "Le contenu du bloc s'affiche si le chap\u00f4 du produit a une valeur.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "description": {
+                                "description": "Le contenu du bloc s'affiche si la description du produit a une valeur.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "tags": {
+                                "description": "Le contenu du bloc s'affiche si le produit a un ou plusieurs tags.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "prix_promo": {
+                                "description": "Le contenu du bloc s'affiche si le produit a au moins une variante en promo.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "prix_barre": {
+                                "description": "Le contenu du bloc s'affiche si le produit a toutes ces variantes avec le m\u00eame prix et le m\u00eame prix promo.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "non_disponible": {
+                                "description": "Le contenu du bloc s'affiche si le produit n'est pas encore disponible (date de disponibilit\u00e9 supp\u00e9rieure \u00e0 la date courante).",
+                                "tags": [],
+                                "children": []
+                            },
+                            "rupture": {
+                                "description": "Le contenu du bloc s'affiche si toutes les variantes du produit sont en rupture de stock.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "rupture_partielle": {
+                                "description": "Le contenu du bloc s'affiche si une variante du produit est en rupture de stock.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_stock": {
+                                "description": "Le contenu du bloc s'affiche si toutes les variantes du produit sont en stock.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "marque": {
+                                "description": "Le contenu du bloc s'affiche si la marque du produit est renseign\u00e9e",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "simple": {
+                        "description": "Le contenu du bloc s'affiche si la recherche n'a pas de crit\u00e8res autre que la recherche textuelle",
+                        "tags": [],
+                        "children": []
+                    },
+                    "categorie": {
+                        "description": "Le contenu du bloc s'affiche pour chaque cat\u00e9gorie du catalogue. Utilis\u00e9 pour d\u00e9finir une recherche sur les cat\u00e9gories des produits.",
+                        "tags": {
+                            "categorie_id": "Id de la cat\u00e9gorie.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie.",
+                            "selected": "Affiche \"selected\" pour la cat\u00e9gorie recherch\u00e9e en cours dans le moteur de recherche avanc\u00e9e. Utilis\u00e9 pour les listes d\u00e9roulantes."
+                        },
+                        "children": []
+                    },
+                    "mois_debut": {
+                        "description": "Le contenu du bloc s'affiche pour chaque mois de l'ann\u00e9e. Utilis\u00e9 pour d\u00e9finir une recherche sur les dates de disponibilit\u00e9 des produits.",
+                        "tags": {
+                            "num_mois": "Affiche le num\u00e9ro du mois (01 - 12).",
+                            "mois": "Affiche le mois (janvier - d\u00e9cembre).",
+                            "selected": "Affiche selected=\"selected\" pour le mois recherch\u00e9 en cours dans le moteur de recherche avanc\u00e9e. Utilis\u00e9 pour les listes d\u00e9roulantes."
+                        },
+                        "children": []
+                    },
+                    "mois_fin": {
+                        "description": "Le contenu du bloc s'affiche pour chaque mois de l'ann\u00e9e. Utilis\u00e9 pour d\u00e9finir une recherche sur les dates de disponibilit\u00e9 des produits.",
+                        "tags": {
+                            "num_mois": "Affiche le num\u00e9ro du mois (01 - 12).",
+                            "mois": "Affiche le mois (janvier - d\u00e9cembre).",
+                            "selected": "Affiche \"selected\" pour le mois recherch\u00e9 en cours dans le moteur de recherche avanc\u00e9e. Utilis\u00e9 pour les listes d\u00e9roulantes."
+                        },
+                        "children": []
+                    },
+                    "tag": {
+                        "description": "Le contenu du bloc s'affiche s'il y a des tags de produit disponibles. Utilis\u00e9 pour d\u00e9finir une recherche sur les tags des produits.",
+                        "tags": {
+                            "tag": "Liste de tous les tags du catalogue",
+                            "selected": "Affiche \"selected\" pour le ou les tags recherch\u00e9s en cours dans le moteur de recherche avanc\u00e9e. Utilis\u00e9 pour les listes d\u00e9roulantes."
+                        },
+                        "children": []
+                    },
+                    "notag": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a pas de tag de produit disponible.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "noresultat": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun r\u00e9sultat.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    }
+]

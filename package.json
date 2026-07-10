@@ -1,0 +1,57 @@
+{
+  "name": "@kiubi/mcp-designer",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "dev": "node src/index.ts"
+  },
+  "bin": {
+    "kiubi-mcp-designer": "src/index.ts"
+  },
+  "files": [
+    "src",
+    "storage/documents",
+    "storage/definitions",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "imports": {
+    "#tools/*": "./src/tools/*.ts",
+    "#lib/*": "./src/lib/*.ts"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "author": "Kiubi",
+  "license": "ISC",
+  "description": "Serveur MCP local pour l'intégration de thèmes graphiques Kiubi.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "kiubi",
+    "theme",
+    "cms"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kiubi/mcp-designer.git"
+  },
+  "homepage": "https://github.com/Kiubi/mcp-designer#readme",
+  "bugs": {
+    "url": "https://github.com/Kiubi/mcp-designer/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.28.0",
+    "fast-xml-parser": "5.7.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.8.0"
+  }
+}

@@ -1,0 +1,780 @@
+[
+    {
+        "name": "compte\/identification_rapide",
+        "label": "Identification rapide",
+        "category": "Comptes",
+        "description": "Affiche le formulaire d'identification rapide.\n\nCe formulaire permet \u00e0 un internaute de s'identifier sur le site, s'il est membre du site. L'identification se fait par son email et un mot de passe. Apr\u00e8s s'\u00eatre identifi\u00e9, il sera redirig\u00e9 vers une page du site en fonction de la configuration du widget.\n\nPar d\u00e9faut Kiubi propose deux mod\u00e8les graphiques diff\u00e9rents pour ce widget :\n\n- Le mod\u00e8le par d\u00e9faut, qui int\u00e8gre le formulaire d'identification ainsi qu'un lien vers la page d'inscription.\n- Un mod\u00e8le secondaire, identification_rapide_simple, qui int\u00e8gre un lien vers la page d'inscription ainsi\nqu'un lien vers la page d'accueil de l'espace Membre.\n\nDans les deux cas, une fois le membre identifi\u00e9, seul son nom\/pr\u00e9nom, un lien vers la page d'accueil de l'espace Membre, ainsi qu'un lien pour se d\u00e9connecter sont affich\u00e9s.\n\n**Il est donc possible avec ce widget d'afficher des informations si le membre est identifi\u00e9 et d'autres informations s'il ne l'est pas.**",
+        "basePath": "widgets\/compte\/identification_rapide\/index.html",
+        "templates": [
+            "widgets\/compte\/identification_rapide\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "form_action": "Valeur de l'attribut action du formulaire.",
+                    "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_redirection": "Affiche le type de redirection apr\u00e8s l'identification : \n\n- \"g\" : redirection vers la page du groupe extranet\n- \"c\" : redirection vers l'espace client \n- \"o\" : redirection vers la page d'origine"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "identifie": {
+                        "description": "Le contenu du bloc s'affiche si le membre est identifi\u00e9.",
+                        "tags": {
+                            "client_id": "Identifiant du membre.",
+                            "nom": "Nom du membre",
+                            "prenom": "Pr\u00e9nom du membre.",
+                            "genre": "Genre du membre. Affiche H si c'est un homme, F si c'est une femme.",
+                            "email": "Email du membre.",
+                            "avatar": "Avatar du membre en 120x120 pixels",
+                            "avatar_miniature": "Avatar du membre en 40x40 pixels",
+                            "gravatar": "Gravatar du membre en 120x120 pixels",
+                            "gravatar_miniature": "Gravatar du membre en 40x40 pixels"
+                        },
+                        "children": {
+                            "intitule": {
+                                "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli et si le membre est identifi\u00e9",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nonidentifie": {
+                        "description": "Le contenu du bloc s'affiche si le membre n'est pas identifi\u00e9.",
+                        "tags": [],
+                        "children": {
+                            "intitule": {
+                                "description": "Avertissement : la balise globale {intitule} n'est active que dans le bloc `<!-- BEGIN: identifie -->\n<!-- END: identifie -->` et pas dans le bloc `<!-- BEGIN: nonidentifie --> <!-- END: nonidentifie -->`.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/identification",
+        "label": "Identification",
+        "category": "Comptes",
+        "description": "Affiche le formulaire d'identification.\n\nCe formulaire permet \u00e0 un internaute de s'identifier sur le site, s'il est membre du site. L'identification se fait par son email et un mot de passe. Un lien pour retrouver un mot de passe perdu est disponible par d\u00e9faut (voir le widget \u00ab Tableau de bord \u00bb pour plus d'information sur le mot de passe perdu). Apr\u00e8s s'\u00eatre identifi\u00e9, il sera automatiquement redirig\u00e9 vers une page du site en fonction de sa page de provenance\/destination, afin de garantir une navigation fluide :\n\n- Par d\u00e9faut, le membre est redirig\u00e9 vers la page d'accueil du groupe Extranet dont il fait parti.\n- Si le membre veut acc\u00e9der \u00e0 une page prot\u00e9g\u00e9e de l'Extranet, il sera redirig\u00e9 vers cette page apr\u00e8s\nidentification.\n- Si le membre est dans le processus de commande, il sera redirig\u00e9 vers l'\u00e9tape suivante du processus.\n- Si le membre doit s'identifier pour poster un commentaire (dans le blog ou le catalogue), il sera redirig\u00e9\nvers la page d'ajout d'un commentaire\n\nLe comportement de ce widget ne peut pas \u00eatre modifi\u00e9.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Identification\" du service \"Gestion de comptes\".**",
+        "basePath": "widgets\/compte\/identification\/index.html",
+        "templates": [
+            "widgets\/compte\/identification\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "email": "Valeur de l'attribut value du champ input du formulaire correspondant \u00e0 l'email.",
+                    "lien_inscription": "URL du formulaire d'inscription.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "erreur": {
+                        "description": "Le contenu du bloc s'affiche s'il y a une erreur lors de l'identification (email ou mot de passe invalide).",
+                        "tags": [],
+                        "children": []
+                    },
+                    "erreur_fermeture": {
+                        "description": "Le contenu du bloc s'affiche si l'identification est ferm\u00e9e.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/inscription",
+        "label": "Formulaire d'inscription",
+        "category": "Comptes",
+        "description": "Affiche un formulaire d'inscription au site. \n\nCe widget permet \u00e0 un internaute de devenir membre du site pour passer une commande, poster un commentaire, acc\u00e9der \u00e0 une page prot\u00e9g\u00e9e, ... \nUne confirmation d'inscription est obligatoire soit via un email de demande de confirmation soit via un captcha (anti-spam) directement \u00e0 l'inscription, l'email \u00e9tant plus s\u00fbr que le captcha mais plus intrusif. Ce choix ne se fait pas au niveau du widget mais dans la rubrique \u00ab Membres \/ Configuration et pr\u00e9f\u00e9rences \u00bb de la console d'administration.\n\nLa totalit\u00e9 des informations n\u00e9cessaires \u00e0 l'inscription sont obligatoires et ne peuvent pas \u00eatre modifi\u00e9es. La personnalisation de ce widget est donc limit\u00e9e.\n\nContrairement aux autres widgets, le Formulaire d'inscription est compos\u00e9 de 2 fichiers :\n\n- index.html : correspond au formulaire d'inscription \u00e0 proprement dit.\n- mail.html: correspond \u00e0 l'email (au format texte) de demande de confirmation d'inscription.\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Inscription\" du service \"Gestion de comptes\".**",
+        "basePath": "widgets\/compte\/inscription\/index.html",
+        "templates": [
+            "widgets\/compte\/inscription\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "form": {
+                        "description": "Le contenu du bloc s'affiche avant la validation du formulaire d'inscription.",
+                        "tags": {
+                            "nom": "Valeur du champ Nom.",
+                            "prenom": "Valeur du champ Pr\u00e9nom.",
+                            "mdp": "Valeur du champ Mot de passe.",
+                            "mdp_confirm": "Valeur du champ Confirmation du mot de passe.",
+                            "checked_F": "Renvoi checked=\"checked\" si c'est une femme.",
+                            "checked_H": "Renvoi checked=\"checked\" si c'est un homme.",
+                            "email": "Valeur du champ Email.",
+                            "check_legal": "Renvoi checked=\"checked\" pour accepter les conditions d'utilisation.",
+                            "check_newsletter": "Renvoi checked=\"checked\" pour s'abonner \u00e0 la newsletter.",
+                            "CGU": "Texte des conditions d'utilisation."
+                        },
+                        "children": {
+                            "captcha": {
+                                "description": "Le contenu du bloc s'affiche si le captcha (dispositif anti-spam) est activ\u00e9. Cette option est configurable \"Membres \/ Param\u00e8tres\".",
+                                "tags": {
+                                    "captcha_question": "Question du captcha.",
+                                    "captcha_id": "Id du captcha."
+                                },
+                                "children": []
+                            },
+                            "consentement": {
+                                "description": "Ce bloc s'affiche si le recueilement du consentement \u00e0 l'inscription est activ\u00e9.",
+                                "tags": {
+                                    "finalites": "Affiche les traitements et finalit\u00e9 de la collecte des donn\u00e9es personnelles.",
+                                    "check_consentement": "Renvoi checked=\"checked\" pour accepter le recueil des donn\u00e9es."
+                                },
+                                "children": []
+                            },
+                            "erreurs": {
+                                "description": "Le contenu du bloc s'affiche s'il y a des erreurs \u00e0 l'inscription.",
+                                "tags": [],
+                                "children": {
+                                    "erreur": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque erreur.",
+                                        "tags": {
+                                            "erreur": "Affiche le message d'erreur correspond \u00e0 l'erreur."
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "fidelite": {
+                                "description": "Le contenu du bloc s'affiche si le bonus de points de fid\u00e9lit\u00e9 \u00e0 l'inscription \u00e0 la newsletter est activ\u00e9.",
+                                "tags": {
+                                    "bonus_fidelite": "Nombre de points bonus \u00e0 l'inscription \u00e0 la newsletter."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "message": {
+                        "description": "Le contenu du bloc s'affiche apr\u00e8s la validation du formulaire d'inscription.",
+                        "tags": {
+                            "nom": "Valeur du champ Nom.",
+                            "prenom": "Valeur du champ Pr\u00e9nom.",
+                            "email": "Valeur du champ Email."
+                        },
+                        "children": []
+                    },
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli et si l'inscription est ouverte",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "fermeture": {
+                        "description": "Le contenu du bloc s'affiche si l'inscription au site est ferm\u00e9e.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/inscription",
+        "label": "Formulaire d'inscription : E-mail de confirmation",
+        "category": "Comptes",
+        "description": "Contenu de l'email (au format texte) de demande de confirmation d'inscription.",
+        "basePath": "widgets\/compte\/inscription\/mail.html",
+        "templates": [
+            "widgets\/compte\/inscription\/mail.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "urlInscription": "URL de confirmation d'inscription."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord",
+        "category": "Comptes",
+        "description": "Affiche le tableau de bord de la gestion de compte des membres. \n\nCe widget correspond \u00e0 l'accueil de l'espace Membre et permet aux membres du site de :\n\n- modifier leurs informations personnelles,\n- modifier leur mot de passe,\n- modifier leur identit\u00e9 web,\n- modifier leur avatar,\n- modifier leur abonnement (seulement \u00e0 la Newsletter pour l'instant),\n- consulter leur(s) commande(s).\n\nPour acc\u00e9der \u00e0 son tableau de bord, il est obligatoire qu'un membre soit identifi\u00e9 sur le site (sauf pour acc\u00e9der \u00e0 la page \u00ab Mot de passe perdu \u00bb) !\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"Compte\" du service \"Gestion de comptes\".**\n\nContrairement aux autres widgets, le Tableau de bord est compos\u00e9 de 8 fichiers : \n\n- index.html : correspond au tableau de bord \u00e0 proprement dit.\n- abonnements.html : correspond \u00e0 l'[\u00e9dition des abonnements](#abonnement-a-la-newsletter) du membre.\n- avatar.html : correspond \u00e0 l'[\u00e9dition de l'avatar](#avatar) du membre.\n- id_web.html : correspond \u00e0 l'[\u00e9dition de l'identit\u00e9 web](#identite-web) du membre.\n- infos_perso.html : correspond \u00e0 l'[\u00e9dition des informations personnelles](#informations-personnelles) du membre.\n- motdepasse.html : correspond \u00e0 l'[\u00e9dition du mot de passe](#mot-de-passe) du membre.\n- motdepasse_perdu.html : correspond \u00e0 la page pour retrouver le [mot de passe perdu](#mot-de-passe-perdu) du membre.\n- mail_motdepasse_perdu.html : correspond \u00e0 l'[email contenant le mot de passe perdu](#e-mail--de-rappel-de-mot-de-passe-perdu) envoy\u00e9 au membre.",
+        "basePath": "widgets\/compte\/tableau_bord\/index.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "client_id": "Identifiant du membre.",
+                    "num_client": "Num\u00e9ro de client du membre",
+                    "nom_client": "Nom du membre",
+                    "prenom_client": "Pr\u00e9nom du membre",
+                    "genre_client": "Civilit\u00e9 du membre",
+                    "email_client": "Adresse email du membre",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "solde_fidelite": "Solde des points de fid\u00e9lit\u00e9."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "ecommerce": {
+                        "description": "Le contenu du bloc s'affiche si les fonctionnalit\u00e9s e-commerce sont activ\u00e9es.",
+                        "tags": [],
+                        "children": {
+                            "commandes": {
+                                "description": "Le contenu du bloc s'affiche si le membre a d\u00e9j\u00e0 pass\u00e9 des commandes.",
+                                "tags": [],
+                                "children": {
+                                    "commande": {
+                                        "description": "Le contenu du bloc pour chaque commande pass\u00e9e par le membre.",
+                                        "tags": {
+                                            "etat": "Etat de la commande.",
+                                            "numero_facture": "Num\u00e9ro de la commande",
+                                            "paiement": "Statut de la commande. Affiche en fonction de l'\u00e9tat : Pay\u00e9e ou A payer.",
+                                            "total_TTC": "Total TTC de la commande",
+                                            "total_HT": "Total HT de la commande",
+                                            "lien_commande": "Lien vers le fichier PDF du d\u00e9tail de la commande",
+                                            "num_jour_creation": "Affiche le num\u00e9ro du jour de la date de la commande (01 - 31).",
+                                            "jour_semaine_creation": "Affiche le jour de la semaine de la date de la commande (lundi - dimanche).",
+                                            "num_mois_creation": "Affiche le num\u00e9ro du mois de la date de la commande (01 - 12).",
+                                            "mois_creation": "Affiche le mois de la date de la commande (janvier - d\u00e9cembre).",
+                                            "mois_abrev_creation": "Affiche le mois de la date de la commande abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                                            "annee_creation": "Affiche l'ann\u00e9e de la date de la commande (2010).",
+                                            "minute_creation": "Affiche les minutes de la date de la commande (00-59).",
+                                            "heure_creation": "Affiche l'heure de la date de la commande (00-23).",
+                                            "seconde_creation": "Affiche les secondes de la date de la commande (00-59).",
+                                            "timestamp_creation": "Affiche le timestamp de la date de la commande.",
+                                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "nocommandes": {
+                                "description": "Le contenu du bloc s'affiche si le membre n'a jamais pass\u00e9 de commandes.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "produitstelecha": {
+                                "description": "Le contenu du bloc s'affiche si le membre a pass\u00e9 au moins une commande de produit virtuel",
+                                "tags": [],
+                                "children": {
+                                    "produit": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque produit virtuel \u00e0 t\u00e9l\u00e9charger",
+                                        "tags": {
+                                            "commande_id": "Num\u00e9ro de commande concern\u00e9 par le produit virtuel",
+                                            "numero_facture": "Num\u00e9ro de facture concern\u00e9 par le produit virtuel",
+                                            "intitule_variante": "Intitul\u00e9 de la variante de produit virtuel",
+                                            "intitule_produit": "Intitul\u00e9 du produit virtuel",
+                                            "lien_commande": "Lien vers le PDF de la commande",
+                                            "total_TTC": "Total TTC de la commande",
+                                            "total_HT": "Total HT de la commande",
+                                            "prix_TTC": "Total TTC de la commande",
+                                            "prix_HT": "Total HT de la commande",
+                                            "prix_TTC_valeur": "Total TTC de la commande",
+                                            "prix_HT_valeur": "Total HT de la commande",
+                                            "fichier_id": "Identifiant du fichier.",
+                                            "paye": "",
+                                            "ext": "",
+                                            "devise": ""
+                                        },
+                                        "children": {
+                                            "attente": {
+                                                "description": "Le contenu du bloc s'affiche si la commande est en attente de paiement",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "indisponible": {
+                                                "description": "Le contenu du bloc s'affiche si la commande a \u00e9t\u00e9 pay\u00e9e mais que le produit n'est plus disponible au t\u00e9l\u00e9chargement",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "telecharge": {
+                                                "description": "Le contenu du bloc s'affiche si la commande a \u00e9t\u00e9 pay\u00e9e et que le produit est disponible au t\u00e9l\u00e9chargement",
+                                                "tags": {
+                                                    "lien_fichier": "Lien vers le fichier \u00e0 t\u00e9l\u00e9charger"
+                                                },
+                                                "children": []
+                                            },
+                                            "reference": {
+                                                "description": "Le contenu du bloc s'affiche si la r\u00e9f\u00e9rence du produit virtuel \u00e0 \u00e9t\u00e9 renseign\u00e9e",
+                                                "tags": {
+                                                    "reference": "R\u00e9f\u00e9rence du produit virtuel"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "noproduitstelecha": {
+                                "description": "Le contenu du bloc s'affiche si le membre n'a pass\u00e9 aucune commande de produit virtuel",
+                                "tags": [],
+                                "children": []
+                            },
+                            "fidelite": {
+                                "description": "Le contenu du bloc s'affiche si le membre a d\u00e9j\u00e0 re\u00e7u de points de fidelit\u00e9",
+                                "tags": {
+                                    "solde_fidelite": "Solde des points de fid\u00e9lit\u00e9."
+                                },
+                                "children": {
+                                    "operations": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque gains\/utilisation de ses points de fid\u00e9lit\u00e9.",
+                                        "tags": {
+                                            "qt": "Quantit\u00e9 de points cr\u00e9dit\u00e9s ou d\u00e9bit\u00e9s. La quantit\u00e9 est n\u00e9gative pour les d\u00e9bits.",
+                                            "type": "Affiche \"credit\" ou \"debit\".",
+                                            "commentaire": "Affiche le commentaire li\u00e9 \u00e0 l'op\u00e9ration.",
+                                            "num_jour_valeur": "Affiche le num\u00e9ro du jour de la date de valeur de l'op\u00e9ration (01 - 31).",
+                                            "jour_semaine_valeur": "Affiche le jour de la semaine de la date de valeur de l'op\u00e9ration (lundi - dimanche).",
+                                            "num_mois_valeur": "Affiche le num\u00e9ro du mois de la date de valeur de l'op\u00e9ration (01 - 12).",
+                                            "mois_valeur": "Affiche le mois de la date de valeur de l'op\u00e9ration (janvier - d\u00e9cembre).",
+                                            "mois_abrev_valeur": "Affiche le mois de la date de valeur de l'op\u00e9ration abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                                            "annee_valeur": "Affiche l'ann\u00e9e de la date de valeur de l'op\u00e9ration (2010).",
+                                            "minute_valeur": "Affiche les minutes de la date de valeur de l'op\u00e9ration (00-59).",
+                                            "heure_valeur": "Affiche l'heure de la date de valeur de l'op\u00e9ration (00-23).",
+                                            "seconde_valeur": "Affiche les secondes de la date de valeur de l'op\u00e9ration (00-59).",
+                                            "timestamp_valeur": "Affiche le timestamp de la date de valeur de l'op\u00e9ration."
+                                        },
+                                        "children": {
+                                            "debit": {
+                                                "description": "Le contenu du bloc s'affiche si l'operation est un d\u00e9bit.",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "credit": {
+                                                "description": "Le contenu du bloc s'affiche si l'operation est un cr\u00e9dit.",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "date_fin": {
+                                                "description": "Le contenu du bloc s'affiche si l'operation a une date de fin de validiti\u00e9 (ex : date de p\u00e9remption des points ou date de fin de validit\u00e9 d'un bon de r\u00e9duction).",
+                                                "tags": {
+                                                    "num_jour_fin": "Affiche le num\u00e9ro du jour de la date de p\u00e9remption des points (01 - 31).",
+                                                    "jour_semaine_fin": "Affiche le jour de la semaine de la date de p\u00e9remption des points (lundi - dimanche).",
+                                                    "num_mois_fin": "Affiche le num\u00e9ro du mois de la date de p\u00e9remption des points (01 - 12).",
+                                                    "mois_fin": "Affiche le mois de la date de p\u00e9remption des points (janvier - d\u00e9cembre).",
+                                                    "mois_abrev_fin": "Affiche le mois de la date de p\u00e9remption des points abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                                                    "annee_fin": "Affiche l'ann\u00e9e de la date de p\u00e9remption des points (2010).",
+                                                    "minute_fin": "Affiche les minutes de la date de p\u00e9remption des points (00-59).",
+                                                    "heure_fin": "Affiche l'heure de la date de p\u00e9remption des points (00-23).",
+                                                    "seconde_fin": "Affiche les secondes de la date de p\u00e9remption des points (00-59).",
+                                                    "timestamp_fin": "Affiche le timestamp de la date de p\u00e9remption des points."
+                                                },
+                                                "children": []
+                                            },
+                                            "nodate_fin": {
+                                                "description": "Le contenu du bloc s'affiche si l'operation n'a pas de date de fin de validiti\u00e9",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "nofidelite": {
+                                "description": "Le contenu du bloc s'affiche si le membre n'a jamais re\u00e7u de points de fidelit\u00e9.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Abonnement \u00e0 la newsletter",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher les pr\u00e9f\u00e9rences d'abonnement \u00e0 la newsletter du site.",
+        "basePath": "widgets\/compte\/tableau_bord\/abonnements.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/abonnements.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "check_newsletter_oui": "Affiche la chaine `checked=\"checked\"` si le membre est abonn\u00e9 \u00e0 la newsletter",
+                    "check_newsletter_non": "Affiche la chaine `checked=\"checked\"` si le membre n'est pas abonn\u00e9 \u00e0 la newsletter",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Avatar",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le param\u00e9trage de l'avatar de l'internaute.",
+        "basePath": "widgets\/compte\/tableau_bord\/avatar.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/avatar.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "avatar": "Affiche l'URL de l'avatar.",
+                    "avatar_miniature": "Affiche l'URL de la version miniature de l'avatar.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                "tags": {
+                                    "erreur": "Erreur du formulaire"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Identit\u00e9 web",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le param\u00e9trage du pseudo et du iste web de l'internaute.",
+        "basePath": "widgets\/compte\/tableau_bord\/id_web.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/id_web.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "pseudo": "Affiche le pseudo.",
+                    "web": "Affiche l'url du site internet.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                "tags": {
+                                    "erreur": "Erreur du formulaire"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Informations personnelles",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le param\u00e9trage informations personnelles de l'internaute.",
+        "basePath": "widgets\/compte\/tableau_bord\/infos_perso.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/infos_perso.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "client_id": "Identifiant du membre.",
+                    "nom": "Affiche le nom du membre.",
+                    "prenom": "Affiche le pr\u00e9nom du membre.",
+                    "genre": "Affiche \"H\" pour un homme et \"F\" pour une femme.",
+                    "email": "Affiche l'adresse mail du membre.",
+                    "checked_F": "Affiche checked=\"checked\" si c'est une femme",
+                    "checked_H": "Affiche checked=\"checked\" si c'est un homme",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                "tags": {
+                                    "erreur": "Erreur du formulaire"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Mot de passe",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le param\u00e9trage du mote de passe de l'internaute.",
+        "basePath": "widgets\/compte\/tableau_bord\/motdepasse.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/motdepasse.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "erreurs": {
+                        "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                        "tags": [],
+                        "children": {
+                            "erreur": {
+                                "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                "tags": {
+                                    "erreur": "Erreur du formulaire"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Mot de passe perdu",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le formulaire de r\u00e9cup\u00e9ration de mot de passe perdu.",
+        "basePath": "widgets\/compte\/tableau_bord\/motdepasse_perdu.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/motdepasse_perdu.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "form": {
+                        "description": "Le contenu du bloc s'affiche avant la validation du formulaire.",
+                        "tags": {
+                            "email": "Affiche l'email pr\u00e9c\u00e9demment saisi."
+                        },
+                        "children": {
+                            "erreurs": {
+                                "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                                "tags": [],
+                                "children": {
+                                    "erreur": {
+                                        "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                        "tags": {
+                                            "erreur": "Erreur du formulaire"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "message": {
+                        "description": "Ce bloc s'affiche apr\u00e8s une validation sans erreurs du formulaire.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : E-mail de rappel de mot de passe perdu",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 par le mail de rappel de mot de passe perdu.",
+        "basePath": "widgets\/compte\/tableau_bord\/mail_motdepasse_perdu.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/mail_motdepasse_perdu.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "email": "Affiche l'email du membre",
+                    "motdepasse": "Affiche le mot de passe du membre"
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : E-mail r\u00e9compense bon de fid\u00e9lit\u00e9",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 par le mail informant les clients de l'obtention d'un bon de r\u00e9duction gr\u00e2ce \u00e0 leurs points de fid\u00e9lit\u00e9.",
+        "basePath": "widgets\/compte\/tableau_bord\/mail_bon_reduction.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/mail_bon_reduction.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "nom": "Affiche le nom du membre.",
+                    "prenom": "Affiche le pr\u00e9nom du membre.",
+                    "remise": "Affiche la remise du bon de r\u00e9duction.",
+                    "devise": "Code de la devise (ex : \"EUR\" pour euro)",
+                    "seuil": "Affiche le seuil d'utilisation du bon de r\u00e9duction.",
+                    "code_bon": "Affiche le code du bon de r\u00e9duction.",
+                    "num_jour_fin": "Affiche le num\u00e9ro du jour de fin de validit\u00e9 du bon.",
+                    "num_mois_fin": "Affiche le num\u00e9ro du mois de fin de validit\u00e9 du bon.",
+                    "annee_fin": "Affiche l'ann\u00e9e de fin de validit\u00e9 du bon."
+                },
+                "children": []
+            }
+        }
+    },
+    {
+        "name": "compte\/tableau_bord",
+        "label": "Tableau de bord : Cl\u00f4ture de compte",
+        "category": "Comptes",
+        "description": "Ce template est utilis\u00e9 pour afficher le formulaire de cl\u00f4ture de compte.",
+        "basePath": "widgets\/compte\/tableau_bord\/cloture.html",
+        "templates": [
+            "widgets\/compte\/tableau_bord\/cloture.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "form": {
+                        "description": "Le contenu du bloc s'affiche avant la validation du formulaire.",
+                        "tags": {
+                            "email": "Affiche l'email pr\u00e9c\u00e9demment saisi."
+                        },
+                        "children": {
+                            "erreurs": {
+                                "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                                "tags": [],
+                                "children": {
+                                    "erreur": {
+                                        "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                        "tags": {
+                                            "erreur": "Erreur du formulaire"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "message": {
+                        "description": "Ce bloc s'affiche apr\u00e8s une validation sans erreurs du formulaire.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    }
+]

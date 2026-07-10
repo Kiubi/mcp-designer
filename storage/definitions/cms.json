@@ -1,0 +1,1002 @@
+[
+    {
+        "name": "billet",
+        "label": "Contenus d'une page : Billet",
+        "category": "Site web",
+        "description": "Les billets sont affich\u00e9s avec leur template de type de billet. A noter que contrairement au Widget Liste de billets, ce widget peut s'\u00e9x\u00e9cuter dans un contexte de symbole. Les balises se r\u00e9f\u00e9rent \u00e0 une page libre n'ont alors plus de sens et n'affiche rien.",
+        "basePath": "billets",
+        "templates": [
+            "billets\/post_simple\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "type_billet": "Type du billet : affiche le nom du r\u00e9pertoire du billet dans l'espace FTP.",
+                    "titre": "Titre du billet.",
+                    "sstitre": "Sous-titre du billet.",
+                    "texte1": "Affiche le champ texte1",
+                    "texte2": "Affiche le champ texte2",
+                    "texte3": "Affiche le champ texte3",
+                    "texte4": "Affiche le champ texte4",
+                    "texte5": "Affiche le champ texte5",
+                    "texte6": "Affiche le champ texte6",
+                    "texte7": "Affiche le champ texte7",
+                    "texte8": "Affiche le champ texte8",
+                    "texte9": "Affiche le champ texte9",
+                    "texte10": "Affiche le champ texte10",
+                    "texte11": "Affiche le champ texte11",
+                    "texte12": "Affiche le champ texte12",
+                    "texte13": "Affiche le champ texte13",
+                    "texte14": "Affiche le champ texte14",
+                    "texte15": "Affiche le champ texte15",
+                    "groupe_billet": "Groupe du billet.",
+                    "intitule_page": "Intitul\u00e9 de la page libre dans laquelle se trouve le billet. Vide pour les billets de symboles",
+                    "nom_optim": "Nom optimis\u00e9 de la page libre du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition de la page libre. Vide pour les billets de symboles",
+                    "lien_page": "URL vers la page libre dans laquelle se trouve le billet. Affiche \"#\" pour les billets de symboles",
+                    "lien_billet": "URL un peu sp\u00e9ciale vers la page libre du billet. Les widgets \"Contenu de la page libre\" de la page libre du billet qui peuvent afficher ce billet n'afficheront que ce billet l\u00e0, et tous les autres widgets fonctionneront normalement. C'est tr\u00e8s utile pour faire des pages de listing et de d\u00e9tail. Affiche \"#\" pour les billets de symboles",
+                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                    "alterne": "La balise affichera alternativement 1 ou 2. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate}`.",
+                    "alterne_3": "La balise affichera alternativement 1,2 ou 3. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|3}`.",
+                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|4}`.",
+                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|5}`.",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page."
+                },
+                "children": {
+                    "titre": {
+                        "description": "Le contenu du bloc ne s'affiche que si le titre du billet n'est pas vide.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "sstitre": {
+                        "description": "Le contenu du bloc ne s'affiche que si le sous-titre du billet n'est pas vide.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte1": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte2": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte3": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte4": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte5": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte6": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte7": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte8": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte9": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte10": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte11": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte12": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte13": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte14": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte15": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "composant",
+        "label": "Contenus d'une page : Composant",
+        "category": "Site web",
+        "description": "Les composants sont affich\u00e9s avec le template de leur type.",
+        "basePath": "composants",
+        "templates": [
+            "composants\/galerie\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Permet d'identifier de mani\u00e8re unique le composant dans la page.",
+                    "component_type": "Type du composant : affiche le nom du r\u00e9pertoire du billet dans l'espace FTP.",
+                    "title": "Titre du composant.",
+                    "items_count": "Nombre d'\u00e9l\u00e9ments de la collection affich\u00e9s par le widget"
+                },
+                "children": {
+                    "xxx": {
+                        "description": "Le bloc s'affiche si le champ `xxx` n'est pas vide",
+                        "tags": {
+                            "xxx": "Affiche la valeur du champ `xxx` d\u00e9fini dans le mod\u00e8le",
+                            "xxx_label": "Affiche le label associ\u00e9 \u00e0 la valeur pour les champs de type `select`",
+                            "xxx_miniature": "Affiche l'url de la miniature pour les champs de type `image`",
+                            "xxx_vignette": "Affiche l'url de la vignette pour les champs de type `image`",
+                            "xxx_g_miniature": "Affiche l'url de la grande miniature pour les champs de type `image`",
+                            "xxx_g_vignette": "Affiche l'url de la grande vignette pour les champs de type `image`"
+                        },
+                        "children": []
+                    },
+                    "collection": {
+                        "description": "Le bloc s'affiche si le composant poss\u00e8de une collection et qu'elle contient au moins un \u00e9l\u00e9ment",
+                        "tags": [],
+                        "children": {
+                            "item": {
+                                "description": "Le bloc s'affiche pour chaque \u00e9l\u00e9ment de la collection",
+                                "tags": {
+                                    "position": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois. Il est possible d'utilise le filtre modulo `{position|alternate|X}` pour boucler tous les `X` \u00e9l\u00e9ments."
+                                },
+                                "children": {
+                                    "xxx": {
+                                        "description": "Le bloc s'affiche si le champ `xxx` de la collection n'est pas vide",
+                                        "tags": {
+                                            "xxx": "Affiche la valeur du champ `xxx` d\u00e9fini dans la collection",
+                                            "xxx_label": "Affiche le label associ\u00e9 \u00e0 la valeur pour les champs de type `select`",
+                                            "xxx_miniature": "Affiche l'url de la miniature pour les champs de type `image`",
+                                            "xxx_vignette": "Affiche l'url de la vignette pour les champs de type `image`",
+                                            "xxx_g_miniature": "Affiche l'url de la grande miniature pour les champs de type `image`",
+                                            "xxx_g_vignette": "Affiche l'url de la grande vignette pour les champs de type `image`"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "empty": {
+                        "description": "Le bloc s'affiche si le composant poss\u00e8de une collection et qu'elle est collection est vide",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "symbole",
+        "label": "Symbole",
+        "category": "Site web",
+        "description": "Ce widget affiche l'int\u00e9gralit\u00e9 d'un symbole du Site web.",
+        "basePath": "symboles",
+        "templates": [
+            "symboles\/3cols\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Permet d'identifier de mani\u00e8re unique l'instance du symbole dans la page.",
+                    "title": "Titre du symbole",
+                    "model": "Mod\u00e8le de template du symbole",
+                    "slug": "Nom optimis\u00e9 du symbole",
+                    "ZONE.xxx": "Ins\u00e8re les Widgets de la zone \"xxx\" telle qu'ils ont \u00e9t\u00e9 configur\u00e9s dans la mise en page du symbole. Les noms (identifiants) des zones sont d\u00e9finis dans le fichier \"structure.xhtml\" propre au mod\u00e8le de mise en page."
+                },
+                "children": {
+                    "xxx": {
+                        "description": "Le bloc s'affiche si le champ `xxx` n'est pas vide",
+                        "tags": {
+                            "xxx": "Affiche la valeur du champ `xxx` d\u00e9fini dans le mod\u00e8le",
+                            "xxx_label": "Affiche le label associ\u00e9 \u00e0 la valeur pour les champs de type `select`",
+                            "xxx_miniature": "Affiche l'url de la miniature pour les champs de type `image`",
+                            "xxx_vignette": "Affiche l'url de la vignette pour les champs de type `image`",
+                            "xxx_g_miniature": "Affiche l'url de la grande miniature pour les champs de type `image`",
+                            "xxx_g_vignette": "Affiche l'url de la grande vignette pour les champs de type `image`"
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "site_web\/bloc_extrait",
+        "label": "Bloc d'extrait",
+        "category": "Site web",
+        "description": "Ce widget tr\u00e8s important affiche un extrait des billets d'une page libre du Site web.\nIl affiche les billets d'une page libre **en ne conservant PAS le mod\u00e8le de mise en page** propre \u00e0 chaque billet mais **en appliquant un unique mod\u00e8le de mise en page** \u00e0 tous les billets affich\u00e9s.\n\n**Avertissement : l'apparence des billets affich\u00e9s par le widget \u00ab Bloc d'extrait \u00bb sera donc d\u00e9termin\u00e9e par le mod\u00e8le graphique du widget et non pas par les mod\u00e8les graphiques des diff\u00e9rents types de billets affich\u00e9s.**",
+        "basePath": "widgets\/site_web\/bloc_extrait\/index.html",
+        "templates": [
+            "widgets\/site_web\/bloc_extrait\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_page_optim": "Nom optimis\u00e9 de la page dont le contenu doit \u00eatre affich\u00e9. Affiche \"all\" si le widget affiche les billets de toutes les pages.",
+                    "widget_inclus": "Affiche 1 si le contenu des sous-pages de la page choisie sont inclus. 0 dans le cs contraire",
+                    "widget_groupe": "Affiche le crit\u00e8re de restriction d'affichage \u00e0 un groupe",
+                    "widget_order_api": "Crit\u00e8re de tri appliqu\u00e9s \u00e0 l'API Front-office",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des r\u00e9sum\u00e9s",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "billet": {
+                        "description": "Le contenu du bloc s'affiche pour chaque billet.",
+                        "tags": {
+                            "auteur": "Nom de l'auteur du billet.",
+                            "auteur_modif": "Nom de l'utilisateur qui a modifi\u00e9 le billet en dernier.",
+                            "accueil": "Affiche 1 si la page libre du billet est la page d'accueil, sinon affiche 0.",
+                            "lien_billet": "URL sp\u00e9ciale vers la page libre du billet. Les widgets \"Contenu de la page libre\" de la page libre du billet qui peuvent afficher ce billet n'afficherons que ce billet l\u00e0, et tous les autres widgets fonctionneront normalement.",
+                            "lien_page": "URL vers la page libre du billet.",
+                            "billet_id": "Id du billet.",
+                            "pagelibre_id": "",
+                            "type_billet": "Type du billet. Affiche le nom du r\u00e9pertoire du billet dans l'espace FTP.",
+                            "titre": "Titre du billet.",
+                            "sstitre": "Sous-titre du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "groupe_billet": "Groupe du billet.",
+                            "page_id": "",
+                            "intitule_page": "Intitul\u00e9 de la page libre du billet.",
+                            "lg": "",
+                            "nom_optim": "Nom optimis\u00e9 de la page libre du billet.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5.",
+                            "resume_texte1": "Version tronqu\u00e9e du contenu du champ texte1. Configurable dans le widget.",
+                            "resume_texte2": "Version tronqu\u00e9e du contenu du champ texte2. Configurable dans le widget."
+                        },
+                        "children": {
+                            "resume_texte1": {
+                                "description": "Le contenu du bloc ne s'affiche que si le resume_texte1 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "resume_texte2": {
+                                "description": "Le contenu du bloc ne s'affiche que si le resume_texte2 du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "titre": {
+                                "description": "Le contenu du bloc ne s'affiche que si le titre du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "sstitre": {
+                                "description": "Le contenu du bloc ne s'affiche que si le sous-titre du billet n'est pas vide.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nobillet": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun billet \u00e0 afficher.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "nav1": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nav2": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "site_web\/contenu_page_libre",
+        "label": "Liste de billets",
+        "category": "Site web",
+        "description": "Ce widget affiche uniquement les billets d'une page libre tout en conservant le mod\u00e8le de mise en page propre \u00e0 chaque billet.\n\nPour plus d'informations sur les mod\u00e8les de mise en page des billets, voir la section [les types de billets](generalites.html#bloc2).\n\n**Avertissement : L'apparence du widget \u00ab Liste de billets \u00bb sera donc d\u00e9termin\u00e9e par les diff\u00e9rents mod\u00e8les de mise en page des diff\u00e9rents types de billets affich\u00e9s.**",
+        "basePath": "widgets\/site_web\/contenu_page_libre\/index.html",
+        "templates": [
+            "widgets\/site_web\/contenu_page_libre\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "liste_billets": "Affiche la liste des billets, c'est \u00e0 dire le contenu d'une page libre du Site web.",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_page_optim": "Nom optimis\u00e9 de la page dont le contenu doit \u00eatre affich\u00e9. Affiche \"all\" si le widget affiche les billets de toutes les pages.",
+                    "widget_inclus": "Affiche 1 si le contenu des sous-pages de la page choisie sont inclus. 0 dans le cs contraire",
+                    "widget_groupe": "Affiche le crit\u00e8re de restriction d'affichage aux groupes",
+                    "widget_order_api": "Crit\u00e8re de tri appliqu\u00e9s \u00e0 l'API Front-office",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "nobillet": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun billet \u00e0 afficher.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "nav1": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nav2": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "billet",
+        "label": "Liste des billets : Type de billet",
+        "category": "Site web",
+        "description": "Mise en forme d'un type de billet",
+        "basePath": "billets",
+        "templates": [
+            "billets\/post_simple\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "billet_id": "Id du billet.",
+                    "type_billet": "Type du billet : affiche le nom du r\u00e9pertoire du billet dans l'espace FTP.",
+                    "titre": "Titre du billet.",
+                    "sstitre": "Sous-titre du billet.",
+                    "texte1": "Affiche le champ texte1",
+                    "texte2": "Affiche le champ texte2",
+                    "texte3": "Affiche le champ texte3",
+                    "texte4": "Affiche le champ texte4",
+                    "texte5": "Affiche le champ texte5",
+                    "texte6": "Affiche le champ texte6",
+                    "texte7": "Affiche le champ texte7",
+                    "texte8": "Affiche le champ texte8",
+                    "texte9": "Affiche le champ texte9",
+                    "texte10": "Affiche le champ texte10",
+                    "texte11": "Affiche le champ texte11",
+                    "texte12": "Affiche le champ texte12",
+                    "texte13": "Affiche le champ texte13",
+                    "texte14": "Affiche le champ texte14",
+                    "texte15": "Affiche le champ texte15",
+                    "groupe_billet": "Groupe du billet.",
+                    "intitule_page": "Intitul\u00e9 de la page libre dans laquelle se trouve le billet.",
+                    "nom_optim": "Nom optimis\u00e9 de la page libre du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition de la page libre.",
+                    "lien_page": "URL vers la page libre dans laquelle se trouve le billet.",
+                    "lg": "",
+                    "auteur": "",
+                    "auteur_modif": "",
+                    "pagelibre_id": "",
+                    "lien_billet": "URL un peu sp\u00e9ciale vers la page libre du billet. Les widgets \"Contenu de la page libre\" de la page libre du billet qui peuvent afficher ce billet n'afficheront que ce billet l\u00e0, et tous les autres widgets fonctionneront normalement. C'est tr\u00e8s utile pour faire des pages de listing et de d\u00e9tail.",
+                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                    "alterne": "La balise affichera alternativement 1 ou 2. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate}`.",
+                    "alterne_3": "La balise affichera alternativement 1,2 ou 3. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|3}`.",
+                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|4}`.",
+                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5. Il est pr\u00e9f\u00e9rable d'utiliser le filtre `{compteur|alternate|5}`.",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_page_id": "Identifiant de la page",
+                    "widget_page_optim": "Nom optimis\u00e9 de la page dont le contenu doit \u00eatre affich\u00e9. Affiche \"all\" si le widget affiche les billets de toutes les pages.",
+                    "widget_inclus": "Affiche 1 si le contenu des sous-pages de la page choisie sont inclus. 0 dans le cs contraire",
+                    "widget_groupe": "Affiche le crit\u00e8re de restriction d'affichage aux groupes",
+                    "widget_order_api": "Crit\u00e8re de tri appliqu\u00e9s \u00e0 l'API Front-office",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "titre": {
+                        "description": "Le contenu du bloc ne s'affiche que si le titre du billet n'est pas vide.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "sstitre": {
+                        "description": "Le contenu du bloc ne s'affiche que si le sous-titre du billet n'est pas vide.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte1": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte2": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte3": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte4": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte5": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte6": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte7": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte8": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte9": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte10": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte11": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte12": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte13": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte14": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte15": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "site_web\/menu_h",
+        "label": "Menu Horizontal",
+        "category": "Site web",
+        "description": "Affiche un menu de navigation du Site web de mani\u00e8re horizontale.",
+        "basePath": "widgets\/site_web\/menu_h\/index.html",
+        "templates": [
+            "widgets\/site_web\/menu_h\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_menu_id": "Identifiant du menu \u00e0 afficher",
+                    "widget_niveau": "Affiche le niveau de menu choisit"
+                },
+                "children": {
+                    "menu": {
+                        "description": "Le contenu du bloc s'affiche s'il y a des pages \u00e0 afficher dans ce menu.",
+                        "tags": [],
+                        "children": {
+                            "pagetype": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page du menu.",
+                                "tags": {
+                                    "page": "Intitul\u00e9 de la page.",
+                                    "cible": "Cible du lien (attribut target).",
+                                    "actif": "Affiche actif si la page est active, c'est-\u00e0-dire si l'internaute s'y trouve. Sinon n'affiche rien.",
+                                    "lien": "URL du lien vers la page correspondante.",
+                                    "type": "Type de la page. Affiche page pour une page libre, lien_ext pour un lien externe, lien_int pour un lien interne et ne renvoie aucune valeur pour un s\u00e9parateur.",
+                                    "menu_niv": "Niveau de profondeur de la page du menu. Affiche 01 pour une page de niveau 1, 02 pour une page de niveau 2, 03 pour une page de niveau 3 et 04 pour une page de niveau 4.",
+                                    "niveau": "Niveau de profondeur de la page du menu en fonction du niveau d'arborescence affich\u00e9. Affiche 1 pour le premier niveau d'arborescence affich\u00e9, 2 pour le deuxi\u00e8me niveau d'arborescence affich\u00e9, 3 pour le troisi\u00e8me niveau d'arborescence affich\u00e9 et 4 pour le quatri\u00e8me niveau d'arborescence affich\u00e9."
+                                },
+                                "children": {
+                                    "spacer": {
+                                        "description": "Le contenu du bloc s'affiche si l'\u00e9l\u00e9ment \u00e0 afficher est un s\u00e9parateur. C'est dans ce bloc qu'on utilise g\u00e9n\u00e9ralement les balises de ce widget.",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "page": {
+                                        "description": "Le contenu du bloc s'affiche si l'\u00e9l\u00e9ment \u00e0 afficher est une page (tout sauf un s\u00e9parateur). C'est dans ce bloc qu'on utilise g\u00e9n\u00e9ralement les balises de ce widget.",
+                                        "tags": {
+                                            "lien_type": "Si la page est un lien interne, affiche le type de cible du lien sous la forme d'un identifiant :\n - cms_page\n - contact_page\n - client_page\n - blog_accueil\n - blog_categorie\n - catalogue_accueil\n - catalogue_categorie\n - catalogue_produit"
+                                        },
+                                        "children": {
+                                            "lien_image": {
+                                                "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'une image",
+                                                "tags": {
+                                                    "url_lien_image": "Affiche l'url de l'image",
+                                                    "url_lien_image_miniature": "Affiche l'url de la miniature",
+                                                    "url_lien_image_vignette": "Affiche l'url de la vignette ",
+                                                    "url_lien_image_g_miniature": "Affiche l'url de la grande miniature ",
+                                                    "url_lien_image_g_vignette": "Affiche l'url de la grande vignette",
+                                                    "ext_lien_image": ""
+                                                },
+                                                "children": []
+                                            },
+                                            "lien_description": {
+                                                "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'une description",
+                                                "tags": {
+                                                    "lien_description": "Affiche la description"
+                                                },
+                                                "children": []
+                                            },
+                                            "lien_extra": {
+                                                "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'informations compl\u00e9mentaires",
+                                                "tags": {
+                                                    "lien_extra": "Affiche les informations compl\u00e9mentaires"
+                                                },
+                                                "children": []
+                                            },
+                                            "lien_attributs": {
+                                                "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'attributs",
+                                                "tags": {
+                                                    "lien_attributs": "Affiche les attributs"
+                                                },
+                                                "children": []
+                                            },
+                                            "illustration": {
+                                                "description": "Le contenu du bloc s'affiche si la page a une illustration (lien interne vers une cat\u00e9gorie du catalogue).",
+                                                "tags": {
+                                                    "illustration": "Num\u00e9ro de fichier dans la m\u00e9diath\u00e8que de l'illustration.",
+                                                    "url_illustration": "Url compl\u00e8te de l'illustration",
+                                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration",
+                                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration",
+                                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration",
+                                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nomenu": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucune page \u00e0 afficher dans ce menu.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "site_web\/menu_v",
+        "label": "Menu Vertical",
+        "category": "Site web",
+        "description": "Affiche un menu de navigation du Site web de mani\u00e8re verticale.",
+        "basePath": "widgets\/site_web\/menu_v\/index.html",
+        "templates": [
+            "widgets\/site_web\/menu_v\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_menu_id": "Identifiant du menu \u00e0 afficher",
+                    "widget_niveaux": "Affiche les niveaux choisit s\u00e9par\u00e9s par des virgules (ex : \"1,2,3\")",
+                    "widget_deployer": "Affiche 1 si le menu est d\u00e9ploy\u00e9. 0 dans le cas contraire."
+                },
+                "children": {
+                    "menu": {
+                        "description": "Le contenu du bloc s'affiche s'il y a des pages \u00e0 afficher dans ce menu.",
+                        "tags": [],
+                        "children": {
+                            "intitule": {
+                                "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                                "tags": {
+                                    "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                                },
+                                "children": []
+                            },
+                            "niveau": {
+                                "description": "Le contenu du bloc est recopi\u00e9 pour chaque niveau d'arborescence",
+                                "tags": [],
+                                "children": {
+                                    "pagetype": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque page du menu.",
+                                        "tags": {
+                                            "menu_niv": "Niveau de profondeur de la page du menu. Affiche 01 pour une page de niveau 1, 02 pour une page de niveau 2, 03 pour une page de niveau 3 et 04 pour une page de niveau 4.",
+                                            "page": "Intitul\u00e9 de la page.",
+                                            "type": "Type de la page. Affiche page pour une page libre, lien_ext pour un lien externe, lien_int pour un lien interne et ne renvoie aucune valeur pour un s\u00e9parateur.",
+                                            "cible": "Cible du lien (attribut target).",
+                                            "actif": "Affiche actif si la page est active. Sinon n'affiche rien.",
+                                            "lien": "URL du lien vers la page correspondante.",
+                                            "page_niv": "Niveau de profondeur de la page du menu en fonction du niveau d'arborescence affich\u00e9.Affiche 01 pour le premier niveau d'arborescence affich\u00e9, 02 pour le deuxi\u00e8me niveau d'arborescence affich\u00e9, 03 pour le troisi\u00e8me niveau d'arborescence affich\u00e9 et 04 pour le quatri\u00e8me niveau d'arborescence affich\u00e9.",
+                                            "niveau": "Niveau de profondeur de la page du menu en fonction du niveau d'arborescence affich\u00e9. Affiche 1 pour le premier niveau d'arborescence affich\u00e9, 2 pour le deuxi\u00e8me niveau d'arborescence affich\u00e9, 3 pour le troisi\u00e8me niveau d'arborescence affich\u00e9 et 4 pour le quatri\u00e8me niveau d'arborescence affich\u00e9.",
+                                            "page_fille": "Affiche \"1\" si la page contient une ou plusieurs pages filles, \"0\" dans le cas contraire.",
+                                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque page."
+                                        },
+                                        "children": {
+                                            "sspage": {
+                                                "description": "Le bloc s'affiche s'il y a des pages d'un niveau inf\u00e9rieur.",
+                                                "tags": {
+                                                    "sspage": "Balise sp\u00e9ciale \u00e0 mettre imp\u00e9rativement dans le bloc \"pagetype\" mais apr\u00e8s les blocs \"spacer\" et \"page\". Elle permet d'afficher les diff\u00e9rents niveaux d'arborescence les uns dans les autres."
+                                                },
+                                                "children": []
+                                            },
+                                            "spacer": {
+                                                "description": "Le contenu du bloc s'affiche si l'\u00e9l\u00e9ment \u00e0 afficher est un s\u00e9parateur. C'est dans ce bloc qu'on utilise g\u00e9n\u00e9ralement les balises de ce widget.",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "page": {
+                                                "description": "Le contenu du bloc s'affiche si l'\u00e9l\u00e9ment \u00e0 afficher est une page (tout sauf un s\u00e9parateur). C'est dans ce bloc qu'on utilise g\u00e9n\u00e9ralement les balises de ce widget.",
+                                                "tags": {
+                                                    "lien_type": "Si la page est un lien interne, affiche le type de cible du lien sous la forme d'un identifiant :\n - cms_page\n - contact_page\n - client_page\n - blog_accueil\n - blog_categorie\n - catalogue_accueil\n - catalogue_categorie\n - catalogue_produit"
+                                                },
+                                                "children": {
+                                                    "lien_image": {
+                                                        "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'une image",
+                                                        "tags": {
+                                                            "url_lien_image": "Affiche l'url de l'image",
+                                                            "url_lien_image_miniature": "Affiche l'url de la miniature",
+                                                            "url_lien_image_vignette": "Affiche l'url de la vignette ",
+                                                            "url_lien_image_g_miniature": "Affiche l'url de la grande miniature ",
+                                                            "url_lien_image_g_vignette": "Affiche l'url de la grande vignette",
+                                                            "ext_lien_image": ""
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    "lien_description": {
+                                                        "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'une description",
+                                                        "tags": {
+                                                            "lien_description": "Affiche la description"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    "lien_extra": {
+                                                        "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'informations compl\u00e9mentaires",
+                                                        "tags": {
+                                                            "lien_extra": "Affiche les informations compl\u00e9mentaires"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    "lien_attributs": {
+                                                        "description": "Le contenu du bloc s'affiche si la page est une lien interne et qu'il dispose d'attributs",
+                                                        "tags": {
+                                                            "lien_attributs": "Affiche les attributs"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    "illustration": {
+                                                        "description": "Le contenu du bloc s'affiche si la page a une illustration (lien interne vers une cat\u00e9gorie du catalogue exclusivement).",
+                                                        "tags": {
+                                                            "illustration": "Num\u00e9ro de fichier dans la m\u00e9diath\u00e8que de l'illustration.",
+                                                            "url_illustration": "Url compl\u00e8te de l'illustration",
+                                                            "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration",
+                                                            "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration",
+                                                            "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration",
+                                                            "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nomenu": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucune page \u00e0 afficher dans ce menu.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,1444 @@
+[
+    {
+        "name": "blog\/derniers_billets_postes",
+        "label": "Derniers billets post\u00e9s",
+        "category": "Blog",
+        "description": "Affiche la liste des derniers billets du blog post\u00e9s.",
+        "basePath": "widgets\/blog\/derniers_billets_postes\/index.html",
+        "templates": [
+            "widgets\/blog\/derniers_billets_postes\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "billet": {
+                        "description": "Ce bloc s'affiche pour chaque billet.",
+                        "tags": {
+                            "billet_id": "Identifiant unique du billet",
+                            "titre": "Titre du billet",
+                            "en_avant": "Affiche 1 si le billet est \u00e9pingl\u00e9, sinon affiche 0.",
+                            "chapo": "Chap\u00f4 du billet",
+                            "contenu": "Contenu du billet",
+                            "accroche": "Accroche du billet. Affiche le chap\u00f4 du billet ou son contenu si son chap\u00f4 est vide.",
+                            "type_billet": "Type du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "categorie_id": "Identifiant unique de la cat\u00e9gorie du billet.",
+                            "commentaires_ouverts": "Affiche 1 quand les commentaires du billet sont ouverts, sinon 0.",
+                            "nom_optim": "Nom optimis\u00e9 du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition du billet.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet.",
+                            "nb_commentaires": "Nombre de commentaires",
+                            "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est dans la page d'\u00e9dition d'une cat\u00e9gorie du Blog dans le champ \"Nom de \nla page\"",
+                            "date_crea": "",
+                            "date_modif": "",
+                            "datetime_crea": "",
+                            "datetime_modif": "",
+                            "date_pub": "",
+                            "nom_crea": "",
+                            "nom_modif": "",
+                            "lien_billet": "URL vers le billet",
+                            "lienperma_billet": "URL compl\u00e8te (avec le nom de domaine) vers le billet",
+                            "lien_categorie": "URL vers la cat\u00e9gorie du billet",
+                            "auteur": "Auteur du billet",
+                            "pluriel_commentaire": "Affiche \"s\" si le billet contient plus d'un commentaire",
+                            "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                            "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                            "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                            "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                            "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                            "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                            "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                            "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                            "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": {
+                            "accroche": {
+                                "description": "Le contenu du bloc s'affiche si l'accroche du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "contenu": {
+                                "description": "Le contenu du bloc s'affiche si le contenu du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "chapo": {
+                                "description": "Le contenu du bloc s'affiche si le chap\u00f4 du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "detail": {
+                                "description": "Le contenu du bloc s'affiche si ni le chap\u00f4 ni le contenu du billet ne sont vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_avant": {
+                                "description": "Le bloc s'affiche si le billet est \u00e9pingl\u00e9.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "illustration": {
+                                "description": "Le contenu du bloc s'affiche si le billet a une illustration",
+                                "tags": {
+                                    "url_illustration": "Url compl\u00e8te de l'illustration principale du billet",
+                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                    "ext_illustration": "Extension de fichier de l'illustration principale du billet"
+                                },
+                                "children": []
+                            },
+                            "noillustration": {
+                                "description": "Le bloc s'affiche si le billet n'a pas d'illustration",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nobillet": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun billet dans le blog",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/detail_billet",
+        "label": "D\u00e9tail billet",
+        "category": "Blog",
+        "description": "Affiche le d\u00e9tail d'un billet\n\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"D\u00e9tail du billet\" du service \"Blog\".**",
+        "basePath": "widgets\/blog\/detail_billet\/index.html",
+        "templates": [
+            "widgets\/blog\/detail_billet\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "billet_id": "Identifiant unique du billet",
+                    "titre": "Titre du billet",
+                    "en_avant": "Affiche 1 si le billet est \u00e9pingl\u00e9, sinon affiche 0.",
+                    "chapo": "Chap\u00f4 du billet",
+                    "contenu": "Contenu du billet",
+                    "accroche": "Accroche du billet. Affiche le chap\u00f4 du billet ou son contenu si son chap\u00f4 est vide.",
+                    "type_billet": "Type du billet.",
+                    "texte1": "Affiche le champ texte1",
+                    "texte2": "Affiche le champ texte2",
+                    "texte3": "Affiche le champ texte3",
+                    "texte4": "Affiche le champ texte4",
+                    "texte5": "Affiche le champ texte5",
+                    "texte6": "Affiche le champ texte6",
+                    "texte7": "Affiche le champ texte7",
+                    "texte8": "Affiche le champ texte8",
+                    "texte9": "Affiche le champ texte9",
+                    "texte10": "Affiche le champ texte10",
+                    "texte11": "Affiche le champ texte11",
+                    "texte12": "Affiche le champ texte12",
+                    "texte13": "Affiche le champ texte13",
+                    "texte14": "Affiche le champ texte14",
+                    "texte15": "Affiche le champ texte15",
+                    "categorie_id": "Identifiant unique de la cat\u00e9gorie du billet.",
+                    "commentaires_ouverts": "Affiche 1 quand les commentaires du billet sont ouverts, sinon 0.",
+                    "nom_optim": "Nom optimis\u00e9 du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition du billet.",
+                    "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet.",
+                    "nb_commentaires": "Nombre de commentaires",
+                    "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est dans la page d'\u00e9dition d'une cat\u00e9gorie du Blog dans le champ \"Nom de \nla page\"",
+                    "date_crea": "",
+                    "date_modif": "",
+                    "datetime_crea": "",
+                    "datetime_modif": "",
+                    "nom_crea": "",
+                    "nom_modif": "",
+                    "lien_billet": "URL vers le billet",
+                    "lienperma_billet": "URL compl\u00e8te (avec le nom de domaine) vers le billet",
+                    "lien_categorie": "URL vers la cat\u00e9gorie du billet",
+                    "auteur": "Auteur du billet",
+                    "pluriel_commentaire": "Affiche \"s\" si le billet contient plus d'un commentaire",
+                    "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                    "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                    "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                    "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                    "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                    "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                    "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                    "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                    "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                    "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                    "schema_json": "Donn\u00e9es structur\u00e9es du billet au format json-ld.",
+                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5.",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "commentaires": {
+                        "description": "Le contenu de cette balise s'affiche si le billet a au moins un commentaire.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "bookmarqueurs": {
+                        "description": "Le contenu du bloc s'affiche quand les bookmarqueurs sont activ\u00e9s dans la liste des billets. Cette option est \nconfigurable dans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                        "tags": [],
+                        "children": {
+                            "bookmarqueur": {
+                                "description": "Le contenu du bloc s'affiche pour chaque bookmarqueur mis en avant. Ce choix est configurable dans \"Mon site \/ \nBlog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                                "tags": {
+                                    "bk_img": "Ic\u00f4ne du bookmarqueur",
+                                    "bk_code": "Nom du bookmarqueur",
+                                    "bk_url": "URL pr\u00e9format\u00e9e pour marquer ce billet chez le bookmarqueur"
+                                },
+                                "children": []
+                            },
+                            "plus": {
+                                "description": "Le contenu du bloc s'affiche s'il y a des bookmarqueurs qui ne sont pas mis en avant. Ce choix est configurable \ndans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                                "tags": [],
+                                "children": {
+                                    "bookmarqueur": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque bookmarqueur qui n'est pas mis en avant. Ce choix est configurable \ndans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\"",
+                                        "tags": {
+                                            "bk_img": "Ic\u00f4ne du bookmarqueur",
+                                            "bk_code": "Nom du bookmarqueur",
+                                            "bk_url": "URL pr\u00e9format\u00e9e pour marquer ce billet chez le bookmarqueur"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "accroche": {
+                        "description": "Le contenu du bloc s'affiche si l'accroche du billet n'est pas vide",
+                        "tags": [],
+                        "children": []
+                    },
+                    "contenu": {
+                        "description": "Le contenu du bloc s'affiche si le contenu du billet n'est pas vide",
+                        "tags": [],
+                        "children": []
+                    },
+                    "chapo": {
+                        "description": "Le contenu du bloc s'affiche si le chap\u00f4 du billet n'est pas vide",
+                        "tags": [],
+                        "children": []
+                    },
+                    "en_avant": {
+                        "description": "Le bloc s'affiche si le billet est \u00e9pingl\u00e9.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte1": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte2": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte3": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte4": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte5": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte6": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte7": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte8": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte9": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte10": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte11": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte12": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte13": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte14": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "texte15": {
+                        "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "illustration": {
+                        "description": "Le contenu du bloc s'affiche si le billet a une illustration",
+                        "tags": {
+                            "url_illustration": "Url compl\u00e8te de l'illustration principale du billet",
+                            "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                            "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                            "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                            "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                            "ext_illustration": "Extension de fichier de l'illustration principale du billet"
+                        },
+                        "children": []
+                    },
+                    "noillustration": {
+                        "description": "Le bloc s'affiche si le billet n'a pas d'illustration",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/les_plus_commentes",
+        "label": "Billets les plus comment\u00e9s",
+        "category": "Blog",
+        "description": "Affiche la liste des billets les plus comment\u00e9s",
+        "basePath": "widgets\/blog\/les_plus_commentes\/index.html",
+        "templates": [
+            "widgets\/blog\/les_plus_commentes\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "billet": {
+                        "description": "Ce bloc s'affiche pour chaque billet parmis les plus comment\u00e9s",
+                        "tags": {
+                            "billet_id": "Identifiant unique du billet",
+                            "titre": "Titre du billet",
+                            "en_avant": "Affiche 1 si le billet est \u00e9pingl\u00e9, sinon affiche 0.",
+                            "chapo": "Chap\u00f4 du billet",
+                            "contenu": "Contenu du billet",
+                            "accroche": "Accroche du billet. Affiche le chap\u00f4 du billet ou son contenu si son chap\u00f4 est vide.",
+                            "type_billet": "Type du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "categorie_id": "Identifiant unique de la cat\u00e9gorie du billet.",
+                            "commentaires_ouverts": "Affiche 1 quand les commentaires du billet sont ouverts, sinon 0.",
+                            "nom_optim": "Nom optimis\u00e9 du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition du billet.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet.",
+                            "nb_commentaires": "Nombre de commentaires",
+                            "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est dans la page d'\u00e9dition d'une cat\u00e9gorie du Blog dans le champ \"Nom de \nla page\"",
+                            "date_crea": "",
+                            "date_modif": "",
+                            "datetime_crea": "",
+                            "datetime_modif": "",
+                            "nom_crea": "",
+                            "nom_modif": "",
+                            "lien_billet": "URL vers le billet",
+                            "lienperma_billet": "URL compl\u00e8te (avec le nom de domaine) vers le billet",
+                            "lien_categorie": "URL vers la cat\u00e9gorie du billet",
+                            "auteur": "Auteur du billet",
+                            "pluriel_commentaire": "Affiche \"s\" si le billet contient plus d'un commentaire",
+                            "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                            "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                            "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                            "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                            "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                            "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                            "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                            "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                            "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": {
+                            "accroche": {
+                                "description": "Le contenu du bloc s'affiche si l'accroche du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "contenu": {
+                                "description": "Le contenu du bloc s'affiche si le contenu du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "chapo": {
+                                "description": "Le contenu du bloc s'affiche si le chap\u00f4 du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "detail": {
+                                "description": "Le contenu du bloc s'affiche si ni le chap\u00f4 ni le contenu du billet ne sont vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_avant": {
+                                "description": "Le bloc s'affiche si le billet est \u00e9pingl\u00e9.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "illustration": {
+                                "description": "Le contenu du bloc s'affiche si le billet a une illustration",
+                                "tags": {
+                                    "url_illustration": "Url compl\u00e8te de l'illustration principale du billet",
+                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                    "ext_illustration": "Extension de fichier de l'illustration principale du billet"
+                                },
+                                "children": []
+                            },
+                            "noillustration": {
+                                "description": "Le bloc s'affiche si le billet n'as pas d'illustrations",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nobillet": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun billet dans le blog",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/liens",
+        "label": "Liens",
+        "category": "Blog",
+        "description": "Affiche les Liens sympas du Blog (\u00ab Blogroll \u00bb).",
+        "basePath": "widgets\/blog\/liens\/index.html",
+        "templates": [
+            "widgets\/blog\/liens\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "lien": {
+                        "description": "Ce bloc s'affiche pour chaque lien",
+                        "tags": {
+                            "lien_id": "Identifiant unique du lien",
+                            "intitule_lien": "Intitul\u00e9 du lien",
+                            "adresse_lien": "URL compl\u00e8te du lien",
+                            "desc_lien": "Description du lien",
+                            "tri": "",
+                            "date_crea": "",
+                            "date_modif": "",
+                            "auteur": "Nom du cr\u00e9ateur du lien",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": []
+                    },
+                    "nolien": {
+                        "description": "Ce bloc s'affiche su aucun lien n'est disponible",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/liste_billets",
+        "label": "Liste des billets",
+        "category": "Blog",
+        "description": "Ce widget tr\u00e8s important affiche les billets du Blog. \nLa liste des billets affich\u00e9s d\u00e9pend de la configuration du widget",
+        "basePath": "widgets\/blog\/liste_billets\/index.html",
+        "templates": [
+            "widgets\/blog\/liste_billets\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_categorie_id": "Choix de la cat\u00e9gorie dont le contenu doit \u00eatre affich\u00e9.",
+                    "widget_order_api": "Crit\u00e8re de tri appliqu\u00e9s \u00e0 l'API Front-office",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des accroches",
+                    "widget_afficher_navigation": "Affiche 1 si la navigation est affich\u00e9e, 0 si elle est masqu\u00e9e"
+                },
+                "children": {
+                    "billet": {
+                        "description": "Ce bloc s'affiche pour chaque billet",
+                        "tags": {
+                            "billet_id": "Identifiant unique du billet",
+                            "titre": "Titre du billet",
+                            "en_avant": "Affiche 1 si le billet est \u00e9pingl\u00e9, sinon affiche 0.",
+                            "chapo": "Chap\u00f4 du billet",
+                            "contenu": "Contenu du billet",
+                            "accroche": "Accroche du billet. Affiche le chap\u00f4 du billet ou son contenu si son chap\u00f4 est vide.",
+                            "type_billet": "Type du billet.",
+                            "texte1": "Affiche le champ texte1",
+                            "texte2": "Affiche le champ texte2",
+                            "texte3": "Affiche le champ texte3",
+                            "texte4": "Affiche le champ texte4",
+                            "texte5": "Affiche le champ texte5",
+                            "texte6": "Affiche le champ texte6",
+                            "texte7": "Affiche le champ texte7",
+                            "texte8": "Affiche le champ texte8",
+                            "texte9": "Affiche le champ texte9",
+                            "texte10": "Affiche le champ texte10",
+                            "texte11": "Affiche le champ texte11",
+                            "texte12": "Affiche le champ texte12",
+                            "texte13": "Affiche le champ texte13",
+                            "texte14": "Affiche le champ texte14",
+                            "texte15": "Affiche le champ texte15",
+                            "categorie_id": "Identifiant unique de la cat\u00e9gorie du billet.",
+                            "commentaires_ouverts": "Affiche 1 quand les commentaires du billet sont ouverts, sinon 0.",
+                            "nom_optim": "Nom optimis\u00e9 du billet (c'est \u00e0 dire la derni\u00e8re partie de l'URL de la page), tel qu'il est d\u00e9fini dans les options avanc\u00e9es de la page d'\u00e9dition du billet.",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet.",
+                            "nb_commentaires": "Nombre de commentaires",
+                            "categorie_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est dans la page d'\u00e9dition d'une cat\u00e9gorie du Blog dans le champ \"Nom de \nla page\"",
+                            "date_modif": "",
+                            "nom_crea": "",
+                            "nom_modif": "",
+                            "date_pub": "",
+                            "lien_billet": "URL vers le billet",
+                            "lienperma_billet": "URL compl\u00e8te (avec le nom de domaine) vers le billet",
+                            "lien_categorie": "URL vers la cat\u00e9gorie du billet",
+                            "auteur": "Auteur du billet",
+                            "pluriel_commentaire": "Affiche \"s\" si le billet contient plus d'un commentaire",
+                            "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                            "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                            "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                            "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                            "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                            "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                            "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                            "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                            "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": {
+                            "bookmarqueurs": {
+                                "description": "Le contenu du bloc s'affiche quand les bookmarqueurs sont activ\u00e9s dans la liste des billets. Cette option est \nconfigurable dans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                                "tags": [],
+                                "children": {
+                                    "bookmarqueur": {
+                                        "description": "Le contenu du bloc s'affiche pour chaque bookmarqueur mis en avant. Ce choix est configurable dans \"Mon site \/ \nBlog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                                        "tags": {
+                                            "bk_img": "Ic\u00f4ne du bookmarqueur",
+                                            "bk_code": "Nom du bookmarqueur",
+                                            "bk_url": "URL pr\u00e9format\u00e9e pour marquer ce billet chez le bookmarqueur"
+                                        },
+                                        "children": []
+                                    },
+                                    "plus": {
+                                        "description": "Le contenu du bloc s'affiche s'il y a des bookmarqueurs qui ne sont pas mis en avant. Ce choix est configurable \ndans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\".",
+                                        "tags": [],
+                                        "children": {
+                                            "bookmarqueur": {
+                                                "description": "Le contenu du bloc s'affiche pour chaque bookmarqueur qui n'est pas mis en avant. Ce choix est configurable \ndans \"Mon site \/ Blog \/ Configuration et Pr\u00e9f\u00e9rences\"",
+                                                "tags": {
+                                                    "bk_img": "Ic\u00f4ne du bookmarqueur",
+                                                    "bk_code": "Nom du bookmarqueur",
+                                                    "bk_url": "URL pr\u00e9format\u00e9e pour marquer ce billet chez le bookmarqueur"
+                                                },
+                                                "children": []
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "accroche": {
+                                "description": "Le contenu du bloc s'affiche si l'accroche du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "contenu": {
+                                "description": "Le contenu du bloc s'affiche si le contenu du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "chapo": {
+                                "description": "Le contenu du bloc s'affiche si le chap\u00f4 du billet n'est pas vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "detail": {
+                                "description": "Le contenu du bloc s'affiche si ni le chap\u00f4 ni le contenu du billet ne sont vide",
+                                "tags": [],
+                                "children": []
+                            },
+                            "en_avant": {
+                                "description": "Le bloc s'affiche si le billet est \u00e9pingl\u00e9.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte1": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte2": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte3": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte4": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte5": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte6": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte7": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte8": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte9": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte10": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte11": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte12": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte13": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte14": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "texte15": {
+                                "description": "Les contenus des blocs ne s'affichent que si les contenus des champs textes correspondants ne sont pas vides.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "illustration": {
+                                "description": "Le contenu du bloc s'affiche si le billet a une illustration",
+                                "tags": {
+                                    "url_illustration": "Url compl\u00e8te de l'illustration principale du billet",
+                                    "url_illustration_miniature": "Url compl\u00e8te de la miniature de l'illustration principale",
+                                    "url_illustration_vignette": "Url compl\u00e8te de la vignette de l'illustration principale",
+                                    "url_illustration_g_miniature": "Url compl\u00e8te de la grande miniature de l'illustration principale",
+                                    "url_illustration_g_vignette": "Url compl\u00e8te de la grande vignette de l'illustration principale",
+                                    "ext_illustration": "Extension de fichier de l'illustration principale du billet"
+                                },
+                                "children": []
+                            },
+                            "noillustration": {
+                                "description": "Le bloc s'affiche si le billet n'a pas d'illustration",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nobillet": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun billet dans le blog",
+                        "tags": [],
+                        "children": []
+                    },
+                    "nav1": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nav2": {
+                        "description": "Bloc d'affichage de la navigation, voir guide du designer 1ere partie",
+                        "tags": {
+                            "lien_premier": "URL vers la premi\u00e8re page.",
+                            "lien_precedent": "URL vers la page pr\u00e9c\u00e9dente.",
+                            "lien_dernier": "URL vers la derni\u00e8re page.",
+                            "lien_suivant": "URL vers la page suivante.",
+                            "nb_pages": "Nombre de page du listing.",
+                            "nb_resultats": "Nombre d'\u00e9l\u00e9ment dans le listing.",
+                            "num_page": "Num\u00e9ro de la page courante."
+                        },
+                        "children": {
+                            "pages": {
+                                "description": "Le contenu du bloc s'affiche pour chaque page.",
+                                "tags": {
+                                    "lien_page": "URL vers la page",
+                                    "page": "Num\u00e9ro de la page.",
+                                    "selected": "Affiche \"selected\" si la page est la page courante. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            },
+                            "premier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "dernier": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "suivant": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la derni\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "precedent": {
+                                "description": "Le contenu du bloc s'affiche si on n'est pas sur la premi\u00e8re page du listing.",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/liste_commentaires",
+        "label": "Liste des commentaires",
+        "category": "Blog",
+        "description": "Affiche les commentaires d'un billet du Blog.\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"D\u00e9tail du billet\" du service \"Blog\".**",
+        "basePath": "widgets\/blog\/liste_commentaires\/index.html",
+        "templates": [
+            "widgets\/blog\/liste_commentaires\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "pluriel_commentaire": "Affiche \"s\" si le nombre de commenraire est sup\u00e9rieur \u00e0 1",
+                    "nb_commentaires": "Affiche le nombre de commentaires",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "commentaire": {
+                        "description": "Ce bloc s'affiche pour chaque commentaires du billet en cours d'affichage",
+                        "tags": [],
+                        "children": {
+                            "site_auteur": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire a renseign\u00e9 un site internet",
+                                "tags": [],
+                                "children": []
+                            },
+                            "nosite_auteur": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire n'a pas renseign\u00e9 de site internet",
+                                "tags": [],
+                                "children": []
+                            },
+                            "admin": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire est administrateur du site",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "commentaires": {
+                        "description": "Ce bloc s'affiche s'il y a au moins un commentaire.",
+                        "tags": [],
+                        "children": {
+                            "commentaire": {
+                                "description": "Ce bloc s'affiche pour chaque commentaires du billet en cours d'affichage.",
+                                "tags": {
+                                    "commentaire_id": "Identifiant unique du commentaire",
+                                    "client_fantome": "",
+                                    "nom_client": "",
+                                    "avatar": "URL relative de l'avatar de l'auteur du commentaire",
+                                    "avatar_miniature": "URL relative de l'avatar miniature de l'auteur du commentaire",
+                                    "gravatar": "Gravatar de l'auteur du commentaire en 120x120 pixel",
+                                    "gravatar_miniature": "Gravatar de l'auteur du commentaire en 40x40 pixel",
+                                    "billet_id": "Identifiant unique du billet",
+                                    "titre": "Titre du commentaire",
+                                    "commentaire": "Contenu textuel du commentaire",
+                                    "auteur": "Auteur du commentaire",
+                                    "email": "Adresse email de l'auteur",
+                                    "site_auteur": "Site interne de l'auteur",
+                                    "IP": "Adresse IP de l'auteur",
+                                    "origine": "",
+                                    "reverse_host": "",
+                                    "categorie_id": "Indentifiant num\u00e9rique de la cat\u00e9gorie du billet",
+                                    "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet",
+                                    "titre_billet": "Titre du billet",
+                                    "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                                    "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                                    "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                                    "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                                    "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                                    "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                                    "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                                    "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                                    "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                                    "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                                    "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                                    "alterne": "La balise affichera alternativement 1 ou 2.",
+                                    "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                                    "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                                    "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                                },
+                                "children": {
+                                    "site_auteur": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "nosite_auteur": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    },
+                                    "admin": {
+                                        "description": "",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "nocommentaire": {
+                        "description": "Le contenu du bloc s'affiche si aucun commentaire n'a \u00e9t\u00e9 post\u00e9 pour le billet en cours d'affichage",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/poster_commentaire",
+        "label": "Poster un commentaire",
+        "category": "Blog",
+        "description": "Affiche le formulaire d'ajout de commentaires \u00e0 un billet du Blog.\n**Avertissement : ce widget ne peut \u00eatre utilis\u00e9 que sur la page type \"D\u00e9tail du billet\" du service \"Blog\".**",
+        "basePath": "widgets\/blog\/poster_commentaire\/index.html",
+        "templates": [
+            "widgets\/blog\/poster_commentaire\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "commentaires_identification": {
+                        "description": "Le contenu du bloc s'affiche si les commentaires anonymes sont refus\u00e9s et que l'internaute n'est pas encore identifi\u00e9.",
+                        "tags": [],
+                        "children": []
+                    },
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "commentaires_ouverts": {
+                        "description": "Le contenu du bloc s'affiche si les commentaires sont ouverts pour le billet en cours d'affichage.",
+                        "tags": {
+                            "commentaire": "contenu du champ commentaire pr\u00e9c\u00e9demment rempli"
+                        },
+                        "children": {
+                            "consentement": {
+                                "description": "Ce bloc s'affiche si le recueilement du consentement est activ\u00e9",
+                                "tags": {
+                                    "check_consentement": "Renvoi checked=\"checked\" pour accepter le recueil des donn\u00e9es."
+                                },
+                                "children": []
+                            },
+                            "identifie": {
+                                "description": "Le contenu du bloc s'affiche si l'internaute est d\u00e9j\u00e0 identifi\u00e9",
+                                "tags": {
+                                    "auteur": "Auteur identifi\u00e9",
+                                    "email": "Email du compte identifi\u00e9",
+                                    "site_web": "Site web du compte identifi\u00e9"
+                                },
+                                "children": []
+                            },
+                            "nonidentifie": {
+                                "description": "Le contenu du bloc s'affiche si l'internaute n'est pas identifi\u00e9",
+                                "tags": {
+                                    "auteur": "contenu du champ auteur pr\u00e9c\u00e9demment rempli",
+                                    "email": "contenu du champ email pr\u00e9c\u00e9demment rempli",
+                                    "site_web": "contenu du champ site_web pr\u00e9c\u00e9demment rempli"
+                                },
+                                "children": []
+                            },
+                            "erreurs": {
+                                "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                                "tags": [],
+                                "children": {
+                                    "erreur": {
+                                        "description": "Ce bloc s'affiche pour chaque erreur du formulaire",
+                                        "tags": {
+                                            "erreur": "Erreur du formulaire"
+                                        },
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "intitule": {
+                                "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli. Ce bloc permet en outre de ne pas afficher du tout l'intitul\u00e9 si les commentaires sont ferm\u00e9s",
+                                "tags": [],
+                                "children": []
+                            },
+                            "captcha": {
+                                "description": "Le contenu du bloc s'affiche si le captcha (dispositif anti-spam) est activ\u00e9. Cette option est configurable \"Mon site \/ Blog \/ Param\u00e8tres\"",
+                                "tags": {
+                                    "captcha_question": "Question du captcha.",
+                                    "captcha_id": "Id du captcha."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "commentaires_fermes": {
+                        "description": "Le contenu du bloc s'affiche si les commentaires sont ferm\u00e9s pour le billet en cours d'affichage",
+                        "tags": [],
+                        "children": []
+                    },
+                    "commentaires_moderes": {
+                        "description": "l'internaute viens de poster un commentaire mais les commentaires ne sont pas publi\u00e9 automatiquement => on affiche un message d'avertissement",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/archives",
+        "label": "Archives",
+        "category": "Blog",
+        "description": "Affiche les archives du Blog sous la forme d'une liste de mois.\nChaque mois permet de restreindre l'affichage des billets \u00e0 ceux qui ont \u00e9t\u00e9 post\u00e9s ce mois-ci.",
+        "basePath": "widgets\/blog\/archives\/index.html",
+        "templates": [
+            "widgets\/blog\/archives\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "archive": {
+                        "description": "Le contenu du blog s'affiche pour chaque mois qui contient au moins un article",
+                        "tags": {
+                            "num_mois_archive": "Num\u00e9ro du mois",
+                            "mois_archive": "Nom du mois",
+                            "annee_archive": "Ann\u00e9e",
+                            "lien_archive": "Lien vers les archives",
+                            "actif": "Affiche actif si la page courante correspond au mois-ann\u00e9e du bloc actuellement affich\u00e9",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": []
+                    },
+                    "noarchive": {
+                        "description": "Le contenu du blog s'affiche si aucune archive n'est disponible",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/categories",
+        "label": "Cat\u00e9gories",
+        "category": "Blog",
+        "description": "Affiche la liste des cat\u00e9gories du Blog. \nChaque cat\u00e9gorie permet de restreindre l'affichage des billets \u00e0 ceux qui ont \u00e9t\u00e9 post\u00e9s dans cette cat\u00e9gorie.",
+        "basePath": "widgets\/blog\/categories\/index.html",
+        "templates": [
+            "widgets\/blog\/categories\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "accueil": {
+                        "description": "Bloc pars\u00e9 pour la cat\u00e9gorie d'accueil",
+                        "tags": {
+                            "intitule_accueil": "Intitul\u00e9 de la cat\u00e9gorie d'accueil",
+                            "actif": "Affiche actif si la cat\u00e9gorie courante est l'accueil",
+                            "lien_accueil": "Lien vers la page d'accueil"
+                        },
+                        "children": []
+                    },
+                    "categorie": {
+                        "description": "Bloc pars\u00e9 pour chacune des cat\u00e9gories",
+                        "tags": {
+                            "actif": "Affiche actif si la cat\u00e9gorie courante est la cat\u00e9gorie pars\u00e9",
+                            "categorie_id": "Identifiant unique de la cat\u00e9gorie",
+                            "intitule_categorie": "Inititul\u00e9 de la cat\u00e9gorie",
+                            "nom_optim": "Nom optimis\u00e9 de la cat\u00e9gorie tel qu'il est d\u00e9fini dans la console d'administration dans la page d'\u00e9dition d'une cat\u00e9gorie du \"Blog\" dans le champ \"Nom de la page\".",
+                            "lien_categorie": "Lien vers la cat\u00e9gorie",
+                            "tri": "",
+                            "nb_billets": "Nombre de billets publi\u00e9s contenu dans la cat\u00e9gorie",
+                            "auteur": "Nom du cr\u00e9ateur de la cat\u00e9gorie",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "blog\/derniers_commentaires_postes",
+        "label": "Derniers commentaires post\u00e9s",
+        "category": "Blog",
+        "description": "Affiche les derniers commentaires post\u00e9s dans le Blog",
+        "basePath": "widgets\/blog\/derniers_commentaires_postes\/index.html",
+        "templates": [
+            "widgets\/blog\/derniers_commentaires_postes\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_limit": "Nombre maximum d'\u00e9l\u00e9ments affich\u00e9s",
+                    "widget_resume": "Longueur maximale des r\u00e9sum\u00e9s"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "commentaire": {
+                        "description": "Le contenu du bloc s'affiche pour chaque commentaire post\u00e9s",
+                        "tags": {
+                            "commentaire_id": "Identifiant unique du commentaire",
+                            "client_fantome": "",
+                            "nom_client": "",
+                            "avatar": "URL relative de l'avatar de l'auteur du commentaire",
+                            "avatar_miniature": "URL relative de l'avatar miniature de l'auteur du commentaire",
+                            "gravatar": "Gravatar de l'auteur du commentaire en 120x120 pixel",
+                            "gravatar_miniature": "Gravatar de l'auteur du commentaire en 40x40 pixel",
+                            "lien_billet": "URL relative du billet",
+                            "billet_id": "Identifiant unique du billet",
+                            "titre": "Titre du commentaire",
+                            "commentaire": "Contenu textuel du commentaire",
+                            "resume_commentaire": "Extrait textuel du commentaire sans balise HTML",
+                            "auteur": "Auteur du commentaire",
+                            "email": "Adresse email de l'auteur",
+                            "site_auteur": "Site interne de l'auteur",
+                            "IP": "Adresse IP de l'auteur",
+                            "origine": "",
+                            "reverse_host": "",
+                            "categorie_id": "Indentifiant num\u00e9rique de la cat\u00e9gorie du billet",
+                            "intitule_categorie": "Intitul\u00e9 de la cat\u00e9gorie du billet",
+                            "titre_billet": "Titre du billet",
+                            "num_jour_publication": "Affiche le num\u00e9ro du jour de la date de publication (01 - 31).",
+                            "jour_semaine_publication": "Affiche le jour de la semaine de la date de publication (lundi - dimanche).",
+                            "num_mois_publication": "Affiche le num\u00e9ro du mois de la date de publication (01 - 12).",
+                            "mois_publication": "Affiche le mois de la date de publication (janvier - d\u00e9cembre).",
+                            "mois_abrev_publication": "Affiche le mois de la date de publication abr\u00e9g\u00e9 (jan - d\u00e9c)",
+                            "annee_publication": "Affiche l'ann\u00e9e de la date de publication (2010).",
+                            "minute_publication": "Affiche les minutes de la date de publication (00-59).",
+                            "heure_publication": "Affiche l'heure de la date de publication (00-23).",
+                            "seconde_publication": "Affiche les secondes de la date de publication (00-59).",
+                            "timestamp_publication": "Affiche le timestamp de la date de publication.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque fois.",
+                            "alterne": "La balise affichera alternativement 1 ou 2.",
+                            "alterne_3": "La balise affichera alternativement 1,2 ou 3.",
+                            "alterne_4": "La balise affichera alternativement 1,2,3 ou 4.",
+                            "alterne_5": "La balise affichera alternativement 1,2,3,4 ou 5."
+                        },
+                        "children": {
+                            "site_auteur": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire a renseign\u00e9 un site internet",
+                                "tags": [],
+                                "children": []
+                            },
+                            "nosite_auteur": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire n'a pas renseign\u00e9 de site internet",
+                                "tags": [],
+                                "children": []
+                            },
+                            "admin": {
+                                "description": "Le contenu du bloc s'affiche si l'auteur du commentaire est administrateur du site",
+                                "tags": [],
+                                "children": []
+                            }
+                        }
+                    },
+                    "nocommentaire": {
+                        "description": "Le contenu du bloc s'affiche si aucun commentaire n'a \u00e9t\u00e9 post\u00e9",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    }
+]

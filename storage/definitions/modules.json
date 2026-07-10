@@ -1,0 +1,418 @@
+[
+    {
+        "name": "communication\/contact",
+        "label": "Formulaire de contact",
+        "category": "Modules",
+        "description": "Afficher le formulaire de contact.\nSi l'utilisateur ne rempli pas correctement tous les champs, le formulaire se r\u00e9affichera avec un message d'erreur indiquant quels champs sont manquants ou incorrects. Le formulaire sera pr\u00e9-rempli avec les informations pr\u00e9c\u00e9demment saisies.\nSi toutes les informations obligatoires ont \u00e9t\u00e9 saisies, un email sera envoy\u00e9 au destinataire et la page se rechargera et n'affichera plus le formulaire, mais seulement le message de confirmation.\n\nContrairement aux autres widgets, le Formulaire de contact est compos\u00e9 de 2 fichiers : \n\n- index.html : correspond au formulaire de contact \u00e0 proprement dit.\n- mail.html: correspond \u00e0 l'email (au format texte) envoy\u00e9.",
+        "basePath": "widgets\/communication\/contact\/index.html",
+        "templates": [
+            "widgets\/communication\/contact\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "contact": {
+                        "description": "Le bloc contient le formulaire de contact. Il s'affiche tant que le formulaire n'est pas valid\u00e9.",
+                        "tags": [],
+                        "children": {
+                            "erreurs": {
+                                "description": "Le contenu du bloc s'affiche s'il y a des erreurs \u00e0 la soumission du formulaire.",
+                                "tags": {
+                                    "erreurs": "Affiche toutes les erreurs en une fois."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "champ": {
+                        "description": "Le contenu du bloc s'affiche pour chaque champ du formulaire de contact.",
+                        "tags": {
+                            "type": "Type du champ. Les valeurs possibles sont : \"text\", \"textarea\", \"chiffres\", \"lettres\", \"email\" et \"civilite\".",
+                            "id": "Id du champ.",
+                            "obligatoire": "Affiche obligatoire si le champ est d\u00e9sign\u00e9 comme tel. Sinon n'affiche rien.",
+                            "intitule": "Intitul\u00e9 du champ.",
+                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque champ.",
+                            "valeur": "Cette balise sert \u00e0 r\u00e9afficher la valeur pr\u00e9c\u00e9demment saisie dans le formulaire en cas d'erreur.",
+                            "name": "Nom du champ dans le formulaire (attribut name de la balise input)"
+                        },
+                        "children": {
+                            "obligatoire": {
+                                "description": "Le contenu du bloc s'affiche si le champ est obligatoire.",
+                                "tags": [],
+                                "children": []
+                            },
+                            "text": {
+                                "description": "Le contenu du bloc s'affiche si le champ est de type \"texte\", \"que des chiffres\", \"que des lettres\", \"email\"",
+                                "tags": [],
+                                "children": []
+                            },
+                            "textarea": {
+                                "description": "Le contenu du bloc s'affiche si le champ est de type \"texte multiligne\"",
+                                "tags": [],
+                                "children": []
+                            },
+                            "civilite": {
+                                "description": "Le contenu du bloc s'affiche si le champ est de type \"civilite\"",
+                                "tags": {
+                                    "checked_m": "Affiche checked=\"checked\" si la civilit\u00e9 \"M\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien.",
+                                    "checked_mme": "Affiche checked=\"checked\" si la civilit\u00e9 \"Mme\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien.",
+                                    "checked_mlle": "Affiche checked=\"checked\" si la civilit\u00e9 \"Mlle\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "message": {
+                        "description": "Le contenu du bloc s'affiche \u00e0 la place du formulaire de contact (bloc \"contact\") si tous les \u00e9l\u00e9ments obligatoires ont bien \u00e9t\u00e9 fournis et que la demande de contact a \u00e9t\u00e9 envoy\u00e9e.",
+                        "tags": {
+                            "message": "Message de confirmation d'envoi de la demande de contact. Ce message est personnalisable dans \"Mon site \/ Communication \/ Formulaire de contact\"."
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "communication\/contact",
+        "label": "Formulaire de contact : E-mail de confirmation",
+        "category": "Modules",
+        "description": "Template du mail envoy\u00e9 par le formulaire de contact",
+        "basePath": "widgets\/communication\/contact\/mail.html",
+        "templates": [
+            "widgets\/communication\/contact\/mail.html"
+        ],
+        "blocks": []
+    },
+    {
+        "name": "communication\/newsletter",
+        "label": "Newsletter",
+        "category": "Modules",
+        "description": "Affiche le formulaire d'inscription\/d\u00e9sinscription \u00e0 la newsletter.\nSeul l'email peut \u00eatre demand\u00e9. Si l'utilisateur ne remplit par correctement ce champ, le formulaire se r\u00e9affichera avec un message. Le formulaire sera aussi rempli avec les informations pr\u00e9c\u00e9demment saisies.\nSi toutes les informations obligatoires ont \u00e9t\u00e9 saisies, la page se rechargera et n'affichera plus le formulaire, mais seulement un message de confirmation.\nNote : **Kiubi ne permet pas d'envoyer des newsletters**. Seule l'inscription (ou la d\u00e9sinscription) est possible ainsi que l'export des abonn\u00e9s au format .xls.",
+        "basePath": "widgets\/communication\/newsletter\/index.html",
+        "templates": [
+            "widgets\/communication\/newsletter\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base)."
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "form": {
+                        "description": "Le bloc contient le formulaire.",
+                        "tags": {
+                            "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                            "email": "Cette balise sert \u00e0 r\u00e9afficher la valeur pr\u00e9c\u00e9demment saisie dans le formulaire en cas d'erreur.",
+                            "checked_in": "Affiche checked=\"checked\" si l'utilisateur voulait s'inscrire. Sinon n'affiche rien.",
+                            "checked_out": "Affiche checked=\"checked\" si l'utilisateur voulait se d\u00e9sinscrire. Sinon n'affiche rien."
+                        },
+                        "children": {
+                            "erreur": {
+                                "description": "Le contenu du bloc s'affiche en cas d'erreur dans l'inscription ou la d\u00e9sinscription. L'email de la personne peut \u00eatre invalide ou bien la personne cherche \u00e0 s'inscrire alors qu'elle est d\u00e9j\u00e0 inscrite.",
+                                "tags": {
+                                    "erreur": "Message d'erreur. Ce message est personnalisable dans \"Mon site \/ Communication \/ Abonn\u00e9s \u00e0 la Newsletter\" (voir champs \"Si d\u00e9j\u00e0 inscrit\", \"Si pas encore inscrit\")."
+                                },
+                                "children": []
+                            }
+                        }
+                    },
+                    "validation": {
+                        "description": "Le contenu du bloc s'affiche \u00e0 la place du formulaire (bloc \"form\") si le champ email a \u00e9t\u00e9 rempli et que l'inscription ou la d\u00e9sinscription s'est bien pass\u00e9e.",
+                        "tags": {
+                            "message": "Message de confirmation. Ce message est personnalisable dans \"Mon site \/ Communication \/ Abonn\u00e9s \u00e0 la Newsletter\" (voir champs \"Si inscription valid\u00e9e\", \"Si d\u00e9sinscription valid\u00e9e\")."
+                        },
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "communication\/syndication_blog",
+        "label": "Syndication",
+        "category": "Modules",
+        "description": "Affiche les liens vers les derniers billets du Blog sous forme de flux (RSS ou ATOM) et les int\u00e8gre dans la page pour \u00eatre reconnus automatiquement par les navigateurs.\nPar d\u00e9faut, seuls les liens du flux de la cat\u00e9gorie courante du Blog sont affich\u00e9s.",
+        "basePath": "widgets\/communication\/syndication_blog\/index.html",
+        "templates": [
+            "widgets\/communication\/syndication_blog\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9.",
+                "tags": {
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_format": "Affiche les format de flux s\u00e9l\u00e9ctionn\u00e9s s\u00e9par\u00e9s par un virgule (rss2.0 ou atom)"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "flux": {
+                        "description": "Le contenu du bloc s'affiche pour chaque flux.",
+                        "tags": {
+                            "lien_flux": "URL vers le flux de syndication.",
+                            "intitule_flux": "Intitul\u00e9 du flux qui reprends le format du flux (\"ATOM\" ou \"RSS 2.0\")."
+                        },
+                        "children": []
+                    },
+                    "noflux": {
+                        "description": "Le contenu du bloc s'affiche s'il n'y a aucun flux.",
+                        "tags": [],
+                        "children": []
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "communication\/formulaires",
+        "label": "Dismoi?",
+        "category": "Modules",
+        "description": "Afficher un formulaire dismoi. Dismoi? est le module de gestion de formulaires avanc\u00e9s.",
+        "basePath": "widgets\/communication\/formulaires\/index.html",
+        "templates": [
+            "widgets\/communication\/formulaires\/index.html"
+        ],
+        "blocks": {
+            "main": {
+                "description": "Bloc racine tout le temps affich\u00e9",
+                "tags": {
+                    "form_id": "Identifiant unique du formulaire",
+                    "serial": "Identifiant unique du widget dans la page. Permet d'identifier de mani\u00e8re unique le widget dans la page.",
+                    "ctl": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "jeton": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "action": "Cette balise est pr\u00e9sente dans certains widgets qui utilisent un formulaire. Elle y a alors une utilit\u00e9 technique, sans elle le formulaire ne fonctionnera pas.",
+                    "widget_modele": "Nom du mod\u00e8le utilis\u00e9 par le widget (vide pour le mod\u00e8le de base).",
+                    "widget_form_api": "Identifiant API Front-office du formulaire"
+                },
+                "children": {
+                    "intitule": {
+                        "description": "Ne s'affiche que si l'intitul\u00e9 du widget est rempli.",
+                        "tags": {
+                            "intitule_form": "Cet intitul\u00e9 est param\u00e9trable lors de l'\u00e9dition d'un widget dans la gestion de l'Apparence de la Console d'administration de Kiubi."
+                        },
+                        "children": []
+                    },
+                    "message": {
+                        "description": "Ce bloc s'affiche apr\u00e8s la soumission du formulaire, si un message est renseign\u00e9",
+                        "tags": {
+                            "message": "Message de remerciement",
+                            "alias_*": "Affiche la valeur d'un champ en fonction de son alias. Le nom de la balise est construit \u00e0 partir de l'alias qui est tranform\u00e9 en minuscule et dont tous les caract\u00e8res sp\u00e9caux ont \u00e9t\u00e9 filtr\u00e9s (cf filtre sanitize)"
+                        },
+                        "children": []
+                    },
+                    "form": {
+                        "description": "Ce bloc s'affiche si le formulaire n'a pas \u00e9t\u00e9 soumis",
+                        "tags": [],
+                        "children": {
+                            "fieldset": {
+                                "description": "Ce bloc s'affiche pour chaque fieldset",
+                                "tags": [],
+                                "children": {
+                                    "debut_fieldset": {
+                                        "description": "Ce bloc s'affiche \u00e0 chaque d\u00e9but de fieldset.",
+                                        "tags": {
+                                            "legend": "Intitul\u00e9 du fieldset"
+                                        },
+                                        "children": []
+                                    },
+                                    "champ": {
+                                        "description": "Ce bloc s'affiche pour chaque champ du formulaire",
+                                        "tags": {
+                                            "compteur": "La balise affichera un compteur commen\u00e7ant \u00e0 1 et qui sera incr\u00e9ment\u00e9 de 1 \u00e0 chaque champ.",
+                                            "name": "Nom du champ dans le formulaire (attribut name de la balise input)",
+                                            "id": "Id du champ.",
+                                            "intitule": "Intitul\u00e9 du champ.",
+                                            "type": "Type du champ. Les valeurs possibles sont : \"text\", \"textarea\", \"chiffres\", \"lettres\", \"email\", \"checkbox\", \"select\", \"civilite\", \"date\", \"datetime\", \"radio\", \"departements\", \"regions\", \"pays\", \"hidden\".",
+                                            "alias": "Alias du champ.",
+                                            "obligatoire": "Affiche obligatoire si le champ est d\u00e9sign\u00e9 comme tel. Sinon n'affiche rien.",
+                                            "erreur": "La balise affichera 'erreur' si le champ est en erreur lors de la validation"
+                                        },
+                                        "children": {
+                                            "aide": {
+                                                "description": "Le contenu du bloc s'affiche si une aide textuelle pour le champ existe",
+                                                "tags": {
+                                                    "aide": "Aide textuelle du champ"
+                                                },
+                                                "children": []
+                                            },
+                                            "checkbox": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"checkbox\"",
+                                                "tags": [],
+                                                "children": {
+                                                    "option": {
+                                                        "description": "Ce bloc s'affiche pour chaque valeur possible",
+                                                        "tags": {
+                                                            "checked": "Cette balise sert \u00e0 reselectionner la valeur pr\u00e9c\u00e9demment choisie dans le formulaire en cas d'erreur.",
+                                                            "value": "Valeur du champ checkbox",
+                                                            "label": "Label de la valeur"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                }
+                                            },
+                                            "radio": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"radio\"",
+                                                "tags": [],
+                                                "children": {
+                                                    "option": {
+                                                        "description": "Ce bloc s'affiche pour chaque valeur possible",
+                                                        "tags": {
+                                                            "checked": "Cette balise sert \u00e0 reselectionner la valeur pr\u00e9c\u00e9demment choisie dans le formulaire en cas d'erreur.",
+                                                            "value": "Valeur du champ radio",
+                                                            "label": "Label de la valeur"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                }
+                                            },
+                                            "civilite": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"civilite\"",
+                                                "tags": {
+                                                    "checked_m": "Affiche checked=\"checked\" si la civilit\u00e9 \"M\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien.",
+                                                    "checked_mme": "Affiche checked=\"checked\" si la civilit\u00e9 \"Mme\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien.",
+                                                    "checked_mlle": "Affiche checked=\"checked\" si la civilit\u00e9 \"Mlle\" avait \u00e9t\u00e9 choisie. Sinon n'affiche rien."
+                                                },
+                                                "children": []
+                                            },
+                                            "text": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"text\", \"chiffres\", \"lettres\" ou \"email\"",
+                                                "tags": {
+                                                    "valeur": "Valeur du champ texte"
+                                                },
+                                                "children": []
+                                            },
+                                            "textarea": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"textarea\"",
+                                                "tags": {
+                                                    "valeur": "Valeur du champ textearea"
+                                                },
+                                                "children": []
+                                            },
+                                            "date": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"date\"",
+                                                "tags": {
+                                                    "valeur": "Valeur du champ date"
+                                                },
+                                                "children": []
+                                            },
+                                            "datetime": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"date et heure\"",
+                                                "tags": {
+                                                    "valeur": "Valeur du champ datetime"
+                                                },
+                                                "children": []
+                                            },
+                                            "upload": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"upload\"",
+                                                "tags": [],
+                                                "children": []
+                                            },
+                                            "select": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"select\"",
+                                                "tags": [],
+                                                "children": {
+                                                    "option": {
+                                                        "description": "Ce bloc s'affiche pour chaque valeur possible",
+                                                        "tags": {
+                                                            "checked": "Cette balise sert \u00e0 reselectionner la valeur pr\u00e9c\u00e9demment choisie dans le formulaire en cas d'erreur.",
+                                                            "selected": "Cette balise sert \u00e0 reselectionner la valeur pr\u00e9c\u00e9demment choisie dans le formulaire en cas d'erreur.",
+                                                            "value": "Cette balise sert \u00e0 r\u00e9afficher la valeur pr\u00e9c\u00e9demment saisie dans le formulaire en cas d'erreur.",
+                                                            "label": "Label de la valeur"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                }
+                                            },
+                                            "obligatoire": {
+                                                "description": "Ce bloc s'affiche si le champ est obligatoire",
+                                                "tags": [],
+                                                "children": []
+                                            }
+                                        }
+                                    },
+                                    "fin_fieldset": {
+                                        "description": "Ce bloc s'affiche \u00e0 chaque fin de fieldset.",
+                                        "tags": [],
+                                        "children": []
+                                    }
+                                }
+                            },
+                            "hidden": {
+                                "description": "Le contenu du bloc s'affiche pour chaque de type \"cach\u00e9\".",
+                                "tags": {
+                                    "name": "Nom du champ dans le formulaire (attribut name de la balise input)",
+                                    "valeur": "Valeur du champ cach\u00e9"
+                                },
+                                "children": []
+                            },
+                            "erreurs": {
+                                "description": "Ce bloc s'affiche si le formulaire contient des erreurs",
+                                "tags": {
+                                    "erreurs": "Erreur(s) rencontr\u00e9e(s)"
+                                },
+                                "children": []
+                            },
+                            "captcha": {
+                                "description": "Ce bloc s'affiche si le formulaire est prot\u00e9g\u00e9 par un captcha",
+                                "tags": {
+                                    "captcha_question": "Question du captcha",
+                                    "captcha_id": "Jeton du captcha",
+                                    "erreur": "La balise affichera 'erreur' si le champ est en erreur lors de la validation"
+                                },
+                                "children": []
+                            },
+                            "consentement": {
+                                "description": "Ce bloc s'affiche si le recueilement du consentement est activ\u00e9.",
+                                "tags": {
+                                    "finalites": "Affiche les traitements et finalit\u00e9 de la collecte des donn\u00e9es personnelles.",
+                                    "check_consentement": "Renvoi checked=\"checked\" pour accepter le recueil des donn\u00e9es.",
+                                    "erreur": "La balise affichera 'erreur' si le champ est en erreur lors de la validation"
+                                },
+                                "children": []
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    {
+        "name": "communication\/formulaires",
+        "label": "Dismoi? : E-mail de confirmation",
+        "category": "Modules",
+        "description": "Template du mail envoy\u00e9 par le formulaire dismoi.",
+        "basePath": "widgets\/communication\/formulaires\/mail.html",
+        "templates": [
+            "widgets\/communication\/formulaires\/mail.html"
+        ],
+        "blocks": []
+    }
+]
