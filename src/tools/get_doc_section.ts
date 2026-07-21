@@ -143,9 +143,7 @@ function fetchSection(category: Category, section: string): string {
     const sectionList = listH2Titles(content);
     
     if (category === 'workflows') {
-        matchingWords = normalize(section)
-            .split(/[^a-z0-9]+/)
-            .map((s) => (s.length === 1 ? `workflow ${s}` : s));
+        matchingWords = matchingWords.filter(x => x !== 'workflow');
     }
     const matchingSection = matchSection(sectionList, matchingWords);
     
