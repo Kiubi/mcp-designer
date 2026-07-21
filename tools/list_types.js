@@ -1,65 +1,53 @@
-import {z} from "zod";
-import {defineTool} from "../tool.ts";
-import {ThemeInspector, resolveLangs} from "#lib/theme-checker/index";
-import type {TypeDefinition} from "#lib/theme-checker/types";
-import {join} from "node:path";
-
-export const LIST_TYPES = ["billet_page", "symbole", "composant", "produit", "billet_blog", "template"] as const;
-type ListType = typeof LIST_TYPES[number];
-
-const TYPE_MAP: Record<ListType, (inspector: ThemeInspector) => {items: TypeDefinition[], subdir: string}> = {
+import { z } from "zod";
+import { defineTool } from "../tool.js";
+import { ThemeInspector, resolveLangs } from "#lib/theme-checker/index";
+import { join } from "node:path";
+export const LIST_TYPES = ["billet_page", "symbole", "composant", "produit", "billet_blog", "template"];
+const TYPE_MAP = {
     billet_page: (i) => {
-        return {items : i.listCms(), subdir: 'billets'}
+        return { items: i.listCms(), subdir: 'billets' };
     },
     symbole: (i) => {
-        return {items : i.listSymbols(), subdir: 'symboles'}
+        return { items: i.listSymbols(), subdir: 'symboles' };
     },
     composant: (i) => {
-        return {items : i.listComponents(), subdir: 'composants'}
+        return { items: i.listComponents(), subdir: 'composants' };
     },
     produit: (i) => {
-        return {items : i.listProducts(), subdir: 'produits'}
+        return { items: i.listProducts(), subdir: 'produits' };
     },
     billet_blog: (i) => {
-        return {items : i.listBlogs(), subdir: 'billets_blog'}
+        return { items: i.listBlogs(), subdir: 'billets_blog' };
     },
     template: (i) => {
-        return {items : i.listModels(), subdir: 'templates'}
+        return { items: i.listModels(), subdir: 'templates' };
     },
 };
-
-function listTypesForLang(themePath: string, lang: string, type: ListType): string {
+function listTypesForLang(themePath, lang, type) {
     const inspector = new ThemeInspector(themePath, lang);
     const infos = TYPE_MAP[type](inspector);
     const path = join(lang, infos.subdir);
-
     const lines = [`Éléments de type "${type}" [${lang}] :`, ''];
-
     if (infos.items.length === 0) {
-        lines.push(`Aucun élément de type "${type}" trouvé dans le thème "${themePath}" pour la langue "${lang}".`)
+        lines.push(`Aucun élément de type "${type}" trouvé dans le thème "${themePath}" pour la langue "${lang}".`);
         return lines.join('\n');
     }
-
     infos.items.forEach(item => {
         lines.push('- ' + join(path, item.id) + (item.name !== '' ? ' : ' + item.name : ''));
     });
-
     if (type === "billet_blog") {
         const wPath = inspector.getRelLgPath('widgets/blog/detail_billet/index.html');
         lines.push('', `Attention : les config.xml sont dans ${path}/ mais le template est centralisé dans ${wPath}`);
     }
-
     return lines.join('\n');
 }
-
-export function listTypes({themePath, type, lang}: { themePath: string; type: ListType; lang?: string[] | null }): string {
+export function listTypes({ themePath, type, lang }) {
     const resolved = resolveLangs(themePath, lang);
-    if ('error' in resolved) return `Erreur : ${resolved.error}`;
-
+    if ('error' in resolved)
+        return `Erreur : ${resolved.error}`;
     const blocks = resolved.map(l => `${listTypesForLang(themePath, l, type)}`);
     return blocks.join('\n\n');
 }
-
 export const listTypesTool = defineTool({
     name: "list_types",
     description: "Liste tous les éléments présent dans le thème graphique d'un type : \n" +
@@ -79,9 +67,9 @@ export const listTypesTool = defineTool({
             .optional()
             .describe("Codes langue (2 lettres minuscules, ex. [\"fr\",\"de\"]) à lister. Omis ou vide : tous les dossiers de langue du thème."),
     },
-    handler: async ({themePath, type, lang}) => {
+    handler: async ({ themePath, type, lang }) => {
         return {
-            content: [{type: "text" as const, text: listTypes({themePath, type, lang})}],
+            content: [{ type: "text", text: listTypes({ themePath, type, lang }) }],
         };
     }
 });

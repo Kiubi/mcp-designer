@@ -2,36 +2,12 @@ import { z } from "zod";
 import { mkdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import * as nodePath from 'node:path';
 import { XMLParser } from 'fast-xml-parser';
-import { defineTool } from "../tool.ts";
+import { defineTool } from "../tool.js";
 import { ThemeInspector, resolveLangs } from "#lib/theme-checker/index";
-
-// ─── Internal types ───────────────────────────────────────────────────────────
-
-type TypeKind = "billet_page" | "billet_blog" | "produit" | "composant" | "symbole" | "template";
-
-const CHAMP_TYPES = ["text", "textarea", "wysiwyg", "image", "fichier", "select", "color", "date", "datetime", "checkbox"] as const;
-const COLMAX_VALUES = ["1", "2", "2d", "2g", "3"] as const;
-
-export type ChampInput = {
-    name: string;
-    type: typeof CHAMP_TYPES[number];
-    label: string;
-    hint?: string;
-    default?: string;
-    options?: { value: string; label: string }[];
-};
-
-export type ZoneInput = {
-    id: string;
-    label: string;
-    maxColumns: typeof COLMAX_VALUES[number];
-    defaultColumns: typeof COLMAX_VALUES[number];
-    allowContent: boolean;
-};
-
+const CHAMP_TYPES = ["text", "textarea", "wysiwyg", "image", "fichier", "select", "color", "date", "datetime", "checkbox"];
+const COLMAX_VALUES = ["1", "2", "2d", "2g", "3"];
 // ─── Constants ────────────────────────────────────────────────────────────────
-
-const TYPE_SUBDIR: Record<TypeKind, string> = {
+const TYPE_SUBDIR = {
     billet_page: "billets",
     billet_blog: "billets_blog",
     produit: "produits",
@@ -39,8 +15,7 @@ const TYPE_SUBDIR: Record<TypeKind, string> = {
     symbole: "symboles",
     template: "templates",
 };
-
-const FIELD_VALIDATORS: Record<TypeKind, RegExp | null> = {
+const FIELD_VALIDATORS = {
     billet_page: /^(titre|sstitre|texte([1-9]|1[0-5]))$/,
     billet_blog: /^texte([1-9]|1[0-5])$/,
     produit: /^texte([1-9]|1[0-5])$/,
@@ -48,33 +23,27 @@ const FIELD_VALIDATORS: Record<TypeKind, RegExp | null> = {
     symbole: /^[a-zA-Z0-9_]{1,40}$/,
     template: null,
 };
-
 // ─── Validation ───────────────────────────────────────────────────────────────
-
 const VALID_REPERTOIRE = /^[a-zA-Z0-9_]{1,40}$/;
-
-export function validateRepertoire(name: string): string | null {
+export function validateRepertoire(name) {
     if (!VALID_REPERTOIRE.test(name)) {
         return `Répertoire invalide "${name}" : seuls les caractères alphanumériques ASCII et _ sont autorisés (1-40 caractères, sans / ni ..).`;
     }
     return null;
 }
-
 // ─── XML helpers ──────────────────────────────────────────────────────────────
-
-function escapeAttr(s: string): string {
+function escapeAttr(s) {
     return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 }
-
-function escapeText(s: string): string {
+function escapeText(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-
-function buildChampXml(c: ChampInput, indent: string): string {
+function buildChampXml(c, indent) {
     let attrs = `champ="${escapeAttr(c.name)}" type="${c.type}" intitule="${escapeAttr(c.label)}"`;
-    if (c.default !== undefined && c.default !== '') attrs += ` defaut="${escapeAttr(c.default)}"`;
-    if (c.hint !== undefined && c.hint !== '') attrs += ` aide="${escapeAttr(c.hint)}"`;
-
+    if (c.default !== undefined && c.default !== '')
+        attrs += ` defaut="${escapeAttr(c.default)}"`;
+    if (c.hint !== undefined && c.hint !== '')
+        attrs += ` aide="${escapeAttr(c.hint)}"`;
     if ((c.type === 'select' || c.type === 'checkbox') && c.options && c.options.length > 0) {
         const lines = [`${indent}<champ ${attrs}>`];
         for (const o of c.options) {
@@ -83,15 +52,14 @@ function buildChampXml(c: ChampInput, indent: string): string {
         lines.push(`${indent}</champ>`);
         return lines.join('\n');
     }
-
     return `${indent}<champ ${attrs} />`;
 }
-
-function buildListeChamps(fields: ChampInput[], indent: string): string[] {
-    const lines: string[] = [];
+function buildListeChamps(fields, indent) {
+    const lines = [];
     if (fields.length === 0) {
         lines.push(`${indent}<listechamps />`);
-    } else {
+    }
+    else {
         lines.push(`${indent}<listechamps>`);
         for (const c of fields) {
             lines.push(buildChampXml(c, indent + '    '));
@@ -100,21 +68,9 @@ function buildListeChamps(fields: ChampInput[], indent: string): string[] {
     }
     return lines;
 }
-
-// ─── XML builders ─────────────────────────────────────────────────────────────
-
-export type ConfigXmlParams = {
-    kind: "billet_page" | "billet_blog" | "produit" | "composant";
-    label: string;
-    tri: number;
-    fields: ChampInput[];
-    collectionFields?: ChampInput[];
-};
-
-export function buildConfigXml(params: ConfigXmlParams): string {
+export function buildConfigXml(params) {
     const { kind, label, tri, fields, collectionFields } = params;
     const header = '<?xml version="1.0" encoding="iso-8859-1"?>';
-
     if (kind === 'composant') {
         const dtd = '<!DOCTYPE composant SYSTEM "http://www.kiubi-admin.com/DTD/composants.dtd">';
         const lines = [
@@ -133,8 +89,7 @@ export function buildConfigXml(params: ConfigXmlParams): string {
         lines.push('</composant>');
         return lines.join('\n') + '\n';
     }
-
-    const dtdMap: Record<string, string> = {
+    const dtdMap = {
         billet_page: '<!DOCTYPE type SYSTEM "http://www.kiubi-admin.com/DTD/typesbillets.dtd">',
         billet_blog: '<!DOCTYPE type SYSTEM "http://www.kiubi-admin.com/DTD/typesbillets.dtd">',
         produit: '<!DOCTYPE type SYSTEM "http://www.kiubi-admin.com/DTD/typesproduits.dtd">',
@@ -149,34 +104,23 @@ export function buildConfigXml(params: ConfigXmlParams): string {
     ];
     return lines.join('\n') + '\n';
 }
-
-export type DescXmlParams = {
-    kind: "symbole" | "template";
-    label: string;
-    tri?: number;
-    fields?: ChampInput[];
-    zones: ZoneInput[];
-};
-
-export function buildDescXml(params: DescXmlParams): string {
+export function buildDescXml(params) {
     const { kind, label, tri, fields = [], zones } = params;
     const header = '<?xml version="1.0" encoding="iso-8859-1"?>';
-
     const defautZone = zones.find(z => z.allowContent) ?? zones[0];
     const defautId = defautZone?.id ?? '';
-
-    const buildZones = (indent: string): string[] => {
+    const buildZones = (indent) => {
         const defautAttr = defautId ? ` defaut="${escapeAttr(defautId)}"` : '';
         const lines = [`${indent}<zones${defautAttr}>`];
         for (const z of zones) {
             let attrs = `id="${escapeAttr(z.id)}" colmax="${z.maxColumns}" intitule="${escapeAttr(z.label)}" defaut="${z.defaultColumns}"`;
-            if (z.allowContent) attrs += ` type="contenu"`;
+            if (z.allowContent)
+                attrs += ` type="contenu"`;
             lines.push(`${indent}    <zone ${attrs} />`);
         }
         lines.push(`${indent}</zones>`);
         return lines;
     };
-
     if (kind === 'template') {
         const lines = [
             header,
@@ -186,7 +130,6 @@ export function buildDescXml(params: DescXmlParams): string {
         ];
         return lines.join('\n') + '\n';
     }
-
     // symbole
     const dtd = '<!DOCTYPE symbole SYSTEM "http://www.kiubi-admin.com/DTD/symboles.dtd">';
     const lines = [
@@ -199,18 +142,7 @@ export function buildDescXml(params: DescXmlParams): string {
     ];
     return lines.join('\n') + '\n';
 }
-
-// ─── HTML builders ────────────────────────────────────────────────────────────
-
-export type IndexHtmlParams = {
-    kind: TypeKind;
-    label: string;
-    fields: ChampInput[];
-    zones: ZoneInput[];
-    collectionFields?: ChampInput[];
-};
-
-function renderChamp(c: ChampInput, indent: string): string {
+function renderChamp(c, indent) {
     if (c.type === 'image' || c.type === 'fichier') {
         return `${indent}<!-- BEGIN:${c.name} --><img src="{${c.name}}" alt="" /><!-- END:${c.name} -->`;
     }
@@ -219,11 +151,9 @@ function renderChamp(c: ChampInput, indent: string): string {
     }
     return `${indent}<span>{${c.name}}</span>`;
 }
-
-export function buildIndexHtml(params: IndexHtmlParams): string {
+export function buildIndexHtml(params) {
     const { kind, label, fields, zones, collectionFields } = params;
     const comment = `<!-- Template généré automatiquement pour "${label}" — à adapter -->`;
-
     if (kind === 'template') {
         const zoneLines = zones.map(z => `<div>{ZONE.${z.id}}</div>`).join('\n');
         return [
@@ -246,7 +176,6 @@ export function buildIndexHtml(params: IndexHtmlParams): string {
             '<!-- END:main -->',
         ].join('\n') + '\n';
     }
-
     if (kind === 'symbole') {
         const fieldLines = fields.map(c => renderChamp(c, '')).join('\n');
         const zoneLines = zones.map(z => `<div>{ZONE.${z.id}}</div>`).join('\n');
@@ -260,7 +189,6 @@ export function buildIndexHtml(params: IndexHtmlParams): string {
             '<!-- END:main -->',
         ].join('\n') + '\n';
     }
-
     if (kind === 'composant') {
         const fieldLines = fields.map(c => renderChamp(c, '    ')).join('\n');
         const lines = [
@@ -284,7 +212,6 @@ export function buildIndexHtml(params: IndexHtmlParams): string {
         lines.push('<!-- END:main -->');
         return lines.join('\n') + '\n';
     }
-
     // billet_page, produit
     const fieldLines = fields.map(c => renderChamp(c, '')).join('\n');
     return [
@@ -294,22 +221,18 @@ export function buildIndexHtml(params: IndexHtmlParams): string {
         '<!-- END:main -->',
     ].join('\n') + '\n';
 }
-
-export function buildStructureXhtml(zones: ZoneInput[]): string {
+export function buildStructureXhtml(zones) {
     const rows = zones.map(z => `\t<tr>\n\t\t<td>{${z.id}}</td>\n\t</tr>`).join('\n');
     return `<table>\n${rows}\n</table>\n`;
 }
-
 // ─── Tri computation ──────────────────────────────────────────────────────────
-
 const triParser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: '',
-    transformTagName: (n: string) => n.toLowerCase(),
-    transformAttributeName: (n: string) => n.toUpperCase(),
+    transformTagName: (n) => n.toLowerCase(),
+    transformAttributeName: (n) => n.toUpperCase(),
 });
-
-export function readExistingTri(filePath: string): number | null {
+export function readExistingTri(filePath) {
     try {
         const content = readFileSync(filePath, 'latin1');
         const doc = triParser.parse(content);
@@ -319,113 +242,95 @@ export function readExistingTri(filePath: string): number | null {
             return isNaN(n) ? null : n;
         }
         return null;
-    } catch {
+    }
+    catch {
         return null;
     }
 }
-
-export function computeTri(themePath: string, kind: TypeKind, lang: string = 'fr'): number {
-    if (kind === 'template') return 1;
+export function computeTri(themePath, kind, lang = 'fr') {
+    if (kind === 'template')
+        return 1;
     const inspector = new ThemeInspector(themePath, lang);
-    let items: { position?: number }[];
+    let items;
     switch (kind) {
-        case 'billet_page': items = inspector.listCms(); break;
-        case 'billet_blog': items = inspector.listBlogs(); break;
-        case 'produit': items = inspector.listProducts(); break;
-        case 'composant': items = inspector.listComponents(); break;
-        case 'symbole': items = inspector.listSymbols(); break;
+        case 'billet_page':
+            items = inspector.listCms();
+            break;
+        case 'billet_blog':
+            items = inspector.listBlogs();
+            break;
+        case 'produit':
+            items = inspector.listProducts();
+            break;
+        case 'composant':
+            items = inspector.listComponents();
+            break;
+        case 'symbole':
+            items = inspector.listSymbols();
+            break;
     }
     const max = items.reduce((acc, i) => Math.max(acc, i.position ?? 0), 0);
     return max + 1;
 }
-
-// ─── Main function ────────────────────────────────────────────────────────────
-
-export type CreateTypeParams = {
-    themePath: string;
-    type: TypeKind;
-    name: string;
-    label: string;
-    fields: ChampInput[];
-    collectionFields?: ChampInput[];
-    zones: ZoneInput[];
-    lang?: string[] | null;
-};
-
 // Crée/met à jour le type dans un seul dossier de langue, retourne les messages associés.
-function createTypeForLang(params: {
-    themePath: string;
-    lang: string;
-    type: TypeKind;
-    name: string;
-    label: string;
-    fields: ChampInput[];
-    collectionFields?: ChampInput[];
-    zones: ZoneInput[];
-}): string[] {
+function createTypeForLang(params) {
     const { themePath, lang, type, name, label, fields, collectionFields, zones } = params;
-
     const subdir = nodePath.join(lang, TYPE_SUBDIR[type]);
     const typeDir = nodePath.join(themePath, subdir, name);
     const xmlFile = (type === 'symbole' || type === 'template') ? 'desc.xml' : 'config.xml';
     const xmlPath = nodePath.join(typeDir, xmlFile);
     const htmlPath = nodePath.join(typeDir, 'index.html');
     const structurePath = nodePath.join(typeDir, 'structure.xhtml');
-
     // Compute tri (preserve existing if file already exists)
-    let tri: number;
+    let tri;
     if (existsSync(xmlPath)) {
         tri = readExistingTri(xmlPath) ?? 1;
-    } else {
+    }
+    else {
         tri = computeTri(themePath, type, lang);
     }
-
     // Create directory
     mkdirSync(typeDir, { recursive: true });
-
     // Write XML
-    let xmlContent: string;
+    let xmlContent;
     if (type === 'symbole' || type === 'template') {
         xmlContent = buildDescXml({ kind: type, label, tri, fields, zones });
-    } else {
-        xmlContent = buildConfigXml({ kind: type as ConfigXmlParams['kind'], label, tri, fields, collectionFields });
+    }
+    else {
+        xmlContent = buildConfigXml({ kind: type, label, tri, fields, collectionFields });
     }
     writeFileSync(xmlPath, xmlContent, 'latin1');
-
     const relPath = `${subdir}/${name}`;
-    const messages: string[] = [`${xmlFile} créé/mis à jour : ${relPath}/${xmlFile}`];
-
+    const messages = [`${xmlFile} créé/mis à jour : ${relPath}/${xmlFile}`];
     // No index.html for billet_blog
     if (type !== 'billet_blog') {
         if (existsSync(htmlPath)) {
             messages.push(`index.html non modifié (fichier existant conservé)`);
-        } else {
+        }
+        else {
             const html = buildIndexHtml({ kind: type, label, fields, zones, collectionFields });
             writeFileSync(htmlPath, html, 'latin1');
             messages.push(`index.html créé — à adapter : ${relPath}/index.html`);
         }
     }
-
     // structure.xhtml for templates and symboles
     if (type === 'template' || type === 'symbole') {
         if (existsSync(structurePath)) {
             messages.push(`structure.xhtml non modifié (fichier existant conservé)`);
-        } else {
+        }
+        else {
             writeFileSync(structurePath, buildStructureXhtml(zones), 'latin1');
             messages.push(`structure.xhtml créé : ${relPath}/structure.xhtml`);
         }
     }
-
     return messages;
 }
-
-export function createType(params: CreateTypeParams): string {
+export function createType(params) {
     const { themePath, type, name, label, fields, collectionFields, zones, lang } = params;
-
     // Validate name
     const err = validateRepertoire(name);
-    if (err) return `Erreur : ${err}`;
-
+    if (err)
+        return `Erreur : ${err}`;
     // Validate field names
     const validator = FIELD_VALIDATORS[type];
     if (type === 'template' && fields.length > 0) {
@@ -441,27 +346,23 @@ export function createType(params: CreateTypeParams): string {
         if (type !== 'composant') {
             return `Erreur : la collection n'est disponible que pour les composants.`;
         }
-        const compValidator = FIELD_VALIDATORS.composant!;
+        const compValidator = FIELD_VALIDATORS.composant;
         const invalid = collectionFields.filter(c => !compValidator.test(c.name)).map(c => c.name);
         if (invalid.length > 0) {
             return `Erreur : nom(s) de champ de collection invalide(s) : ${invalid.join(', ')}.`;
         }
     }
-
     // Resolve target languages
     const resolved = resolveLangs(themePath, lang);
-    if ('error' in resolved) return `Erreur : ${resolved.error}`;
-
+    if ('error' in resolved)
+        return `Erreur : ${resolved.error}`;
     const blocks = resolved.map(l => {
         const messages = createTypeForLang({ themePath, lang: l, type, name, label, fields, collectionFields, zones });
         return `[${l}]\n${messages.join('\n')}`;
     });
-
     return blocks.join('\n\n');
 }
-
 // ─── Tool definition ──────────────────────────────────────────────────────────
-
 // Factory : need to create un distinct Zod instance
 // Avoid zod-to-json-schema optimization that would create a $ref type
 // that som MCP clients would not resolve
@@ -478,11 +379,9 @@ function createFieldSchema() {
         })).optional().describe("Options pour les champs select/checkbox"),
     });
 }
-
 export const createTypeTool = defineTool({
     name: "create_type",
-    description:
-        "Crée ou met à jour un type d'élément dans un thème graphique Kiubi : " +
+    description: "Crée ou met à jour un type d'élément dans un thème graphique Kiubi : " +
         "billet de contenu (billet_page), billet de blog (billet_blog), produit, composant, symbole ou template principal. " +
         "Génère les fichiers XML (config.xml ou desc.xml) et, si absent, un template HTML de base à adapter. " +
         "Idempotent : si les fichiers existent déjà, le XML est mis à jour (tri conservé) sans toucher au HTML existant. " +
@@ -530,6 +429,6 @@ export const createTypeTool = defineTool({
             zones: zones ?? [],
             lang,
         });
-        return { content: [{ type: "text" as const, text: result }] };
+        return { content: [{ type: "text", text: result }] };
     },
 });
