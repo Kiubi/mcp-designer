@@ -46,6 +46,7 @@ validation explicite avant de produire quoi que ce soit.
   - [Structure du projet](#structure-du-projet)
   - [Déploiement de thème avec kiubi-sync](#déploiement-de-thème-avec-kiubi-sync)
   - [Déploiement du CLAUDE.md](#déploiement-du-claudemd)
+- [Confidentialité](#confidentialité)
 - [Tools disponibles](#tools-disponibles)
 
 ---
@@ -202,6 +203,17 @@ Ce fichier est lu automatiquement par Claude à chaque session. Il définit nota
 - Le pipeline complet d'une tâche d'intégration
 
 > **Important** — `CLAUDE.md` est spécifique à chaque projet. Il peut être versionné dans le dépôt git du projet intégrateur.
+
+---
+
+## Confidentialité
+
+Le serveur MCP s'exécute entièrement en local. Il lit et écrit uniquement les fichiers du projet intégrateur
+(`theme/`) et communique avec l'agent IA via stdio. Il n'effectue aucun appel réseau et n'envoie vos
+fichiers, votre code ou vos données à aucun serveur, y compris à Kiubi.
+
+Les seuls flux réseau du projet sont ceux gérés par vos outils habituels : `npx` pour télécharger le paquet npm, et
+`kiubi-sync` pour synchroniser le thème avec votre site Kiubi.
 
 ---
 
