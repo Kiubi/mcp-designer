@@ -1,7 +1,5 @@
 # Kiubi CMS — Workflows d'intégration
 
-Chaque workflow est autonome. Appliquer celui qui correspond à la tâche.
-
 ---
 
 ## Workflow — Modification
@@ -10,25 +8,21 @@ Chaque workflow est autonome. Appliquer celui qui correspond à la tâche.
 
 ### Périmètre
 
-Modification d'un template existant, sans création de nouveau fichier.
+Modifier un template existant sans créer de fichier.
 
 ### Procédure
 
-1. Comprendre le contexte :
-    - Inspecter les templates du thème → `list_types("...")`, `list_widgets()`
-    - Lire le détail des templates pertinents → `detail_type(type: "...", name: "...")`
-    - Lire les sections pertinentes du guide d'intégration → `get_doc_section(category: "integration", section: "...")`
-    - Templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")`
-    - Interactions dynamiques → `get_doc_section(category: "api")`
-    - Terme ou concept inconnu → `search_doc(query)`
-2. Exposer le plan de modification
-
-   **Attendre une validation explicite avant de continuer**
-
-3. Appliquer les modifications en respectant les règles et la logique en place
-4. Valider le thème avec `validate_theme` :
-   - Erreur → `get_doc_section(category: "...")` sur la catégorie de l'erreur, corriger, revalider
-   - Avertissement → soumettre à l'utilisateur
+1. Lire le fichier concerné et ses dépendances.
+2. Inspecter le type avec `list_types`, `list_widgets` et `detail_type`. Lire les sections de documentation utiles :
+   - guide d'intégration → `get_doc_section(category: "integration", section: "...")` ;
+   - templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")` ;
+   - interactions dynamiques → `get_doc_section(category: "api")` ;
+   - terme ou concept inconnu → `search_doc(query)`.
+3. Si la demande implique un changement de structure, de champs, de zones ou de comportement qui n'est pas défini, présenter les options et attendre une décision. Sinon, appliquer la modification en respectant la logique en place.
+4. Lancer `validate_theme` :
+   - erreur → lire `get_doc_section` sur la catégorie de l'erreur, corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+   - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+5. Rendre compte des fichiers modifiés, des validations effectuées, des avertissements et des hypothèses retenues.
 
 ---
 
@@ -38,42 +32,34 @@ Modification d'un template existant, sans création de nouveau fichier.
 
 ### Périmètre
 
-Création ou conversion d'un nouveau template ; billet de page, billet du blog, composant, produit, widget.
+Créer ou convertir un billet de page, un billet de blog, un composant, un produit ou un widget.
 
 ### Procédure
 
-1. Comprendre le contexte :
-    - Inspecter les templates du thème → `list_types("...")`, `list_widgets()`
-    - Lire le détail des templates pertinents → `detail_type(type: "...", name: "...")`
-    - Lire les sections pertinentes du guide d'intégration → `get_doc_section(category: "integration", section: "...")`
-    - Templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")`
-    - Interactions dynamiques → `get_doc_section(category: "api")`
-    - Terme ou concept inconnu → `search_doc(query)`
-    - Bloc d'extrait → demander quel billet existant servira de source
+1. Inspecter les types et widgets proches avec `list_types`, `list_widgets` et `detail_type`. Lire les sections de documentation utiles :
+   - guide d'intégration → `get_doc_section(category: "integration", section: "...")` ;
+   - templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")` ;
+   - interactions dynamiques → `get_doc_section(category: "api")` ;
+   - terme ou concept inconnu → `search_doc(query)`.
+2. Bloc d'extrait → demander quel billet existant sert de source.
+3. Déterminer le mode :
+   - code fourni, intention non claire → demander :
+     - **Préservation** : garder la structure, le balisage et les classes ; adapter seulement ce que Kiubi exige ;
+     - **Adaptation** : s'inspirer du code et appliquer les conventions du thème (framework CSS, wrappers) ;
+   - pas de code → **Création autonome** à partir des templates existants du thème.
+4. Si un type correspondant existe, demander : remplacement (même nom) ou nouveau type (nouveau nom). Ne jamais écraser sans accord explicite.
+5. Présenter le plan :
+   - nature du livrable et fichiers à créer ;
+   - champs personnalisés (noms, types, rôles) ;
+   - logique structurelle (blocs, collections, balises, zones) ;
+   - choix restant ouverts.
 
-2. Demander quel mode s'applique :
-
-   | Situation | Mode | Comportement |
-   |:---|:---|:---|
-   | Code fourni | **Préservation** | Préserver le code tel quel (structure, balisage, classes CSS) |
-   | Code fourni | **Adaptation** | S'inspirer du code et l'adapter au thème (conventions, framework CSS, wrappers) |
-   | Pas de code | **Création autonome** | Construire de toutes pièces depuis les templates existants |
-
-   **Attendre une validation explicite avant de continuer**
-   
-3. Exposer le plan d'action :
-   - Nature du livrable et fichiers à créer
-   - Champs personnalisés (noms, types, rôles)
-   - Logique structurelle (blocs, collections, balises, zones)
-   - Choix à arbitrer
-
-   **Attendre une validation explicite avant de continuer**
-
-4. Créer les fichiers avec `create_type`
-5. Valider le thème avec `validate_theme` :
-   - Erreur → `get_doc_section(category: "...")` sur la catégorie de l'erreur, corriger, revalider
-   - Avertissement → soumettre à l'utilisateur
-6. Produire un rapport : fichiers ajoutés et destination, choix structurels
+   Attendre une décision seulement si un choix ouvert modifie le résultat. Sinon, poursuivre et noter les hypothèses retenues.
+6. Créer le type avec `create_type`.
+7. Lancer `validate_theme` :
+   - erreur → lire `get_doc_section` sur la catégorie de l'erreur, corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+   - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+8. Rendre compte des fichiers créés et de leur destination, des choix structurels, des validations effectuées, des avertissements et des hypothèses retenues.
 
 ---
 
@@ -83,71 +69,66 @@ Création ou conversion d'un nouveau template ; billet de page, billet du blog, 
 
 ### Périmètre
 
-- Un HTML statique avec ses dépendances (CSS, JS, images, fonts) à intégrer dans `theme/[lg]/templates/`
-- Le HTML est fourni dans la conversation
-- Les dépendances sont déposées dans `temp/`
-- La création des templates de contenu (billets, composants, produits, widgets) se fait séparément dans un autre workflow
-
-### Principe clé
-
-Le template principal doit définir les emplacements dynamiques où seront déposés les widgets et contenus. Question à poser pour chaque bloc HTML :
-- Est-ce que ce bloc définit la structure permanente de la page ? → garder dans le template principal
-- Est-ce que ce bloc affiche un contenu administrable ou éditorial ? → remplacer par une zone
-- Est-ce que ce bloc est un exemple de contenu du template source ? → supprimer du template principal
+Intégrer dans `theme/[lg]/templates/` un HTML statique fourni dans la conversation, avec ses dépendances (CSS, JS, images, polices) déposées dans `temp/`. La création de billets, composants, produits ou widgets est hors périmètre.
 
 ### Procédure
 
-1. Comprendre le contexte :
-    - Inspecter les templates principaux existants → `list_types("template")`, puis `detail_type(type: "template", name: "...")` pour chaque template pertinent
-    - Lire le guide d'intégration → `get_doc_section(category: "integration")`
-    - Templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")`
-2. Inventorier les dépendances depuis le HTML fourni. Ignorer tout fichier présent dans `temp/` non atteignable depuis le HTML
-3. Vérifier les collisions avec les assets existants avant d’écraser un fichier
+1. Inspecter les templates principaux avec `list_types("template")`, puis `detail_type` pour chaque template pertinent. Lire le guide d'intégration avec `get_doc_section(category: "integration")` ; si les templates du thème ne suffisent pas comme référence, lire `get_doc_section(category: "exemples", section: "...")`.
+2. Demander le mode ; ne jamais le déduire seul :
 
-   **Attendre une décision explicite avant de continuer**
+   | Mode | Situation | Destination | Includes |
+   |:---|:---|:---|:---|
+   | **Ajout d'un nouveau thème** | Nouveau thème, template ajouté aux templates existants | `templates/[nom]/` | Partagés |
+   | **Remplacement d'un thème** | Nouveau thème, template à la place d'un template existant | Répertoire du template remplacé | Partagés |
+   | **Template indépendant** | Template ajouté au thème en cours sans en modifier l'apparence | `templates/[nom]/` | Dédiés |
 
-4. Déplacer chaque fichier vers le sous-répertoire approprié des assets
+   Template indépendant → avertir avant de l'appliquer et attendre une confirmation :
 
-5. Inclure tous les includes existants dans les templates principaux dans le nouveau template principal
+   > Ce mode modifie l'ensemble du thème : les dépendances sont dupliquées et doivent être maintenues en parallèle, et les variantes de `theme.xml` sont supprimées.
 
-6. Ajouter les liens vers les dépendances dans les includes correspondant, après les liens existants et avant les fichiers de surcouche :
+   Refus → demander un autre mode.
 
-   - avant `{Stylesheet}`
-   - avant `kiubi.api.pfo`
-   - avant `js.js`
+3. Inventorier les références dans le HTML (`src`, `href`, `srcset`), le CSS (`@import`, `url()`, `@font-face`) et le JavaScript (`import`, `src`). Suivre chaque référence locale et signaler celles qui restent introuvables. Ignorer les fichiers de `temp/` qui ne sont référencés par aucune dépendance.
+4. Rechercher les collisions avec les templates principaux et les assets existants. Avant tout écrasement d'un doublon, demander confirmation et proposer un renommage. Avant d'ajouter une dépendance externe, demander confirmation ; une fois acceptée, reprendre son lien tel quel.
+5. Déplacer chaque fichier local de `temp/` vers le sous-répertoire approprié des assets. Répercuter les renommages et les changements d'arborescence dans les références internes (HTML, `url()`, `@import`).
+6. Définir la stratégie de zones :
+   - analyser chaque bloc HTML :
+     - structure permanente de la page → garder dans le template principal ;
+     - contenu administrable ou éditorial → remplacer par une zone ;
+     - contenu de démonstration → supprimer ;
+   - choisir le périmètre, à inclure dans le plan :
+     - **Zones utiles** : zones nécessaires à la dynamisation (contenu éditorial, navigation, etc.) ;
+     - **Zones utiles + utilitaires** : zones utiles et zones utilitaires déjà présentes dans les autres templates du projet (bannières, annonces, en-tête, etc.) ;
+   - Remplacement d'un thème : conserver les `id` des zones du template remplacé et n'en ajouter que si nécessaire. Zone existante sans équivalent dans le HTML fourni → proposer les options (supprimer, remapper, conserver à un autre emplacement) et attendre une décision.
+7. Présenter le plan : mode, fichiers et destinations, renommages, dépendances, includes, zones et changements à `theme.xml`. Attendre une décision si un choix reste ouvert. Sinon, poursuivre et noter les hypothèses retenues.
+8. Préparer les includes :
+   - tous les modes → reprendre dans le nouveau template tous les includes existants des templates principaux ;
+   - Template indépendant → créer en plus des includes dédiés (`css-[nom].html`, `js-head-[nom].html`, `js-body-[nom].html`), utilisés à la place des includes CSS et JS partagés.
 
-   Template indépendant : créer des includes dédiés (`css-nom-du-template.html`, `js-head-nom-du-template.html`, `js-body-nom-du-template.html`)
-   
-   **Attendre une décision explicite avant de continuer**
-
-7. Encadrer tous les ajouts d'un commentaire :
+   Ajouter les liens après les liens existants et avant les fichiers de surcouche (`{Stylesheet}`, `kiubi.api.pfo`, `js.js`), pour que ces derniers puissent surcharger les dépendances. Conserver le format de chemin déjà utilisé dans l'include ciblé (`{racine}/{theme}/assets/...` ou `{theme}/{lg}/assets/...` selon le thème). Encadrer chaque ajout :
 
    ```html
-   <!-- Dependances : nom-du-template -->
-   <link rel="stylesheet" href="{theme}/{lg}/assets/css/ma-dependance.css">
-   <!-- / Dependances : nom-du-template -->
+   <!-- Dependances nom-du-template -->
+   <link rel="stylesheet" href="[format de chemin de l'include]/css/ma-dependance.css">
+   <!-- Fin Dependances nom-du-template -->
    ```
 
-8. Proposer une stratégie de zones :
-    - Zones utiles uniquement : zones nécessaires à la dynamisation (contenu éditorial, navigation, etc.)
-    - Zones utiles + zones utilitaires : zones utiles et zones utilitaires déjà présentes dans les autres templates du projet (bannières, annonces, en-tête, etc.)
-
-   **Attendre une décision explicite avant de continuer**
-
-9. Exposer le plan d'action
-
-   **Attendre une validation explicite avant de continuer**
-
-10. Créer les fichiers avec `create_type`
-11. Valider le thème avec `validate_theme` :
-    - Erreur → `get_doc_section(category: "...")` sur la catégorie de l'erreur, corriger, revalider
-    - Avertissement → soumettre à l'utilisateur
-12. Produire un rapport :
-    - Fichiers ajoutés et destination
-    - Liens ajoutés dans chaque include
-    - Zones créées
-    - Choix structurels
-    - Doublons et renommages (ancien nom → nouveau nom)
+9. Mettre à jour `theme.xml` :
+   - Ajout d'un nouveau thème et Remplacement d'un thème → déclarer la feuille de style principale comme variante en première position ;
+   - Template indépendant → supprimer les variantes, puis ajouter la feuille de style principale de chaque template principal dans son include CSS.
+10. Créer le type avec `create_type`. Remplacement d'un thème → conserver le nom du répertoire du template remplacé ; `create_type` ne réécrit pas un `index.html` existant : le réécrire manuellement.
+11. Lancer `validate_theme` :
+    - erreur → lire `get_doc_section` sur la catégorie de l'erreur, corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+    - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+12. Rendre compte :
+    - mode retenu ;
+    - fichiers créés ou modifiés et leur destination ;
+    - doublons et renommages (ancien nom → nouveau nom) ;
+    - liens ajoutés dans chaque include ;
+    - zones créées, conservées ou supprimées ;
+    - modifications de `theme.xml` ;
+    - choix structurels et hypothèses retenues ;
+    - validations effectuées et avertissements.
 
 ---
 
@@ -157,14 +138,16 @@ Le template principal doit définir les emplacements dynamiques où seront dépo
 
 ### Périmètre
 
-Modification sans impact structurel ; classe CSS existante, attribut HTML, texte, syntaxe.
-
-Ne pas utiliser si la modification implique un nouveau template, un nouveau champ, une nouvelle zone ou une nouvelle classe CSS.
+Corriger du texte, un attribut HTML, la syntaxe ou une classe CSS déjà présente, sans changement structurel.
 
 ### Procédure
 
-1. Lire le fichier concerné et ses fichiers liés
-2. Appliquer la modification
+1. Lire le fichier concerné et ses dépendances directes.
+2. Appliquer uniquement la correction demandée. Si elle nécessite un nouveau fichier, champ, zone ou classe CSS, arrêter et signaler que la demande dépasse une micro-correction.
+3. Si le fichier est un template, lancer `validate_theme` :
+   - erreur → corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+   - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+4. Rendre compte du fichier modifié et des validations effectuées.
 
 ---
 
@@ -174,34 +157,19 @@ Ne pas utiliser si la modification implique un nouveau template, un nouveau cham
 
 ### Périmètre
 
-Modification d'un template d'email.
-
-```
-theme/[lg]/widgets/commandes/validation/mail_etat.html              # changement état de commande
-theme/[lg]/widgets/commandes/validation/mail.html                   # validation de commande
-theme/[lg]/widgets/communication/formulaires/mail.html              # notification Dismoi
-theme/[lg]/modules/compte/inscription/mail.html                     # validation d'inscription
-theme/[lg]/modules/compte/tableau_bord/mail_bon_reduction.html      # envoi bon de réduction via points de fidélité
-theme/[lg]/modules/compte/tableau_bord/mail_motdepasse_perdu.html   # réinitialisation mot de passe
-```
-
-### Instructions
-
-- Styles inline uniquement ; tout style CSS doit être porté par l'attribut `style=""` de l'élément concerné, exception faite pour des media query très léger.
-- `<body>` présent : aucun attribut `style` ni `class` ne doit lui être appliqué
-- Aucune dépendance externe hors images : pas de `<link href="...">`, pas de `@import`, pas de fichier JS, pas de police externe
+Modifier un template d'email.
 
 ### Procédure
 
-1. Comprendre le contexte :
-    - Lire le fichier email concerné
-    - Lire les sections pertinentes du guide d'intégration → `get_doc_section(category: "integration", section: "...")`
-    - Templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")`
-    - Terme ou concept inconnu → `search_doc(query)`
-2. Appliquer les modifications en respectant les règles impératives
-3. Valider le thème avec `validate_theme` :
-   - Erreur → `get_doc_section(category: "...")` sur la catégorie de l'erreur, corriger, revalider
-   - Avertissement → soumettre à l'utilisateur
+1. Lire le template d'email. Lire les sections de documentation utiles :
+   - guide d'intégration → `get_doc_section(category: "integration", section: "...")` ;
+   - templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")` ;
+   - terme ou concept inconnu → `search_doc(query)`.
+2. Appliquer la modification demandée.
+3. Lancer `validate_theme` :
+   - erreur → lire `get_doc_section` sur la catégorie de l'erreur, corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+   - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+4. Rendre compte du fichier modifié, des validations effectuées et des avertissements.
 
 ---
 
@@ -211,60 +179,19 @@ theme/[lg]/modules/compte/tableau_bord/mail_motdepasse_perdu.html   # réinitial
 
 ### Périmètre
 
-Création d'un nouveau symbole.
+Créer un symbole réutilisable.
 
-###  Principe clé
+### Principe clé
 
-Un symbole est approprié quand le bloc doit :
-
-- être centralisé
-- contenir plusieurs zones
-- assembler du contenu (billets, composants, widgets, etc.) :
-    - dans une structure commune
-    - réutilisable sur plusieurs pages ou mise en page
-
-La création d'un nouveau symbole est justifié uniquement si aucun symbole existant ne répond au besoin.
+Un symbole est justifié quand le bloc doit être centralisé, contenir plusieurs zones et assembler du contenu (billets, composants, widgets, etc.) dans une structure commune réutilisable sur plusieurs pages ou mises en page. Il n'est créé que si aucun symbole existant ne répond au besoin.
 
 ### Procédure
 
-1. Comprendre le contexte :
-    - Inspecter les symboles existants → `list_types("symbole")`, puis `detail_type(type: "symbole", name: "...")` pour chaque symbole
-    - Lire le guide d'intégration → `get_doc_section(category: "integration", section: "Symboles")`
-    - Templates du thème insuffisants comme référence → `get_doc_section(category: "exemples", section: "...")`
-
-1. Proposer une stratégie de zones :
-
-    ```
-    # Correct - 1 point d'injection dans le HTML : 1 zone
-    <div>
-      {ZONE.contenu}
-    </div>
-    
-    # Correct - 2 point d'injection structurellement distincts dans le HTML : 2 zones
-    <div>
-      <div>{ZONE.contenu}</div>
-      <div>{ZONE.sidebar}</div>
-    </div>
-    
-    # Incorrect - 1 point d'injection dans le HTML : 2 zones inutiles
-    <div>
-      {ZONE.contenu}
-      {ZONE.widgets}
-    </div>
-    ```
-    
-   **Attendre une décision explicite avant de continuer**
-   
-3. Exposer le plan d'action :
-   - Champs personnalisés (noms, types, rôles)
-   - Zones créées
-
-   **Attendre une validation explicite avant de continuer**
-
-4. Créer les fichiers avec `create_type`
-5. Valider le thème avec `validate_theme` :
-   - Erreur → `get_doc_section(category: "...")` sur la catégorie de l'erreur, corriger, revalider
-   - Avertissement → soumettre à l'utilisateur
-6. Produire un rapport : fichiers ajoutés et destination, choix structurels
-
----
+1. Inspecter les symboles existants avec `list_types("symbole")`, puis `detail_type` pour chaque symbole. Lire `get_doc_section(category: "integration", section: "Symboles")` ; si les templates du thème ne suffisent pas comme référence, lire `get_doc_section(category: "exemples", section: "...")`. Si un symbole existant répond au besoin, proposer de le réutiliser.
+2. Définir les champs et les zones.
+3. Présenter le plan : champs personnalisés (noms, types, rôles) et zones. Si la structure ou les zones ne sont pas claires, présenter les options et attendre une décision. Ne pas supprimer ou remplacer un symbole existant sans accord explicite.
+4. Créer le type avec `create_type`.
+5. Lancer `validate_theme` :
+   - erreur → lire `get_doc_section` sur la catégorie de l'erreur, corriger, revalider. Après deux cycles de correction sans succès, arrêter et signaler l'erreur avec le message de validation ;
+   - avertissement → le signaler à l'utilisateur sans le corriger d'office.
+6. Rendre compte des fichiers créés et de leur destination, des choix structurels, des validations effectuées et des avertissements.

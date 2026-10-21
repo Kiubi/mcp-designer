@@ -183,6 +183,29 @@ theme/fr/widgets/site_web/bloc_extrait/template_existant/mon_template/
 
 ## Templates principaux et symboles
 
+#### Zones
+
+Une zone par point d'injection structurellement distinct ; ne jamais séparer un même point d'injection en plusieurs zones.
+
+```
+# Correct - 1 point d'injection : 1 zone
+<div>
+  {ZONE.contenu}
+</div>
+
+# Correct - 2 points d'injection structurellement distincts : 2 zones
+<div>
+  <div>{ZONE.contenu}</div>
+  <div>{ZONE.sidebar}</div>
+</div>
+
+# Incorrect - 1 point d'injection : 2 zones inutiles
+<div>
+  {ZONE.contenu}
+  {ZONE.widgets}
+</div>
+```
+
 #### `structure.xhtml`
 
 `structure.xhtml` contient uniquement un tableau HTML. Zones pleine largeur : `colspan="N"`. Zones en colonnes : `width="%"` sur chaque `td`, total 100%.
@@ -219,6 +242,29 @@ Ordre des zones : logique visuelle, haut → bas, gauche → droite.
 
 - `theme/[lg]/modules/chemin/` : fil d'Ariane
 - `theme/[lg]/modules/selecteur/` : sélecteur de sites
+
+---
+
+## Emails
+
+### Fichiers
+
+```text
+theme/[lg]/widgets/commandes/validation/mail_etat.html              # changement d'état de commande
+theme/[lg]/widgets/commandes/validation/mail.html                   # validation de commande
+theme/[lg]/widgets/communication/formulaires/mail.html              # notification Dismoi
+theme/[lg]/modules/compte/inscription/mail.html                     # validation d'inscription
+theme/[lg]/modules/compte/tableau_bord/mail_bon_reduction.html      # bon de réduction via points de fidélité
+theme/[lg]/modules/compte/tableau_bord/mail_motdepasse_perdu.html   # réinitialisation du mot de passe
+```
+
+### Règles
+
+Les clients email ignorent ou suppriment les feuilles de style, les ressources externes et les attributs de `<body>` ; seuls les styles inline sont fiables.
+
+- Styles inline uniquement, via l'attribut `style=""` de chaque élément. Seule exception : des media queries légères.
+- Si `<body>` est présent, ne lui ajouter ni `style` ni `class`.
+- Aucune dépendance externe hors images : pas de `<link href="...">`, de `@import`, de JavaScript ni de police externe.
 
 ---
 
@@ -321,7 +367,7 @@ Les widgets `widgets/catalogue/` traitant des produits peuvent utiliser les cham
 ### Caractères accentués et encodage
 
 Tous les fichiers `.html` du thème sont en ISO-8859-1. Les caractères accentués des fichiers `.html` s'écrivent en entités HTML nomméee.
-Les fichiers `.xml` sont en ISO-8859-1 mais ne doivent pas être modifiés directement, utiliser le tool idempotent `create_type`.
+Les fichiers `.xml` sont en ISO-8859-1 mais ne doivent pas être modifiés directement, utiliser le tool idempotent `create_type`. Exception : `theme.xml`, modifié directement en conservant l'encodage ISO-8859-1.
 
 ### Commentaires HTML
 

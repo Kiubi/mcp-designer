@@ -1387,7 +1387,7 @@ Documentation : https://aide.kiubi.com/design-generalites.html#composants
     <!-- BEGIN:empty --> 
     <!-- END: empty --> 
   </div>
-  <button type="button" class="{close|mapValue|close|d-none}" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <button type="button" class="{close|mapValue|close|d-none}" data-dismiss="alert" aria-label="Fermer"><span aria-hidden="true">&times;</span></button>
 </div>
 <!-- END: main -->
 ```
@@ -3411,7 +3411,7 @@ https://aide.kiubi.com/design-catalogue.html#liste-des-produits
             </div>
             <div class="btn-group tri">
               <button class="btn btn-link btn-sm dropdown-toggle" type="button" id="tri" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tri</button>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=po" class="dropdown-item">Produit</a> <a href="{lien_tri}=pi" class="dropdown-item">Prix</a> <a href="{lien_tri}=n" class="dropdown-item">Note</a> <a href="{lien_tri}=d" class="dropdown-item">Date de disponibilit&eacute;</a> </div>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=alpha" class="dropdown-item">Produit (A-Z)</a> <a href="{lien_tri}=alphaDESC" class="dropdown-item">Produit (Z-A)</a> <a href="{lien_tri}=prix" class="dropdown-item">Prix croissant</a> <a href="{lien_tri}=prixDESC" class="dropdown-item">Prix d&eacute;croissant</a> <a href="{lien_tri}=date" class="dropdown-item">Date de disponibilit&eacute; croissante</a> <a href="{lien_tri}=dateDESC" class="dropdown-item">Date de disponibilit&eacute; d&eacute;croissante</a> <a href="{lien_tri}=note" class="dropdown-item">Note croissante</a> <a href="{lien_tri}=noteDESC" class="dropdown-item">Note d&eacute;croissante</a> </div>
             </div>
           </div>
         </div>
@@ -3611,7 +3611,7 @@ https://aide.kiubi.com/design-catalogue.html#liste-des-produits
             </div>
             <div class="btn-group tri">
               <button class="btn btn-link btn-sm dropdown-toggle" type="button" id="tri" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tri</button>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=po" class="dropdown-item">Produit</a> <a href="{lien_tri}=pi" class="dropdown-item">Prix</a> <a href="{lien_tri}=n" class="dropdown-item">Note</a> <a href="{lien_tri}=d" class="dropdown-item">Date de disponibilit&eacute;</a> </div>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=alpha" class="dropdown-item">Produit (A-Z)</a> <a href="{lien_tri}=alphaDESC" class="dropdown-item">Produit (Z-A)</a> <a href="{lien_tri}=prix" class="dropdown-item">Prix croissant</a> <a href="{lien_tri}=prixDESC" class="dropdown-item">Prix d&eacute;croissant</a> <a href="{lien_tri}=date" class="dropdown-item">Date de disponibilit&eacute; croissante</a> <a href="{lien_tri}=dateDESC" class="dropdown-item">Date de disponibilit&eacute; d&eacute;croissante</a> <a href="{lien_tri}=note" class="dropdown-item">Note croissante</a> <a href="{lien_tri}=noteDESC" class="dropdown-item">Note d&eacute;croissante</a> </div>
             </div>
           </div>
         </div>
@@ -6130,10 +6130,10 @@ CE WIDGET EST DEPRECIE. VOUS DEVEZ LE REMPLACER PAR LE WIDGET DISMOI?
 ### Template : `/theme/fr/widgets/communication/formulaires/index.html` 
 
 ```html
-<!-- 
+<!--
 Template du Widget "Formulaire (Dismoi?)"
 
-Documentation : 
+Documentation :
 https://aide.kiubi.com/design-generalites.html
 https://aide.kiubi.com/design-generalites.html#widgets
 https://aide.kiubi.com/design-modules.html#dismoi
@@ -6141,45 +6141,50 @@ https://aide.kiubi.com/design-modules.html#dismoi
 
 <!-- BEGIN: main -->
 <div class="section communication-formulaires" id="multi_form_{form_id}">
-  <div class="container bg-transparent"> 
+  <div class="container bg-transparent">
     <!-- BEGIN: intitule -->
     <h2 class="mb-4">{intitule_form}</h2>
-    <!-- END: intitule --> 
+    <!-- END: intitule -->
     <!-- BEGIN:form -->
     <form class="form" method="post" action="#multi_form_{form_id}" enctype="multipart/form-data">
       <!-- BEGIN:erreurs -->
       <div class="alert alert-danger" role="alert">{erreurs}</div>
-      <!-- END:erreurs --> 
-      <!-- BEGIN:fieldset --> 
+      <!-- END:erreurs -->
+      <!-- BEGIN:fieldset -->
       <!-- BEGIN:debut_fieldset -->
       <fieldset class="mb-5">
         <legend>{legend}</legend>
-        <!-- END:debut_fieldset --> 
+        <!-- END:debut_fieldset -->
         <!-- BEGIN: champ -->
-        <div class="form-group"> 
-          <!-- BEGIN:obligatoire --> 
-          <span class="float-right small text-muted">Obligatoire</span> 
+        <div class="form-group">
+          <!-- BEGIN:obligatoire -->
+          <span class="float-right small text-muted">Obligatoire</span>
           <!-- END:obligatoire -->
-          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
+
           <!-- BEGIN: text -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <input type="text" name="{name}" id="multi_form{id}" class="form-control {erreur|mapValue|is-invalid}" value="{valeur}" />
-          <!-- END: text --> 
+          <!-- END: text -->
           <!-- BEGIN: textarea -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <textarea name="{name}" rows="10" id="multi_form{id}" class="form-control {erreur|mapValue|is-invalid}">{valeur}</textarea>
-          <!-- END: textarea --> 
+          <!-- END: textarea -->
           <!-- BEGIN: date -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <div class="input-group" style="max-width: 280px;">
             <input name="{name}" id="multi_form{id}" class="form-control text-center datepicker {erreur|mapValue|is-invalid}" type="text" value="{valeur}" placeholder="jj/mm/aaaa"/>
             <div class="input-group-append"><span class="input-group-text"><span class="fe fe-calendar" aria-hidden="true"></span></span> </div>
           </div>
-          <!-- END: date --> 
+          <!-- END: date -->
           <!-- BEGIN: datetime -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <div class="input-group" style="max-width: 280px;">
             <input name="{name}" type="text" class="form-control text-center datetimepicker {erreur|mapValue|is-invalid}" id="multi_form{id}" value="{valeur}" placeholder="jj/mm/aaaa hh:mm" />
             <div class="input-group-append"><span class="input-group-text"><span class="fe fe-calendar" aria-hidden="true"></span></span> </div>
           </div>
-          <!-- END: datetime --> 
+          <!-- END: datetime -->
           <!-- BEGIN: civilite -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <div>
             <div class="custom-control custom-radio custom-control-inline civilite">
               <input name="{name}" class="custom-control-input" type="radio" id="multi_form_m{id}" value="M" {checked_m} />
@@ -6194,49 +6199,55 @@ https://aide.kiubi.com/design-modules.html#dismoi
               <label for="multi_form_mlle{id}" class="custom-control-label">Mlle</label>
             </div>
             <span id="multi_form{id}"></span> </div>
-          <!-- END: civilite --> 
+          <!-- END: civilite -->
           <!-- BEGIN: select -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <select name="{name}" id="multi_form{id}" class="custom-select mw-100 w-auto d-block">
             <!-- BEGIN:option-->
             <option value="{value}" {selected}>{label}</option>
             <!-- END:option-->
           </select>
-          <!-- END: select --> 
-          <!-- BEGIN: checkbox --> 
+          <!-- END: select -->
+          <!-- BEGIN: checkbox -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <!-- BEGIN:option-->
           <div class="custom-control custom-checkbox">
             <input name="{name}" class="custom-control-input {erreur|mapValue|is-invalid}" id="multi_form{id}_{value}" type="checkbox" value="{value}" {checked} />
             <label for="multi_form{id}_{value}" class="custom-control-label">{label}</label>
           </div>
-          <!-- END:option--> 
-          <!-- END: checkbox --> 
-          <!-- BEGIN: radio --> 
+          <!-- END:option-->
+          <!-- END: checkbox -->
+          <!-- BEGIN: radio -->
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <!-- BEGIN:option-->
           <div class="custom-control custom-radio">
             <input name="{name}" class="custom-control-input" id="multi_form{id}_{value}" type="radio" value="{value}" {checked} />
             <label for="multi_form{id}_{value}" class="custom-control-label">{label}</label>
           </div>
-          <!-- END:option--> 
-          <!-- END: radio --> 
+          <!-- END:option-->
+          <!-- END: radio -->
           <!-- BEGIN: upload -->
-          
+          <label for="multi_form{id}" class="{obligatoire}">{intitule} :</label>
           <div class="custom-file">
             <input type="file" name="{name}" id="multi_form_file{id}" class="custom-file-input {erreur|mapValue|is-invalid}" aria-describedby="multi_form_file_add{id}">
             <label class="custom-file-label" for="multi_form_file{id}">Rechercher un fichier</label>
           </div>
-          
-          <!-- END: upload --> 
+          <!-- END: upload -->
+          <!-- BEGIN: html -->
+          <div class="form-text">{html}</div>
+          <!-- END: html -->
+
           <!-- BEGIN: aide -->
           <p class="help-block mt-2">{aide}</p>
-          <!-- END: aide --> 
-          
+          <!-- END: aide -->
+
         </div>
-        <!-- END: champ --> 
+        <!-- END: champ -->
         <!-- BEGIN:fin_fieldset -->
       </fieldset>
-      <!-- END:fin_fieldset --> 
-      <!-- END:fieldset --> 
-      
+      <!-- END:fin_fieldset -->
+      <!-- END:fieldset -->
+
       <!-- BEGIN:consentement -->
       <div class="form-group">
         <div class="custom-control custom-checkbox">
@@ -6245,8 +6256,8 @@ https://aide.kiubi.com/design-modules.html#dismoi
         </div>
       </div>
       <p class="small text-muted">{finalites}</p>
-      <!-- END:consentement --> 
-      
+      <!-- END:consentement -->
+
       <!-- BEGIN:captcha -->
       <div class="form-group {erreur}">
         <label for="captcha[{captcha_id}]">Anti-spam :</label>
@@ -6254,7 +6265,7 @@ https://aide.kiubi.com/design-modules.html#dismoi
         <input name="captcha[{captcha_id}]"  id="captcha[{captcha_id}]" type="text" class="form-control {erreur|mapValue|is-invalid}" style="width: 100px" />
       </div>
       <!-- END: captcha -->
-      
+
       <p class="mb-0">
         <input type="submit" name="Submit" value="Envoyer" class="btn btn-primary" />
       </p>
@@ -6268,9 +6279,9 @@ https://aide.kiubi.com/design-modules.html#dismoi
         <input type="hidden" name="ctl" value="{ctl}" />
       </div>
     </form>
-    <!-- END:form --> 
-    <!-- BEGIN:message --> 
-    {message} 
+    <!-- END:form -->
+    <!-- BEGIN:message -->
+    {message}
     <!-- END:message -->
     <div class="post_footer"></div>
   </div>
@@ -6946,7 +6957,7 @@ https://aide.kiubi.com/design-comptes.html#tableau-de-bord
           <a href="motdepasse.html" class="list-group-item list-group-item-action">Modifier mon mot de passe</a>
           <a href="id_web.html" class="list-group-item list-group-item-action">Mon identit&eacute; web</a>
           <a href="avatar.html" class="list-group-item list-group-item-action">Mon avatar</a>
-          <a href="abonnements.html" class="list-group-item list-group-item-action active"">Abonnements</a>
+          <a href="abonnements.html" class="list-group-item list-group-item-action active">Abonnements</a>
           <a href="cloture.html" class="list-group-item list-group-item-action">Cl&ocirc;ture de compte</a>
         </div>
       </div>
@@ -7167,7 +7178,7 @@ https://aide.kiubi.com/design-comptes.html#tableau-de-bord
     </div>
   </div>
 </div>
-<!-- section:main -->
+<!-- END:main -->
 ```
 
 ### Template : `/theme/fr/widgets/compte/tableau_bord/infos_perso.html` 
@@ -7514,7 +7525,7 @@ https://aide.kiubi.com/design-recherche.html
 <div class="col-3 text-right">
     <div class="btn-group tri">
       <button class="btn btn-link btn-sm dropdown-toggle" type="button" id="tri" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trier</button>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=po" class="dropdown-item">Produit</a> <a href="{lien_tri}=pi" class="dropdown-item">Prix</a> <a href="{lien_tri}=n" class="dropdown-item">Note</a> <a href="{lien_tri}=d" class="dropdown-item">Disponibilit&eacute;</a> </div>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="tri"> <a href="{lien_tri}=alpha" class="dropdown-item">Produit (A-Z)</a> <a href="{lien_tri}=alphaDESC" class="dropdown-item">Produit (Z-A)</a> <a href="{lien_tri}=prix" class="dropdown-item">Prix croissant</a> <a href="{lien_tri}=prixDESC" class="dropdown-item">Prix d&eacute;croissant</a> <a href="{lien_tri}=date" class="dropdown-item">Disponibilit&eacute; croissante</a> <a href="{lien_tri}=dateDESC" class="dropdown-item">Disponibilit&eacute; d&eacute;croissante</a> <a href="{lien_tri}=note" class="dropdown-item">Note croissante</a> <a href="{lien_tri}=noteDESC" class="dropdown-item">Note d&eacute;croissante</a> </div>
   </div>
 </div>
 <div class="col-md-12">

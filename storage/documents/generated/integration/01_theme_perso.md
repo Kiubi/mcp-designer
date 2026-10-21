@@ -47,6 +47,10 @@ graphique. **Il est indispensable pour déclarer le thème graphique personnalis
 	<?xml version="1.0" encoding="iso-8859-1"?>
 	<theme img="illustration.jpg" intitule="Thème d'exemple" javascripts="none">
 		<auteur nom="Exemple" contact="contact@example.org" site="www.example.org" />
+		<variantes>
+			<variante id="default" css="/assets/css/theme.css" color1="#f7f7f9" color2="#343a40" color3="#1a1a1a" color4="#ececec"/>
+			<variante id="pulse" css="/assets/css/theme-pulse.css" color1="#f9f8fc" color2="#593196" color3="#17141f" color4="#f7f7f7"/>
+		</variantes>
 	</theme>
 
 Ce fichier contient une seule balise principale `<theme>` qui possède 5 attributs :
@@ -69,6 +73,33 @@ informations sur l'auteur du thème. Cette balise contient les attributs suivant
  - `nom` : le nom de l'auteur qui est affiché dans la console d'administration,
  - `contact` : l'email de l'auteur,
  - `site` : l'adresse du site internet de l'auteur.
+
+#### Déclarer des variantes du thème
+
+Un thème graphique personnalisé peut proposer plusieurs variantes : elles
+partagent tous les mêmes templates, seule la feuille de style CSS change d'une
+variante à l'autre. La CSS de la variante active est affichée par la balise
+globale `{Stylesheet}`.
+
+Les variantes se déclarent dans une balise `<variantes>`, contenant une balise
+`<variante>` par déclinaison :
+
+	<variantes>
+		<variante id="default" css="/assets/css/theme.css" color1="#f7f7f9" color2="#343a40" color3="#1a1a1a" color4="#ececec"/>
+		<variante id="pulse" css="/assets/css/theme-pulse.css" color1="#f9f8fc" color2="#593196" color3="#17141f" color4="#f7f7f7"/>
+	</variantes>
+
+Cette balise est facultative : sans elle, aucune feuille de style de variante
+n'est chargée dans le thème, seules les CSS incluses directement dans les
+templates sont prises en compte. La première variante est utilisée par défaut.
+
+Attributs de `<variante>` :
+
+ - `id` : identifiant unique de la variante,
+ - `css` : chemin vers la CSS de la variante, renvoyé par `{Stylesheet}`
+lorsque cette variante est active,
+ - `color1` à `color4` : couleurs (hexadécimal) affichées en aperçu dans la
+console d'administration, sans effet sur le rendu réel du site.
 
 ### L'arborescence des fichiers
 

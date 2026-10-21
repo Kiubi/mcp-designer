@@ -5,7 +5,6 @@
 **Afficher le formulaire de contact.**
 Si l'utilisateur ne rempli pas correctement tous les champs, le formulaire se réaffichera avec un message d'erreur indiquant quels champs sont manquants ou incorrects. Le formulaire sera pré-rempli avec les informations précédemment saisies.
 Si toutes les informations obligatoires ont été saisies, un email sera envoyé au destinataire et la page se rechargera et n'affichera plus le formulaire, mais seulement le message de confirmation.
-
 Contrairement aux autres widgets, le Formulaire de contact est composé de 2 fichiers : 
 
 - index.html : correspond au formulaire de contact à proprement dit.
@@ -275,15 +274,16 @@ Le template du widget : `theme/fr/widgets/communication/formulaires/index.html`.
       <!-- END:debut_fieldset -->
         <!-- BEGIN: champ -->
         <span class="{erreur}">
-          <label for="multi_form{id}">{intitule}
-          <!-- BEGIN:obligatoire -->*<!-- END:obligatoire --> :</label> 
           <!-- BEGIN: text -->
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <input type="text" name="{name}" id="multi_form{id}" value="{valeur}" />
           <!-- END: text -->
           <!-- BEGIN: textarea -->
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <textarea name="{name}" rows="10" id="multi_form{id}" >{valeur}</textarea>
           <!-- END: textarea -->
           <!-- BEGIN: civilite -->          
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <div>
               <label for="multi_form_m{id}">
                 <input name="{name}" type="radio" id="multi_form_m{id}" value="M" {checked_m} />
@@ -297,6 +297,7 @@ Le template du widget : `theme/fr/widgets/communication/formulaires/index.html`.
             </div>
           <!-- END: civilite -->
           <!-- BEGIN: select -->
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <select name="{name}" id="multi_form{id}">
             <!-- BEGIN:option-->
               <option value="{value}" {selected}>{label}</option>
@@ -304,14 +305,19 @@ Le template du widget : `theme/fr/widgets/communication/formulaires/index.html`.
             </select>
           <!-- END: select -->
           <!-- BEGIN: checkbox -->
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <!-- BEGIN:option-->
               <input name="{name}" id="multi_form{id}_{value}" type="checkbox"  value="{value}" {checked} />
               <label for="multi_form{id}_{value}">{label}</label>
             <!-- END:option-->
           <!-- END: checkbox -->
           <!-- BEGIN: upload -->
+			<label for="multi_form{id}">{intitule} {obligatoire}</label>
             <input type="file" name="{name}" id="multi_form{id}" />
           <!-- END: upload -->
+		  <!-- BEGIN: html -->
+            {html}
+		  <!-- END: html -->
           <!-- BEGIN: aide -->
             <p>{aide}</p>
             <!-- END: aide -->
@@ -386,6 +392,7 @@ Le template du widget : `theme/fr/widgets/communication/formulaires/index.html`.
         │   │   ├── upload     // Le contenu du bloc s'affiche si le champ est de type "upload"
         │   │   ├── select     // Le contenu du bloc s'affiche si le champ est de type "select"
         │   │   │   └── option     // Ce bloc s'affiche pour chaque valeur possible
+        │   │   ├── html     // Le contenu du bloc s'affiche si le champ est de type "html"
         │   │   └── obligatoire     // Ce bloc s'affiche si le champ est obligatoire
         │   └── fin_fieldset     // Ce bloc s'affiche à chaque fin de fieldset.
         ├── hidden     // Le contenu du bloc s'affiche pour chaque de type "caché".
@@ -434,6 +441,7 @@ Bloc|Balise|Description
 | option | selected | Cette balise sert à reselectionner la valeur précédemment choisie dans le formulaire en cas d'erreur. |
 | option | value | Cette balise sert à réafficher la valeur précédemment saisie dans le formulaire en cas d'erreur. |
 | option | label | Label de la valeur |
+| html | html | Cette balise sert à afficher le fragment de code HTML |
 | hidden | name | Nom du champ dans le formulaire (attribut name de la balise input) |
 | hidden | valeur | Valeur du champ caché |
 | erreurs | erreurs | Erreur(s) rencontrée(s) |

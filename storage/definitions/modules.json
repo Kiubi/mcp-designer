@@ -351,6 +351,13 @@
                                                     }
                                                 }
                                             },
+                                            "html": {
+                                                "description": "Le contenu du bloc s'affiche si le champ est de type \"html\"",
+                                                "tags": {
+                                                    "html": "Cette balise sert \u00e0 afficher le fragment de code HTML"
+                                                },
+                                                "children": []
+                                            },
                                             "obligatoire": {
                                                 "description": "Ce bloc s'affiche si le champ est obligatoire",
                                                 "tags": [],
